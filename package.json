@@ -1,0 +1,18 @@
+{
+  "name": "agentic-coding-template",
+  "version": "1.0.0",
+  "description": "Multi-IDE agentic coding template (Claude Code, OpenCode, AntiGravity)",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "postinstall": "cd .opencode && bun install"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/server-github": "^2025.4.8",
+    "@modelcontextprotocol/server-memory": "^2026.1.26",
+    "@playwright/mcp": "^0.0.68",
+    "mcp-server-sqlite-npx": "^0.8.0"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "google/gemini-3.1-pro-preview-customtools",
+  "provider": {
+    "google": {
+      "models": {
+        "gemini-3.1-pro-preview-customtools": {
+          "variants": {
+            "high": {
+              "thinkingBudget": "high"
+            },
+            "low": {
+              "thinkingBudget": "low"
+            }
+          }
+        }
+      }
+    }
+  },
+  "instructions": [
+    ".opencode/skills/brainstorming/SKILL.md",
+    ".opencode/skills/git-workflow/SKILL.md",
+    ".opencode/skills/lsp-navigator/SKILL.md",
+    ".opencode/skills/mgrep-search/SKILL.md",
+    ".opencode/skills/subagent-driven-development/SKILL.md",
+    ".opencode/skills/systematic-debugging/SKILL.md",
+    ".opencode/skills/writing-plans/SKILL.md",
+    ".opencode/skills/frontend-design/SKILL.md"
+  ],
+  "mcp": {
+    "context-mode": {
+      "type": "local",
+      "command": ["context-mode"]
+    },
+    "MCP_DOCKER": {
+      "type": "local",
+      "command": [
+        "C:\\Program Files\\Docker\\cli-plugins\\docker-mcp.exe",
+        "gateway",
+        "run",
+        "--verify-signatures"
+      ],
+      "enabled": true,
+      "environment": {
+        "LOCALAPPDATA": "C:\\Users\\grabi\\AppData\\Local",
+        "ProgramData": "C:\\ProgramData",
+        "ProgramFiles": "C:\\Program Files",
+        "APPDATA": "C:\\Users\\grabi\\AppData\\Roaming",
+        "USERPROFILE": "C:\\Users\\grabi",
+        "SystemRoot": "C:\\Windows"
+      }
+    },
+    "mgrep": {
+      "type": "local",
+      "command": ["mgrep", "mcp"],
+      "enabled": true,
+      "timeout": 10000
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": true
+    }
+  },
+  "command": {
+    "agents": {
+      "description": "Pokaż listę wszystkich agentów w projekcie",
+      "template": "Wylistuj zawartość folderu .opencode/agents/ i podaj dla każdego agenta: nazwę, mode (primary/subagent) i opis w jednym zdaniu.",
+      "subtask": true
+    },
+    "help-forge": {
+      "description": "Pokaż co Forge potrafi zrobić",
+      "template": "Jesteś Forge. Wylistuj krótko wszystko co potrafisz stworzyć: typy agentów, skille, komendy. Dla każdego podaj przykład użycia w jednym zdaniu.",
+      "agent": "forge",
+      "subtask": true
+    }
+  },
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "git status *": "allow",
+      "git status": "allow",
+      "git diff *": "allow",
+      "git diff": "allow",
+      "git log *": "allow",
+      "git log": "allow",
+      "git branch *": "allow",
+      "git branch": "allow",
+      "git stash *": "allow",
+      "git add *": "allow",
+      "git checkout *": "allow",
+      "git commit *": "ask",
+      "git push *": "deny",
+      "git reset --hard *": "deny",
+      "rm -rf *": "deny",
+      "grep *": "allow",
+      "ls *": "allow",
+      "ls": "allow",
+      "cat *": "allow",
+      "echo *": "allow",
+      "pwd": "allow",
+      "find *": "allow",
+      "npm test *": "allow",
+      "npm test": "allow",
+      "npm run test *": "allow",
+      "npm run lint *": "allow",
+      "npx tsc *": "allow",
+      "npx eslint *": "allow"
+    },
+    "edit": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "skill": "allow",
+    "lsp": "allow",
+    "task": "ask",
+    "todoread": "allow",
+    "todowrite": "allow",
+    "webfetch": "deny",
+    "websearch": "ask",
+    "codesearch": "allow",
+    "doom_loop": "deny",
+    "external_directory": {
+      "*": "deny"
+    },
+    "mgrep_search": "allow",
+    "mgrep_list": "allow"
+  },
+  "lsp": {
+    "typescript": {
+      "command": ["npx", "typescript-language-server", "--stdio"],
+      "initialization": {
+        "preferences": {
+          "importModuleSpecifierPreference": "relative"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+undefined/
+node_modules/
+
+# Template development (nie kopiowane do nowych projektow)
+docs-dev/
+.opencode/plugin/subtask2/logs/
+
+# Środowisko (Environment variables)
+.env
+.env.*
+!.env.example
+
+# Logi (Logs)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Pliki systemowe (OS generated files)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Bun lockfile (root uses npm/package-lock.json)
+bun.lock
+
+# Build / Output
+dist/
+build/
+out/

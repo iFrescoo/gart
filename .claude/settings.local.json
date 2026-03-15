@@ -34,7 +34,8 @@
       "Bash(bash scripts/sync-agents.sh)",
       "Bash(ls g:/agentic-coding-template/.opencode/agents/agency-*.md)",
       "Bash(ls g:/agentic-coding-template/.claude/agents/*.md)",
-      "Bash(ls -d g:/agentic-coding-template/.agent/skills/agency-*/)"
+      "Bash(ls -d g:/agentic-coding-template/.agent/skills/agency-*/)",
+      "Bash(ls g:/agentic-coding-template/.opencode/agents/*.md)"
     ]
   }
 }

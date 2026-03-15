@@ -92,25 +92,50 @@ Po uruchomieniu agent automatycznie wypelni sekcje **Kontekst projektu** w plika
 
 Pelna dokumentacja: `docs/guides/`
 
-### 5. Agency Agents (144+ specialists)
+### 5. Agent Orchestration (144+ specialists)
 
-144+ specialized agents from [agency-agents](https://github.com/msitarzewski/agency-agents) are **pre-included in this repo** — no additional setup needed after `git clone`.
+144+ specialized agents from [agency-agents](https://github.com/msitarzewski/agency-agents) are **pre-included** — no setup needed after `git clone`.
 
-Available across all IDEs:
+#### How auto-invocation works per IDE
 
-| IDE | How to invoke |
-|-----|---------------|
-| OpenCode | `@agency-frontend-developer`, `@agency-backend-architect`, etc. |
-| Claude Code | Agent tool with `subagent_type: "Frontend Developer"` etc. |
-| AntiGravity | Skills auto-loaded from `.agent/skills/agency-*/` |
+| IDE | Orchestration mechanism |
+|-----|------------------------|
+| **OpenCode** | `Tab` key switches between division tabs: **Orchestrator**, **team-engineering**, **team-design**, **team-qa**, etc. Each team-* delegates to its ~10-30 specialists. **Forge** tab is independent — for creating new agents/skills. |
+| **Claude Code** | No tabs. Claude auto-dispatches via `Agent` tool based on trigger phrases in agent descriptions (`USE THIS AGENT when: ...`) and the orchestration skill in `.claude/skills/orchestration/`. |
+| **AntiGravity** | Activate the `orchestrate` workflow (`.agent/workflows/orchestrate.md`) for multi-agent tasks. Skills auto-loaded from `.agent/skills/agency-*/`. |
 
-**To update agents** (sync latest from upstream repo):
+#### OpenCode tabs structure
+
+```
+[Orchestrator]  ← CTO-level: delegates to ALL 144+ agents
+[team-engineering]  ← ~35 eng specialists + debugger, explorer
+[team-design]       ← ~10 design specialists
+[team-qa]           ← ~8 QA specialists + test-runner
+[team-product]      ← ~5 product specialists
+[team-project-mgmt] ← ~6 project management specialists
+[team-marketing]    ← ~20 marketing specialists
+[team-sales]        ← ~10 sales specialists
+[team-paid-media]   ← ~7 paid media specialists
+[team-game-dev]     ← ~19 game dev specialists
+[team-spatial]      ← ~5 spatial computing specialists
+[team-specialized]  ← ~20 MCP, AI/ML, blockchain, docs specialists
+[Forge]             ← Independent: create new agents/skills/commands
+```
+
+#### Forge — independent meta-agent
+
+**Forge** is not part of orchestration. It is a standalone tab for creating and managing the AI agent ecosystem itself:
+- Scaffold new agents (`@forge`)
+- Create new skills and commands
+- Helpers available: `@agency-codebase-explorer`, `@agency-github-code-searcher`, `@agency-technical-writer`
+
+#### Update agents
 
 ```bash
 bash scripts/sync-agents.sh
 ```
 
-Run this occasionally — it pulls the newest agents and improvements. Your existing project agents are never overwritten.
+Pulls latest agents from upstream, regenerates team-* agents, orchestrator, and orchestration skills with full agent rosters.
 
 Full agent catalog: `docs/context/agency-agents-catalog.md`
 

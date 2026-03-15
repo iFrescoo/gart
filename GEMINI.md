@@ -88,21 +88,24 @@ Odpowiadaj **wylacznie po polsku**, chyba ze kod, komendy lub nazwy techniczne w
 
 `adapt`, `animate`, `audit`, `bolder`, `clarify`, `colorize`, `critique`, `delight`, `distill`, `extract`, `frontend-design`, `harden`, `normalize`, `onboard`, `optimize`, `polish`, `quieter`, `teach-impeccable`
 
-### Agenci (11 — `.opencode/agents/`)
+### Agenci i orkiestracja
 
-| Agent              | Rola                                         |
-| ------------------ | -------------------------------------------- |
-| `forge`            | Meta-agent — tworzy agentow, skille, komendy |
-| `code-reviewer`    | Code review: jakosc, wzorce, DRY, SOLID      |
-| `debugger`         | Analiza bledow, stack traces                 |
-| `git-agent`        | Git workflow: commity, branching, PR          |
-| `test-runner`      | Testy: unit, integration, coverage           |
-| `refactor-agent`   | Refactoring: ekstrakcja, upraszczanie        |
-| `security-auditor` | OWASP, secrets, SQL injection                |
-| `dependency-agent` | Aktualizacje, bezpieczenstwo zaleznosci      |
-| `docs-writer`      | JSDoc, README, komentarze                    |
-| `explorer`         | Research, websearch z cytowaniami            |
-| `gh-search`        | GitHub code search                           |
+**Workflow orkiestracji:** `.agent/workflows/orchestrate.md` — aktywuj gdy zadanie wymaga wielu specjalistow.
+
+| Skill | Rola |
+|-------|------|
+| `agency-codebase-explorer` | Eksploracja codebase, research |
+| `agency-github-code-searcher` | GitHub code search |
+| `agency-debugger` | Analiza bledow, root cause |
+| `agency-test-runner` | Uruchamianie testow |
+| `agency-dependency-auditor` | npm/bun audit |
+| `agency-frontend-developer` | Frontend implementation |
+| `agency-backend-architect` | Backend / API |
+| `agency-software-architect` | Architektura systemu |
+| `agency-security-engineer` | Security review |
+| `agency-code-reviewer` | Code review |
+| `agency-technical-writer` | Dokumentacja |
+| `forge` | Tworzenie agentow/skills/komend (niezalezny) |
 
 ---
 
@@ -172,23 +175,47 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 
 ---
 
-## 10. Agency Agents (144+ specjalistow)
+## 10. Agency Agents — Orkiestracja (144+ specjalistow)
 
-Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Dostepni jako skills w `.agent/skills/agency-*/SKILL.md`.
+Dostepni jako skills w `.agent/skills/agency-*/SKILL.md`. Workflow orkiestracji: `.agent/workflows/orchestrate.md`.
 
-| Dywizja | Przyklady agentow | Kiedy uzywac |
-|---------|-------------------|--------------|
-| Engineering | Frontend Developer, Backend Architect, Software Architect, DevOps, Security Engineer | Implementacja, architektura |
-| Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor | Projektowanie UI/UX |
-| QA/Testing | API Tester, Performance Benchmarker, Reality Checker | Testowanie, audyty |
-| Product | Sprint Prioritizer, Product Manager, Trend Researcher | Planowanie produktu |
-| Project Mgmt | Project Shepherd, Studio Producer | Zarzadzanie projektem |
-| Marketing | SEO Specialist, Content Creator, Growth Hacker | Marketing, content |
-| Game Dev | Unity/Unreal/Godot Engineers, Game Designer | Tworzenie gier |
+### Kiedy delegowac do specjalistow
+
+Aktywuj workflow `orchestrate` gdy:
+- Zadanie wymaga ekspertyzy z wielu dziedzin
+- Jest wiele niezaleznych podzadan (mozna rownolegle)
+- Zadanie ma fazy: research → implementacja → review → testy
+
+### Wzorce delegacji
+
+**Sequential:** `agency-software-architect → agency-backend-architect → agency-code-reviewer`
+
+**Parallel:** `agency-frontend-developer + agency-backend-architect (jednoczesnie)`
+
+**Research first:** `agency-codebase-explorer → agency-[specialist] → agency-reality-checker`
+
+### Routing per typ zadania
+
+| Zadanie | Aktywuj skill |
+|---------|---------------|
+| Frontend kod | agency-frontend-developer |
+| Backend / API | agency-backend-architect |
+| Architektura | agency-software-architect |
+| Security | agency-security-engineer |
+| DevOps / CI | agency-devops-automator |
+| Baza danych | agency-database-optimizer |
+| AI/ML | agency-ai-engineer |
+| Code review | agency-code-reviewer |
+| API testy | agency-api-tester |
+| UX design | agency-ux-architect |
+| Dokumentacja | agency-technical-writer |
+| Eksploracja kodu | agency-codebase-explorer |
+| Debugowanie | agency-debugger |
+| Zaleznosci | agency-dependency-auditor |
 
 Pelny katalog: `docs/context/agency-agents-catalog.md`
 
-Sync: `bash scripts/sync-agents.sh`
+Sync: `bash scripts/sync-agents.sh` (regeneruje workflow, routing table)
 
 ---
 

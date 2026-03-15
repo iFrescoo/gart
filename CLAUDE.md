@@ -160,23 +160,52 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 
 Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Dostepni jako `subagent_type` w Agent tool. Pelna lista w `.claude/agents/`.
 
-**Wywolanie:** `Agent` tool z parametrem `subagent_type`, np. `"Frontend Developer"`, `"Backend Architect"`.
+### Auto-dispatch (Claude Code nie ma tabow — uzywa LLM reasoning)
 
-| Dywizja | Przyklady agentow | Kiedy uzywac |
-|---------|-------------------|--------------|
-| Engineering | Frontend Developer, Backend Architect, Software Architect, DevOps, Security Engineer, AI Engineer, MCP Builder | Implementacja, architektura, infrastruktura |
-| Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor | Projektowanie UI/UX, design system |
-| QA/Testing | API Tester, Performance Benchmarker, Reality Checker, Evidence Collector | Testowanie, audyty jakosci |
-| Product | Sprint Prioritizer, Product Manager, Trend Researcher, Feedback Synthesizer | Planowanie produktu, priorytetyzacja |
-| Project Mgmt | Project Shepherd, Studio Producer, Senior Project Manager | Zarzadzanie projektem |
-| Marketing | SEO Specialist, Content Creator, Growth Hacker, Social Media Strategist | Marketing, content |
-| Sales | Deal Strategist, Sales Engineer, Pipeline Analyst | Sprzedaz, analiza pipeline |
-| Game Dev | Unity/Unreal/Godot Engineers, Game Designer, Narrative Designer | Tworzenie gier |
-| Spatial | visionOS Engineer, XR Developer, XR Interface Architect | AR/VR/XR |
+**Wywolanie:** `Agent` tool z `subagent_type`, np. `"Frontend Developer"`. Claude automatycznie wybiera agenta gdy:
+1. Opis agenta zawiera **trigger phrase**: `"USE THIS AGENT when: implementing code..."` — Claude dopasowuje do zadania
+2. Korzysta z **orchestration skill** w `.claude/skills/orchestration/SKILL.md` — pelna routing table
+
+**Orchestration skill** — laduje routing table i wzorce delegacji. Claude uzywa go przy decyzji komu delegowac.
+
+### Routing table (kluczowe agenty)
+
+| Zadanie | subagent_type |
+|---------|--------------|
+| Frontend kod (React, Vue) | `"Frontend Developer"` |
+| Backend / API | `"Backend Architect"` |
+| Architektura systemu | `"Software Architect"` |
+| Security review | `"Security Engineer"` |
+| DevOps / CI/CD | `"DevOps Automator"` |
+| Baza danych | `"Database Optimizer"` |
+| AI/ML | `"AI Engineer"` |
+| MCP server | `"MCP Builder"` |
+| Code review | `"Code Reviewer"` |
+| API testing | `"API Tester"` |
+| Performance | `"Performance Benchmarker"` |
+| UX design | `"UX Architect"` |
+| Dokumentacja | `"Technical Writer"` |
+| Eksploracja kodu | `"Codebase Explorer"` |
+| GitHub examples | `"GitHub Code Searcher"` |
+| Debugowanie | `"Debugger"` |
+| Zaleznosci npm | `"Dependency Auditor"` |
+| Sprint planning | `"Sprint Prioritizer"` |
+| Content | `"Content Creator"` |
+| SEO | `"SEO Specialist"` |
+
+### Lokalni agenci (project-specific)
+
+| subagent_type | Rola |
+|---------------|------|
+| `"Debugger"` | Root cause analysis, diagnozowanie bledow |
+| `"Test Runner"` | Uruchamianie testow, analiza wynikow |
+| `"Dependency Auditor"` | npm/bun audit |
+| `"Codebase Explorer"` | Eksploracja codebase + websearch |
+| `"GitHub Code Searcher"` | GitHub code search |
 
 Pelny katalog: `docs/context/agency-agents-catalog.md`
 
-Sync: `bash scripts/sync-agents.sh` (pobiera najnowsza wersje z upstream)
+Sync: `bash scripts/sync-agents.sh` (regeneruje agentow, trigger phrases, orchestration skill)
 
 ---
 

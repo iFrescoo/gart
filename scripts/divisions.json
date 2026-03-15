@@ -1,0 +1,482 @@
+{
+  "divisions": {
+    "engineering": {
+      "color": "#339af0",
+      "color_name": "blue",
+      "temperature": 0.2,
+      "permissions": {
+        "bash": "ask",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "Frontend Developer",
+        "Backend Architect",
+        "Software Architect",
+        "Security Engineer",
+        "DevOps Automator",
+        "AI Engineer",
+        "MCP Builder",
+        "Database Optimizer"
+      ],
+      "trigger_template": "USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps.",
+      "local_agents": [
+        "agency-debugger",
+        "agency-dependency-auditor",
+        "agency-codebase-explorer",
+        "agency-github-code-searcher"
+      ],
+      "team": "team-engineering",
+      "team_label": "Engineering"
+    },
+    "design": {
+      "color": "#cc5de8",
+      "color_name": "magenta",
+      "temperature": 0.5,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "deny",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "deny",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "UX Architect",
+        "UI Designer",
+        "Brand Guardian",
+        "Accessibility Auditor",
+        "UX Researcher"
+      ],
+      "trigger_template": "USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research.",
+      "local_agents": [],
+      "team": "team-design",
+      "team_label": "Design"
+    },
+    "testing": {
+      "color": "#94d82d",
+      "color_name": "lime",
+      "temperature": 0.1,
+      "permissions": {
+        "bash": "ask",
+        "edit": "deny",
+        "write": "deny",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "API Tester",
+        "Performance Benchmarker",
+        "Reality Checker",
+        "Evidence Collector",
+        "Test Results Analyzer"
+      ],
+      "trigger_template": "USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results.",
+      "local_agents": [
+        "agency-test-runner"
+      ],
+      "team": "team-qa",
+      "team_label": "QA & Testing"
+    },
+    "product": {
+      "color": "#22b8cf",
+      "color_name": "cyan",
+      "temperature": 0.3,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "Sprint Prioritizer",
+        "Feedback Synthesizer",
+        "Trend Researcher",
+        "Experiment Tracker"
+      ],
+      "trigger_template": "USE THIS AGENT when: prioritizing features, planning sprints, synthesizing user feedback, researching market trends, or tracking experiments.",
+      "local_agents": [],
+      "team": "team-product",
+      "team_label": "Product"
+    },
+    "project-management": {
+      "color": "#5c7cfa",
+      "color_name": "indigo",
+      "temperature": 0.2,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "Project Shepherd",
+        "Studio Producer",
+        "Senior Project Manager",
+        "Studio Operations",
+        "Jira Workflow Steward"
+      ],
+      "trigger_template": "USE THIS AGENT when: managing projects, tracking deliverables, coordinating teams, planning releases, or organizing workflows.",
+      "local_agents": [],
+      "team": "team-project-mgmt",
+      "team_label": "Project Management"
+    },
+    "marketing": {
+      "color": "#ff922b",
+      "color_name": "orange",
+      "temperature": 0.5,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "SEO Specialist",
+        "Content Creator",
+        "Growth Hacker",
+        "Social Media Strategist",
+        "App Store Optimizer"
+      ],
+      "trigger_template": "USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization.",
+      "local_agents": [],
+      "team": "team-marketing",
+      "team_label": "Marketing"
+    },
+    "sales": {
+      "color": "#fcc419",
+      "color_name": "yellow",
+      "temperature": 0.5,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "deny",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "Deal Strategist",
+        "Sales Engineer",
+        "Pipeline Analyst",
+        "Discovery Coach",
+        "Account Strategist"
+      ],
+      "trigger_template": "USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts.",
+      "local_agents": [],
+      "team": "team-sales",
+      "team_label": "Sales"
+    },
+    "paid-media": {
+      "color": "#f06595",
+      "color_name": "pink",
+      "temperature": 0.3,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "deny",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "PPC Campaign Strategist",
+        "Paid Social Strategist",
+        "Ad Creative Strategist",
+        "Tracking & Measurement Specialist",
+        "Paid Media Auditor"
+      ],
+      "trigger_template": "USE THIS AGENT when: planning paid advertising campaigns, managing ad spend, creating ad creatives, or measuring campaign performance.",
+      "local_agents": [],
+      "team": "team-paid-media",
+      "team_label": "Paid Media"
+    },
+    "game-development": {
+      "color": "#845ef7",
+      "color_name": "purple",
+      "temperature": 0.3,
+      "permissions": {
+        "bash": "ask",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "Unity Architect",
+        "Unreal Systems Engineer",
+        "Game Designer",
+        "Narrative Designer",
+        "Level Designer",
+        "Godot Gameplay Scripter"
+      ],
+      "trigger_template": "USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content.",
+      "local_agents": [],
+      "team": "team-game-dev",
+      "team_label": "Game Development"
+    },
+    "spatial-computing": {
+      "color": "#20c997",
+      "color_name": "teal",
+      "temperature": 0.3,
+      "permissions": {
+        "bash": "ask",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "visionOS Spatial Engineer",
+        "XR Immersive Developer",
+        "XR Interface Architect",
+        "XR Cockpit Interaction Specialist"
+      ],
+      "trigger_template": "USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments.",
+      "local_agents": [],
+      "team": "team-spatial",
+      "team_label": "Spatial Computing"
+    },
+    "specialized": {
+      "color": "#ff6b6b",
+      "color_name": "red",
+      "temperature": 0.2,
+      "permissions": {
+        "bash": "ask",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "priority_agents": [
+        "MCP Builder",
+        "AI Engineer",
+        "Blockchain Security Auditor",
+        "Compliance Auditor",
+        "Document Generator"
+      ],
+      "trigger_template": "USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions.",
+      "local_agents": [],
+      "team": "team-specialized",
+      "team_label": "Specialized"
+    },
+    "support": {
+      "color": "#51cf66",
+      "color_name": "green",
+      "temperature": 0.3,
+      "permissions": {
+        "bash": "deny",
+        "edit": "deny",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "deny",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "Support Responder",
+        "Technical Writer",
+        "Developer Advocate",
+        "Legal Compliance Checker",
+        "Analytics Reporter"
+      ],
+      "trigger_template": "USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting.",
+      "local_agents": [],
+      "team": "team-specialized",
+      "team_label": "Specialized"
+    },
+    "integrations": {
+      "color": "#7950f2",
+      "color_name": "violet",
+      "temperature": 0.2,
+      "permissions": {
+        "bash": "ask",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "list": "allow",
+        "skill": "allow",
+        "todoread": "allow",
+        "todowrite": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+      },
+      "priority_agents": [
+        "Feishu Integration Developer",
+        "WeChat Mini Program Developer",
+        "Roblox Systems Scripter"
+      ],
+      "trigger_template": "USE THIS AGENT when: building platform integrations, mini programs, or third-party service connections.",
+      "local_agents": [],
+      "team": "team-specialized",
+      "team_label": "Specialized"
+    }
+  },
+  "teams": {
+    "team-engineering": {
+      "divisions": ["engineering"],
+      "color": "#339af0",
+      "emoji": "⚙️",
+      "description": "Software engineering, architecture, infrastructure, security, and DevOps specialists"
+    },
+    "team-design": {
+      "divisions": ["design"],
+      "color": "#cc5de8",
+      "emoji": "🎨",
+      "description": "UX/UI design, brand identity, accessibility, and user research specialists"
+    },
+    "team-qa": {
+      "divisions": ["testing"],
+      "color": "#94d82d",
+      "emoji": "🧪",
+      "description": "Quality assurance, testing, performance benchmarking, and validation specialists"
+    },
+    "team-product": {
+      "divisions": ["product"],
+      "color": "#22b8cf",
+      "emoji": "📦",
+      "description": "Product management, prioritization, market research, and experiment tracking specialists"
+    },
+    "team-project-mgmt": {
+      "divisions": ["project-management"],
+      "color": "#5c7cfa",
+      "emoji": "📋",
+      "description": "Project management, delivery operations, studio production, and workflow specialists"
+    },
+    "team-marketing": {
+      "divisions": ["marketing"],
+      "color": "#ff922b",
+      "emoji": "📣",
+      "description": "Content creation, SEO, growth hacking, and multi-platform marketing specialists"
+    },
+    "team-sales": {
+      "divisions": ["sales"],
+      "color": "#fcc419",
+      "emoji": "💼",
+      "description": "Deal strategy, sales engineering, pipeline analysis, and account management specialists"
+    },
+    "team-paid-media": {
+      "divisions": ["paid-media"],
+      "color": "#f06595",
+      "emoji": "📊",
+      "description": "Paid advertising, PPC campaigns, social ads, and performance measurement specialists"
+    },
+    "team-game-dev": {
+      "divisions": ["game-development"],
+      "color": "#845ef7",
+      "emoji": "🎮",
+      "description": "Unity, Unreal, Godot engineers, game designers, and narrative specialists"
+    },
+    "team-spatial": {
+      "divisions": ["spatial-computing"],
+      "color": "#20c997",
+      "emoji": "🥽",
+      "description": "AR/VR/XR development, visionOS, spatial computing, and immersive interface specialists"
+    },
+    "team-specialized": {
+      "divisions": ["specialized", "support", "integrations"],
+      "color": "#ff6b6b",
+      "emoji": "🔬",
+      "description": "MCP builders, AI engineers, blockchain auditors, technical writers, and platform integration specialists"
+    }
+  }
+}

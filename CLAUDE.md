@@ -156,6 +156,30 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 
 ---
 
+## 10. Agency Agents (144+ specjalistow)
+
+Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Dostepni jako `subagent_type` w Agent tool. Pelna lista w `.claude/agents/`.
+
+**Wywolanie:** `Agent` tool z parametrem `subagent_type`, np. `"Frontend Developer"`, `"Backend Architect"`.
+
+| Dywizja | Przyklady agentow | Kiedy uzywac |
+|---------|-------------------|--------------|
+| Engineering | Frontend Developer, Backend Architect, Software Architect, DevOps, Security Engineer, AI Engineer, MCP Builder | Implementacja, architektura, infrastruktura |
+| Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor | Projektowanie UI/UX, design system |
+| QA/Testing | API Tester, Performance Benchmarker, Reality Checker, Evidence Collector | Testowanie, audyty jakosci |
+| Product | Sprint Prioritizer, Product Manager, Trend Researcher, Feedback Synthesizer | Planowanie produktu, priorytetyzacja |
+| Project Mgmt | Project Shepherd, Studio Producer, Senior Project Manager | Zarzadzanie projektem |
+| Marketing | SEO Specialist, Content Creator, Growth Hacker, Social Media Strategist | Marketing, content |
+| Sales | Deal Strategist, Sales Engineer, Pipeline Analyst | Sprzedaz, analiza pipeline |
+| Game Dev | Unity/Unreal/Godot Engineers, Game Designer, Narrative Designer | Tworzenie gier |
+| Spatial | visionOS Engineer, XR Developer, XR Interface Architect | AR/VR/XR |
+
+Pelny katalog: `docs/context/agency-agents-catalog.md`
+
+Sync: `bash scripts/sync-agents.sh` (pobiera najnowsza wersje z upstream)
+
+---
+
 ## Kontekst projektu
 
 <!-- DO UZUPELNIENIA: Agent wypelnia te sekcje po inicjalizacji projektu.

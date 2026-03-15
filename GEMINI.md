@@ -172,6 +172,26 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 
 ---
 
+## 10. Agency Agents (144+ specjalistow)
+
+Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Dostepni jako skills w `.agent/skills/agency-*/SKILL.md`.
+
+| Dywizja | Przyklady agentow | Kiedy uzywac |
+|---------|-------------------|--------------|
+| Engineering | Frontend Developer, Backend Architect, Software Architect, DevOps, Security Engineer | Implementacja, architektura |
+| Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor | Projektowanie UI/UX |
+| QA/Testing | API Tester, Performance Benchmarker, Reality Checker | Testowanie, audyty |
+| Product | Sprint Prioritizer, Product Manager, Trend Researcher | Planowanie produktu |
+| Project Mgmt | Project Shepherd, Studio Producer | Zarzadzanie projektem |
+| Marketing | SEO Specialist, Content Creator, Growth Hacker | Marketing, content |
+| Game Dev | Unity/Unreal/Godot Engineers, Game Designer | Tworzenie gier |
+
+Pelny katalog: `docs/context/agency-agents-catalog.md`
+
+Sync: `bash scripts/sync-agents.sh`
+
+---
+
 ## Kontekst projektu
 
 <!-- DO UZUPELNIENIA: Agent wypelnia te sekcje po inicjalizacji projektu.

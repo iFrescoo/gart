@@ -82,21 +82,28 @@ Przyklad: `mcp-find "npm sentinel"` -> `mcp-exec "npmLatest" {name: "react"}`
 
 `adapt`, `animate`, `audit`, `bolder`, `clarify`, `colorize`, `critique`, `delight`, `distill`, `extract`, `frontend-design`, `harden`, `normalize`, `onboard`, `optimize`, `polish`, `quieter`, `teach-impeccable`
 
-### Agenci (11 — `.opencode/agents/`)
+### Agenci projektowi (6 — `.opencode/agents/`)
 
-| Agent              | Rola                                         | Wywolanie        |
-| ------------------ | -------------------------------------------- | ---------------- |
-| `forge`            | Meta-agent — tworzy agentow, skille, komendy | `/agent forge`   |
-| `code-reviewer`    | Code review: jakosc, wzorce, DRY, SOLID      | `@code-reviewer` |
-| `debugger`         | Analiza bledow, stack traces                 | `@debugger`      |
-| `git-agent`        | Git workflow: commity, branching, PR          | `@git-agent`     |
-| `test-runner`      | Testy: unit, integration, coverage           | `@test-runner`   |
-| `refactor-agent`   | Refactoring: ekstrakcja, upraszczanie        | `@refactor-agent`|
-| `security-auditor` | OWASP, secrets, SQL injection                | `@security-auditor` |
-| `dependency-agent` | Aktualizacje, bezpieczenstwo zaleznosci      | `@dependency-agent` |
-| `docs-writer`      | JSDoc, README, komentarze                    | `@docs-writer`   |
-| `explorer`         | Research, websearch z cytowaniami            | `@explorer`      |
-| `gh-search`        | GitHub code search                           | `@gh-search`     |
+Unikalni agenci bez odpowiednika w agency-agents:
+
+| Agent              | Rola                                              | Wywolanie          |
+| ------------------ | ------------------------------------------------- | ------------------ |
+| `forge`            | Meta-agent — tworzy agentow, skille, komendy      | `/agent forge`     |
+| `debugger`         | Analiza bledow, root-cause diagnosis              | `@debugger`        |
+| `test-runner`      | Uruchamianie testow + analiza wynikow             | `@test-runner`     |
+| `dependency-agent` | npm/bun audit, outdated, bezpieczenstwo zaleznosci| `@dependency-agent`|
+| `explorer`         | Eksploracja codebase + websearch z cytowaniami    | `@explorer`        |
+| `gh-search`        | GitHub code search (ukryty subagent)              | `@gh-search`       |
+
+Poprzednie agenci zastapione przez agency-agents:
+
+| Usuniety agent     | Uzyj zamiast                                  |
+| ------------------ | --------------------------------------------- |
+| `code-reviewer`    | `@agency-code-reviewer`                       |
+| `git-agent`        | `@agency-git-workflow-master`                 |
+| `refactor-agent`   | `@agency-senior-developer`                    |
+| `security-auditor` | `@agency-security-engineer`                   |
+| `docs-writer`      | `@agency-technical-writer`                    |
 
 ### Praca rownolegla
 
@@ -169,6 +176,34 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 - `docs/decisions/` — decyzje architektoniczne (ADR)
 - `docs/tasks/` — zadania i tracking
 - `docs/context/` — kontekst projektu, notatki, specki
+
+---
+
+## 10. Agency Agents (144+ specjalistow)
+
+Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Wywoluj przez `@agency-<nazwa>`, np. `@agency-frontend-developer`.
+
+**Permissions per kategoria:**
+- **Engineering/Game Dev/Spatial** — bash: ask, edit/write: allow (moga kodowac)
+- **Design** — bash: deny, edit: deny (read-only, doradcze)
+- **QA/Testing** — bash: ask, edit: deny (testuja, nie modyfikuja)
+- **Product/Project Mgmt/Marketing/Sales** — bash: deny, write: allow (tworza dokumenty)
+
+| Dywizja | Przyklady agentow | Wywolanie |
+|---------|-------------------|-----------|
+| Engineering | Frontend Developer, Backend Architect, Software Architect, DevOps, Security Engineer, AI Engineer, MCP Builder | `@agency-frontend-developer` etc. |
+| Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor | `@agency-ux-architect` etc. |
+| QA/Testing | API Tester, Performance Benchmarker, Reality Checker, Evidence Collector | `@agency-api-tester` etc. |
+| Product | Sprint Prioritizer, Product Manager, Trend Researcher | `@agency-sprint-prioritizer` etc. |
+| Project Mgmt | Project Shepherd, Studio Producer, Senior Project Manager | `@agency-project-shepherd` etc. |
+| Marketing | SEO Specialist, Content Creator, Growth Hacker | `@agency-seo-specialist` etc. |
+| Sales | Deal Strategist, Sales Engineer, Pipeline Analyst | `@agency-deal-strategist` etc. |
+| Game Dev | Unity/Unreal/Godot Engineers, Game Designer, Narrative Designer | `@agency-unity-architect` etc. |
+| Spatial | visionOS Engineer, XR Developer | `@agency-visionos-spatial-engineer` etc. |
+
+Pelny katalog: `docs/context/agency-agents-catalog.md`
+
+Sync: `bash scripts/sync-agents.sh` (pobiera najnowsza wersje z upstream)
 
 ---
 

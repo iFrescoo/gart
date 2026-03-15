@@ -29,6 +29,9 @@ Thumbs.db
 # Bun lockfile (root uses npm/package-lock.json)
 bun.lock
 
+# Agency-agents upstream clone (sync source)
+.agency-agents-upstream/
+
 # Build / Output
 dist/
 build/

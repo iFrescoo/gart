@@ -92,6 +92,28 @@ Po uruchomieniu agent automatycznie wypelni sekcje **Kontekst projektu** w plika
 
 Pelna dokumentacja: `docs/guides/`
 
+### 5. Agency Agents (144+ specialists)
+
+144+ specialized agents from [agency-agents](https://github.com/msitarzewski/agency-agents) are **pre-included in this repo** — no additional setup needed after `git clone`.
+
+Available across all IDEs:
+
+| IDE | How to invoke |
+|-----|---------------|
+| OpenCode | `@agency-frontend-developer`, `@agency-backend-architect`, etc. |
+| Claude Code | Agent tool with `subagent_type: "Frontend Developer"` etc. |
+| AntiGravity | Skills auto-loaded from `.agent/skills/agency-*/` |
+
+**To update agents** (sync latest from upstream repo):
+
+```bash
+bash scripts/sync-agents.sh
+```
+
+Run this occasionally — it pulls the newest agents and improvements. Your existing project agents are never overwritten.
+
+Full agent catalog: `docs/context/agency-agents-catalog.md`
+
 ---
 
 *Wypelnij sekcje powyzej informacjami o projekcie.*

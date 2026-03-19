@@ -82,21 +82,45 @@ Przyklad: `mcp-find "npm sentinel"` -> `mcp-exec "npmLatest" {name: "react"}`
 
 `adapt`, `animate`, `audit`, `bolder`, `clarify`, `colorize`, `critique`, `delight`, `distill`, `extract`, `frontend-design`, `harden`, `normalize`, `onboard`, `optimize`, `polish`, `quieter`, `teach-impeccable`
 
-### Agenci (11 — `.opencode/agents/`)
+### Architektura orkiestracji (`.opencode/agents/`)
 
-| Agent              | Rola                                         | Wywolanie        |
-| ------------------ | -------------------------------------------- | ---------------- |
-| `forge`            | Meta-agent — tworzy agentow, skille, komendy | `/agent forge`   |
-| `code-reviewer`    | Code review: jakosc, wzorce, DRY, SOLID      | `@code-reviewer` |
-| `debugger`         | Analiza bledow, stack traces                 | `@debugger`      |
-| `git-agent`        | Git workflow: commity, branching, PR          | `@git-agent`     |
-| `test-runner`      | Testy: unit, integration, coverage           | `@test-runner`   |
-| `refactor-agent`   | Refactoring: ekstrakcja, upraszczanie        | `@refactor-agent`|
-| `security-auditor` | OWASP, secrets, SQL injection                | `@security-auditor` |
-| `dependency-agent` | Aktualizacje, bezpieczenstwo zaleznosci      | `@dependency-agent` |
-| `docs-writer`      | JSDoc, README, komentarze                    | `@docs-writer`   |
-| `explorer`         | Research, websearch z cytowaniami            | `@explorer`      |
-| `gh-search`        | GitHub code search                           | `@gh-search`     |
+#### Primary agents (taby w OpenCode)
+
+| Agent | Rola | Wywolanie |
+|-------|------|-----------|
+| `orchestrator` | CTO-level — analizuje zadanie, deleguje do ALL 144+ agentow | `@orchestrator` |
+| `team-engineering` | Division lead: ~35 eng specjalistow + lokalni agenci | `@team-engineering` |
+| `team-design` | Division lead: ~10 design specjalistow | `@team-design` |
+| `team-qa` | Division lead: ~8 QA specjalistow + test-runner | `@team-qa` |
+| `team-product` | Division lead: ~5 product specjalistow | `@team-product` |
+| `team-project-mgmt` | Division lead: ~6 project mgmt specjalistow | `@team-project-mgmt` |
+| `team-marketing` | Division lead: ~20 marketing specjalistow | `@team-marketing` |
+| `team-sales` | Division lead: ~10 sales specjalistow | `@team-sales` |
+| `team-paid-media` | Division lead: ~7 paid media specjalistow | `@team-paid-media` |
+| `team-game-dev` | Division lead: ~19 game dev specjalistow | `@team-game-dev` |
+| `team-spatial` | Division lead: ~5 spatial computing specjalistow | `@team-spatial` |
+| `team-specialized` | Division lead: ~20 specialized+support+integrations | `@team-specialized` |
+| `forge` | Meta-agent — NIEZALEZNY od orkiestracji, tworzy agentow/skille/komendy | `@forge` |
+
+#### Lokalni agenci (project-specific, `scripts/local-agents/`)
+
+| Agent | Rola | Wywolanie |
+|-------|------|-----------|
+| `agency-debugger` | Analiza bledow, root-cause diagnosis (read-only) | `@agency-debugger` |
+| `agency-test-runner` | Uruchamianie testow + analiza wynikow | `@agency-test-runner` |
+| `agency-dependency-auditor` | npm/bun audit, outdated, bezpieczenstwo zaleznosci | `@agency-dependency-auditor` |
+| `agency-codebase-explorer` | Eksploracja codebase + websearch | `@agency-codebase-explorer` |
+| `agency-github-code-searcher` | GitHub code search (gh_grep) | `@agency-github-code-searcher` |
+
+Agenci zastapieni przez agency-agents:
+
+| Stary agent | Uzyj zamiast |
+|-------------|--------------|
+| `debugger`, `explorer`, `gh-search` | `@agency-debugger`, `@agency-codebase-explorer`, `@agency-github-code-searcher` |
+| `code-reviewer` | `@agency-code-reviewer` |
+| `git-agent` | `@agency-git-workflow-master` |
+| `security-auditor` | `@agency-security-engineer` |
+| `docs-writer` | `@agency-technical-writer` |
 
 ### Praca rownolegla
 
@@ -169,6 +193,54 @@ Gdy sekcja KONTEKST PROJEKTU jest pusta:
 - `docs/decisions/` — decyzje architektoniczne (ADR)
 - `docs/tasks/` — zadania i tracking
 - `docs/context/` — kontekst projektu, notatki, specki
+
+---
+
+## 10. Agency Agents — Orkiestracja (144+ specjalistow)
+
+### Architektura
+
+```
+[Orchestrator]  [team-engineering]  [team-design]  [team-qa]  ...  [Forge]
+  (CTO-level)      (div. lead)        (div. lead)   (div. lead)   (niezalezny)
+       |                |                  |
+   ALL agents      eng agents +       design agents
+                  debugger, explorer
+```
+
+**Orchestrator** — analizuje zadanie CTO-style i deleguje do team-* lub bezposrednio do @agency-*. Wywolanie: `@orchestrator`.
+
+**Team-* agents** — division leads znajakace TYLKO swoich agentow. Wywolanie: `@team-engineering`, `@team-design`, etc.
+
+**Forge** — niezalezny meta-agent do tworzenia nowych agentow/skills/komend. NIE podlega orkiestracji.
+
+### Wzorce delegacji
+
+**Sequential:** `@agency-software-architect → @agency-backend-architect → @agency-code-reviewer → @agency-api-tester`
+
+**Parallel:** `@agency-frontend-developer + @agency-backend-architect (jednoczesnie)`
+
+**Research first:** `@agency-codebase-explorer → @agency-[specialist] → @agency-reality-checker`
+
+### Dywizje
+
+| Team agent | Dywizja | Przyklady agentow |
+|------------|---------|-------------------|
+| @team-engineering | Engineering | Frontend Developer, Backend Arch, Software Arch, Security Eng, DevOps, AI Engineer |
+| @team-design | Design | UX Architect, UI Designer, Brand Guardian, Accessibility Auditor |
+| @team-qa | QA/Testing | API Tester, Performance Benchmarker, Reality Checker |
+| @team-product | Product | Sprint Prioritizer, Feedback Synthesizer, Trend Researcher |
+| @team-project-mgmt | Project Mgmt | Project Shepherd, Studio Producer, Senior PM |
+| @team-marketing | Marketing | SEO Specialist, Content Creator, Growth Hacker |
+| @team-sales | Sales | Deal Strategist, Sales Engineer, Pipeline Analyst |
+| @team-paid-media | Paid Media | PPC Strategist, Paid Social Strategist, Ad Creative |
+| @team-game-dev | Game Dev | Unity Architect, Unreal Eng, Godot Scripter, Game Designer |
+| @team-spatial | Spatial | visionOS Spatial Eng, XR Developer, XR Interface Arch |
+| @team-specialized | Specialized+Support | MCP Builder, AI Engineer, Technical Writer |
+
+Pelny katalog: `docs/context/agency-agents-catalog.md`
+
+Sync: `bash scripts/sync-agents.sh` (pobiera najnowsza wersje + regeneruje team-* i orchestrator)
 
 ---
 

@@ -25,7 +25,8 @@
     ".opencode/skills/subagent-driven-development/SKILL.md",
     ".opencode/skills/systematic-debugging/SKILL.md",
     ".opencode/skills/writing-plans/SKILL.md",
-    ".opencode/skills/frontend-design/SKILL.md"
+    ".opencode/skills/frontend-design/SKILL.md",
+    ".opencode/skills/orchestration/SKILL.md"
   ],
   "mcp": {
     "context-mode": {

@@ -1,5 +1,5 @@
 ---
-description: "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability — Invoke via @agency-app-store-optimizer"
+description: "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-app-store-optimizer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

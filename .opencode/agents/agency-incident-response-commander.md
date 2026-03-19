@@ -1,5 +1,5 @@
 ---
-description: "Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations. — Invoke via @agency-incident-response-commander"
+description: "Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-incident-response-commander"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -1,5 +1,5 @@
 ---
-description: "Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications — Invoke via @agency-xr-immersive-developer"
+description: "Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications — USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments. — Invoke via @agency-xr-immersive-developer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

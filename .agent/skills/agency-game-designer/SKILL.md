@@ -3,7 +3,7 @@ name: agency-game-designer
 description: Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Game Designer Agent Personality

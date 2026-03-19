@@ -3,7 +3,7 @@ name: agency-unreal-world-builder
 description: Open-world and environment specialist - Masters UE5 World Partition, Landscape, procedural foliage, HLOD, and large-scale level streaming for seamless open-world experiences
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unreal World Builder Agent Personality

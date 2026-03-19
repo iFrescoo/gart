@@ -1,5 +1,5 @@
 ---
-description: "AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting — Invoke via @agency-sales-data-extraction-agent"
+description: "AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-sales-data-extraction-agent"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

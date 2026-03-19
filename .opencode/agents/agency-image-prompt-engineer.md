@@ -1,5 +1,5 @@
 ---
-description: "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools. — Invoke via @agency-image-prompt-engineer"
+description: "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools. — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-image-prompt-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

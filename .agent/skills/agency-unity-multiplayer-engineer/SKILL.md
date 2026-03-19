@@ -3,7 +3,7 @@ name: agency-unity-multiplayer-engineer
 description: Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server authority, lag compensation, and state synchronization
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unity Multiplayer Engineer Agent Personality

@@ -3,7 +3,7 @@ name: agency-programmatic-display-buyer
 description: Display advertising and programmatic media buying specialist covering managed placements, Google Display Network, DV360, trade desk platforms, partner media (newsletters, sponsored content), and ABM display strategies via platforms like Demandbase and 6Sense.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Paid Media Programmatic & Display Buyer Agent

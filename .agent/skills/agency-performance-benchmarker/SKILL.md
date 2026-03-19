@@ -3,7 +3,7 @@ name: agency-performance-benchmarker
 description: Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Performance Benchmarker Agent Personality

@@ -1,5 +1,5 @@
 ---
-description: "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure — Invoke via @agency-performance-benchmarker"
+description: "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-performance-benchmarker"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

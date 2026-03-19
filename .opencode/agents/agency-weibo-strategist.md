@@ -1,5 +1,5 @@
 ---
-description: "Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community management, public sentiment monitoring, fan economy strategies, and Weibo advertising, helping brands achieve viral reach and sustained growth on China's leading public discourse platform. — Invoke via @agency-weibo-strategist"
+description: "Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community management, public sentiment monitoring, fan economy strategies, and Weibo advertising, helping brands achieve viral reach and sustained growth on China's leading public discourse platform. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-weibo-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

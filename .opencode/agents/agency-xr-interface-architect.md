@@ -1,5 +1,5 @@
 ---
-description: "Spatial interaction designer and interface strategist for immersive AR/VR/XR environments — Invoke via @agency-xr-interface-architect"
+description: "Spatial interaction designer and interface strategist for immersive AR/VR/XR environments — USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments. — Invoke via @agency-xr-interface-architect"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

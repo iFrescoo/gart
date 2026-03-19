@@ -1,5 +1,5 @@
 ---
-description: "Expert in conversion tracking architecture, tag management, and attribution modeling across Google Tag Manager, GA4, Google Ads, Meta CAPI, LinkedIn Insight Tag, and server-side implementations. Ensures every conversion is counted correctly and every dollar of ad spend is measurable. — Invoke via @agency-tracking-measurement-specialist"
+description: "Expert in conversion tracking architecture, tag management, and attribution modeling across Google Tag Manager, GA4, Google Ads, Meta CAPI, LinkedIn Insight Tag, and server-side implementations. Ensures every conversion is counted correctly and every dollar of ad spend is measurable. — USE THIS AGENT when: planning paid advertising campaigns, managing ad spend, creating ad creatives, or measuring campaign performance. — Invoke via @agency-tracking-measurement-specialist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

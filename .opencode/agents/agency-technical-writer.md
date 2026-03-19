@@ -1,5 +1,5 @@
 ---
-description: "Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use. — Invoke via @agency-technical-writer"
+description: "Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-technical-writer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

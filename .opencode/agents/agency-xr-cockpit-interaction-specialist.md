@@ -1,5 +1,5 @@
 ---
-description: "Specialist in designing and developing immersive cockpit-based control systems for XR environments — Invoke via @agency-xr-cockpit-interaction-specialist"
+description: "Specialist in designing and developing immersive cockpit-based control systems for XR environments — USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments. — Invoke via @agency-xr-cockpit-interaction-specialist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

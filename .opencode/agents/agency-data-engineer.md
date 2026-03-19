@@ -1,5 +1,5 @@
 ---
-description: "Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms to turn raw data into trusted, analytics-ready assets. — Invoke via @agency-data-engineer"
+description: "Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms to turn raw data into trusted, analytics-ready assets. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-data-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

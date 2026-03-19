@@ -1,5 +1,5 @@
 ---
-description: "Expert Kuaishou marketing strategist specializing in short-video content for China's lower-tier city markets, live commerce operations, community trust building, and grassroots audience growth on 快手. — Invoke via @agency-kuaishou-strategist"
+description: "Expert Kuaishou marketing strategist specializing in short-video content for China's lower-tier city markets, live commerce operations, community trust building, and grassroots audience growth on 快手. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-kuaishou-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

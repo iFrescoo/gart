@@ -1,5 +1,5 @@
 ---
-description: "Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China's leading video community platform. — Invoke via @agency-bilibili-content-strategist"
+description: "Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China's leading video community platform. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-bilibili-content-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

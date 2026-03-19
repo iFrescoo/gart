@@ -3,7 +3,7 @@ name: agency-test-results-analyzer
 description: Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Test Results Analyzer Agent Personality

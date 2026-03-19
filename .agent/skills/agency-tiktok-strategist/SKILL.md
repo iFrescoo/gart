@@ -3,7 +3,7 @@ name: agency-tiktok-strategist
 description: Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Marketing TikTok Strategist

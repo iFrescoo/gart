@@ -3,7 +3,7 @@ name: agency-jira-workflow-steward
 description: Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Jira Workflow Steward Agent

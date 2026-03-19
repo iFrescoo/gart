@@ -1,5 +1,5 @@
 ---
-description: "Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale. — Invoke via @agency-sre-site-reliability-engineer"
+description: "Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-sre-site-reliability-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

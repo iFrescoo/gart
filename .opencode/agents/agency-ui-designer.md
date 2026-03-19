@@ -1,5 +1,5 @@
 ---
-description: "Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity — Invoke via @agency-ui-designer"
+description: "Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-ui-designer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

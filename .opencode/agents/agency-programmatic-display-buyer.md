@@ -1,5 +1,5 @@
 ---
-description: "Display advertising and programmatic media buying specialist covering managed placements, Google Display Network, DV360, trade desk platforms, partner media (newsletters, sponsored content), and ABM display strategies via platforms like Demandbase and 6Sense. — Invoke via @agency-programmatic-display-buyer"
+description: "Display advertising and programmatic media buying specialist covering managed placements, Google Display Network, DV360, trade desk platforms, partner media (newsletters, sponsored content), and ABM display strategies via platforms like Demandbase and 6Sense. — USE THIS AGENT when: planning paid advertising campaigns, managing ad spend, creating ad creatives, or measuring campaign performance. — Invoke via @agency-programmatic-display-buyer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

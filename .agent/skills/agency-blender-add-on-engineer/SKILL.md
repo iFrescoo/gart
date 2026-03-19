@@ -3,7 +3,7 @@ name: agency-blender-add-on-engineer
 description: Blender tooling specialist - Builds Python add-ons, asset validators, exporters, and pipeline automations that turn repetitive DCC work into reliable one-click workflows
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Blender Add-on Engineer Agent Personality

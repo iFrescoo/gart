@@ -1,5 +1,5 @@
 ---
-description: "Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers. — Invoke via @agency-developer-advocate"
+description: "Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-developer-advocate"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

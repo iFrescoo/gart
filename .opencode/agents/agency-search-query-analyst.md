@@ -1,5 +1,5 @@
 ---
-description: "Specialist in search term analysis, negative keyword architecture, and query-to-intent mapping. Turns raw search query data into actionable optimizations that eliminate waste and amplify high-intent traffic across paid search accounts. — Invoke via @agency-search-query-analyst"
+description: "Specialist in search term analysis, negative keyword architecture, and query-to-intent mapping. Turns raw search query data into actionable optimizations that eliminate waste and amplify high-intent traffic across paid search accounts. — USE THIS AGENT when: planning paid advertising campaigns, managing ad spend, creating ad creatives, or measuring campaign performance. — Invoke via @agency-search-query-analyst"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

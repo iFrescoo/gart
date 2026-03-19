@@ -1,5 +1,5 @@
 ---
-description: "CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities. — Invoke via @agency-cultural-intelligence-strategist"
+description: "CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-cultural-intelligence-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

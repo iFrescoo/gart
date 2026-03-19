@@ -1,5 +1,5 @@
 ---
-description: "Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approaches with proper formatting, charts, and data visualization. — Invoke via @agency-document-generator"
+description: "Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approaches with proper formatting, charts, and data visualization. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-document-generator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

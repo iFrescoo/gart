@@ -1,5 +1,5 @@
 ---
-description: "Expert post-sale account strategist specializing in land-and-expand execution, stakeholder mapping, QBR facilitation, and net revenue retention. Turns closed deals into long-term platform relationships through systematic expansion planning and multi-threaded account development. — Invoke via @agency-account-strategist"
+description: "Expert post-sale account strategist specializing in land-and-expand execution, stakeholder mapping, QBR facilitation, and net revenue retention. Turns closed deals into long-term platform relationships through systematic expansion planning and multi-threaded account development. — USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts. — Invoke via @agency-account-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

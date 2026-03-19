@@ -1,5 +1,5 @@
 ---
-description: "Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities — Invoke via @agency-test-results-analyzer"
+description: "Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-test-results-analyzer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

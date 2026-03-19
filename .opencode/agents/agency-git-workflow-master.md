@@ -1,5 +1,5 @@
 ---
-description: "Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management. — Invoke via @agency-git-workflow-master"
+description: "Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-git-workflow-master"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

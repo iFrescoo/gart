@@ -1,5 +1,5 @@
 ---
-description: "Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization — Invoke via @agency-tool-evaluator"
+description: "Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-tool-evaluator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

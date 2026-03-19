@@ -1,5 +1,5 @@
 ---
-description: "Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams. — Invoke via @agency-jira-workflow-steward"
+description: "Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams. — USE THIS AGENT when: managing projects, tracking deliverables, coordinating teams, planning releases, or organizing workflows. — Invoke via @agency-jira-workflow-steward"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -1,5 +1,5 @@
 ---
-description: "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success. — Invoke via @agency-behavioral-nudge-engine"
+description: "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success. — USE THIS AGENT when: prioritizing features, planning sprints, synthesizing user feedback, researching market trends, or tracking experiments. — Invoke via @agency-behavioral-nudge-engine"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

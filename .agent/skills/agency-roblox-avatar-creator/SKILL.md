@@ -3,7 +3,7 @@ name: agency-roblox-avatar-creator
 description: Roblox UGC and avatar pipeline specialist - Masters Roblox's avatar system, UGC item creation, accessory rigging, texture standards, and the Creator Marketplace submission pipeline
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Roblox Avatar Creator Agent Personality

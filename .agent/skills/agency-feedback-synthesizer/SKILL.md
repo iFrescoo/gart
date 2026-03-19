@@ -3,7 +3,7 @@ name: agency-feedback-synthesizer
 description: Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Product Feedback Synthesizer Agent

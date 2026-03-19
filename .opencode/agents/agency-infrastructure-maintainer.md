@@ -1,5 +1,5 @@
 ---
-description: "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency. — Invoke via @agency-infrastructure-maintainer"
+description: "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-infrastructure-maintainer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

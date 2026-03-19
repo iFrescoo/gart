@@ -1,5 +1,5 @@
 ---
-description: "Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design across Ethereum and L2 chains. — Invoke via @agency-solidity-smart-contract-engineer"
+description: "Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design across Ethereum and L2 chains. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-solidity-smart-contract-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

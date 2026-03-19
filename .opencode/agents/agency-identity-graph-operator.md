@@ -1,5 +1,5 @@
 ---
-description: "Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes. — Invoke via @agency-identity-graph-operator"
+description: "Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-identity-graph-operator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

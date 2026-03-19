@@ -3,7 +3,7 @@ name: agency-frontend-developer
 description: Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Frontend Developer Agent Personality

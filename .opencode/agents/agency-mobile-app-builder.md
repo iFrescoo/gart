@@ -1,5 +1,5 @@
 ---
-description: "Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks — Invoke via @agency-mobile-app-builder"
+description: "Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-mobile-app-builder"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

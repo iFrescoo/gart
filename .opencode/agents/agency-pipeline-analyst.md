@@ -1,5 +1,5 @@
 ---
-description: "Revenue operations analyst specializing in pipeline health diagnostics, deal velocity analysis, forecast accuracy, and data-driven sales coaching. Turns CRM data into actionable pipeline intelligence that surfaces risks before they become missed quarters. — Invoke via @agency-pipeline-analyst"
+description: "Revenue operations analyst specializing in pipeline health diagnostics, deal velocity analysis, forecast accuracy, and data-driven sales coaching. Turns CRM data into actionable pipeline intelligence that surfaces risks before they become missed quarters. — USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts. — Invoke via @agency-pipeline-analyst"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

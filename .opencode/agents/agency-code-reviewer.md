@@ -1,5 +1,5 @@
 ---
-description: "Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences. — Invoke via @agency-code-reviewer"
+description: "Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-code-reviewer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

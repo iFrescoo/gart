@@ -1,5 +1,5 @@
 ---
-description: "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth. — Invoke via @agency-finance-tracker"
+description: "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-finance-tracker"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

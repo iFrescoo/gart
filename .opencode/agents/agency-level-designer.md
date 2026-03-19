@@ -1,5 +1,5 @@
 ---
-description: "Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environmental narrative across all game engines — Invoke via @agency-level-designer"
+description: "Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environmental narrative across all game engines — USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content. — Invoke via @agency-level-designer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

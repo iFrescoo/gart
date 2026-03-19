@@ -23,6 +23,21 @@
 
 set -euo pipefail
 
+# --- Dependency check ---
+for cmd in git python3; do
+  if ! command -v "$cmd" &>/dev/null; then
+    echo "[ERR] Required command '$cmd' not found."
+    echo ""
+    if [[ "$cmd" == "python3" ]]; then
+      echo "  Install Python 3:"
+      echo "    Windows: https://www.python.org/downloads/ or 'winget install Python.Python.3.12'"
+      echo "    macOS:   brew install python3"
+      echo "    Linux:   sudo apt install python3"
+    fi
+    exit 1
+  fi
+done
+
 # --- Colour helpers ---
 if [[ -t 1 && -z "${NO_COLOR:-}" && "${TERM:-}" != "dumb" ]]; then
   GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'; RED=$'\033[0;31m'; BOLD=$'\033[1m'; RESET=$'\033[0m'
@@ -524,7 +539,9 @@ info "Agent data collected for $(ls "$TMPDIR_DATA/"*.agents 2>/dev/null | wc -l 
 # ==========================================================================
 header "Step 4: Copying agents to .claude/agents/ + enriching with trigger phrases"
 
+# Clean old generated agents (agency-* are generated, keep forge.md and custom agents)
 mkdir -p "$CLAUDE_AGENTS"
+find "$CLAUDE_AGENTS" -name 'agency-*.md' -delete 2>/dev/null || true
 count=0
 for dir in "${AGENT_DIRS[@]}"; do
   src="$UPSTREAM_DIR/$dir"
@@ -548,7 +565,15 @@ info "Claude Code: $count agents copied to .claude/agents/"
 # ==========================================================================
 header "Step 5: Post-processing OpenCode agents"
 
+# Clean old generated agents + legacy local agent names
 mkdir -p "$OPENCODE_AGENTS"
+find "$OPENCODE_AGENTS" -name 'agency-*.md' -delete 2>/dev/null || true
+find "$OPENCODE_AGENTS" -name 'team-*.md' -delete 2>/dev/null || true
+rm -f "$OPENCODE_AGENTS/orchestrator.md" 2>/dev/null || true
+# Remove legacy local agent files (replaced by agency-* naming)
+for legacy in debugger test-runner dependency-agent explorer gh-search; do
+  rm -f "$OPENCODE_AGENTS/${legacy}.md" 2>/dev/null || true
+done
 oc_count=0
 for dir in "${AGENT_DIRS[@]}"; do
   src="$UPSTREAM_DIR/$dir"
@@ -670,7 +695,7 @@ build_agent_list() {
     # Add section header if multiple divisions
     [[ "$#" -gt 1 ]] && echo "### ${div} agents" && echo ""
     while IFS=$'\t' read -r slug desc; do
-      printf '- %s — %s\n' "$slug" "$desc"
+      echo "- ${slug} — ${desc}"
     done < "$agents_file"
     echo ""
   done
@@ -682,7 +707,7 @@ build_priority_list() {
     local agents_file="$TMPDIR_DATA/${div}.agents"
     [[ -f "$agents_file" ]] || continue
     head -5 "$agents_file" | while IFS=$'\t' read -r slug desc; do
-      printf '- %s — %s\n' "$slug" "$desc"
+      echo "- ${slug} — ${desc}"
     done
   done
 }
@@ -1033,7 +1058,9 @@ info "Generated: .agent/workflows/orchestrate.md"
 # ==========================================================================
 header "Step 11: Copying AntiGravity skills"
 
+# Clean old generated AntiGravity skills
 mkdir -p "$ANTIGRAVITY_SKILLS"
+find "$ANTIGRAVITY_SKILLS" -name 'agency-*' -type d -exec rm -rf {} + 2>/dev/null || true
 ag_src="$UPSTREAM_DIR/integrations/antigravity"
 ag_count=0
 if [[ -d "$ag_src" ]]; then

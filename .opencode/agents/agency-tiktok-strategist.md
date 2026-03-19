@@ -1,5 +1,5 @@
 ---
-description: "Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth. — Invoke via @agency-tiktok-strategist"
+description: "Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-tiktok-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

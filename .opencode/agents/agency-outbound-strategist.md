@@ -1,5 +1,5 @@
 ---
-description: "Signal-based outbound specialist who designs multi-channel prospecting sequences, defines ICPs, and builds pipeline through research-driven personalization — not volume. — Invoke via @agency-outbound-strategist"
+description: "Signal-based outbound specialist who designs multi-channel prospecting sequences, defines ICPs, and builds pipeline through research-driven personalization — not volume. — USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts. — Invoke via @agency-outbound-strategist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

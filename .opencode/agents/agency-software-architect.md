@@ -1,5 +1,5 @@
 ---
-description: "Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems. — Invoke via @agency-software-architect"
+description: "Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-software-architect"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

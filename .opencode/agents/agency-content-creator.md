@@ -1,5 +1,5 @@
 ---
-description: "Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels. — Invoke via @agency-content-creator"
+description: "Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-content-creator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

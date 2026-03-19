@@ -1,5 +1,5 @@
 ---
-description: "Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine asset optimization — Invoke via @agency-technical-artist"
+description: "Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine asset optimization — USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content. — Invoke via @agency-technical-artist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

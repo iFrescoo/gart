@@ -1,5 +1,5 @@
 ---
-description: "Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity assessment. Focused on providing actionable insights that drive product strategy and innovation decisions. — Invoke via @agency-trend-researcher"
+description: "Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity assessment. Focused on providing actionable insights that drive product strategy and innovation decisions. — USE THIS AGENT when: prioritizing features, planning sprints, synthesizing user feedback, researching market trends, or tracking experiments. — Invoke via @agency-trend-researcher"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

@@ -1,5 +1,5 @@
 ---
-description: "Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis. — Invoke via @agency-experiment-tracker"
+description: "Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis. — USE THIS AGENT when: managing projects, tracking deliverables, coordinating teams, planning releases, or organizing workflows. — Invoke via @agency-experiment-tracker"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

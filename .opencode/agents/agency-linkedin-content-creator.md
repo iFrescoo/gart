@@ -1,5 +1,5 @@
 ---
-description: "Expert LinkedIn content strategist focused on thought leadership, personal brand building, and high-engagement professional content. Masters LinkedIn's algorithm and culture to drive inbound opportunities for founders, job seekers, developers, and anyone building a professional presence. — Invoke via @agency-linkedin-content-creator"
+description: "Expert LinkedIn content strategist focused on thought leadership, personal brand building, and high-engagement professional content. Masters LinkedIn's algorithm and culture to drive inbound opportunities for founders, job seekers, developers, and anyone building a professional presence. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-linkedin-content-creator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

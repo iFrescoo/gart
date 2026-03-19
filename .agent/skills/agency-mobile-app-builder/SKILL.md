@@ -3,7 +3,7 @@ name: agency-mobile-app-builder
 description: Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Mobile App Builder Agent Personality

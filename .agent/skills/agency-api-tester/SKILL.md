@@ -3,7 +3,7 @@ name: agency-api-tester
 description: Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # API Tester Agent Personality

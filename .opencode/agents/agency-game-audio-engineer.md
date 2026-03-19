@@ -1,5 +1,5 @@
 ---
-description: "Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines — Invoke via @agency-game-audio-engineer"
+description: "Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines — USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content. — Invoke via @agency-game-audio-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

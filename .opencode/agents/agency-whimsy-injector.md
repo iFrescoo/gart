@@ -1,5 +1,5 @@
 ---
-description: "Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy — Invoke via @agency-whimsy-injector"
+description: "Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-whimsy-injector"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

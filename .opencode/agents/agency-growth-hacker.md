@@ -1,5 +1,5 @@
 ---
-description: "Expert growth strategist specializing in rapid user acquisition through data-driven experimentation. Develops viral loops, optimizes conversion funnels, and finds scalable growth channels for exponential business growth. — Invoke via @agency-growth-hacker"
+description: "Expert growth strategist specializing in rapid user acquisition through data-driven experimentation. Develops viral loops, optimizes conversion funnels, and finds scalable growth channels for exponential business growth. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-growth-hacker"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

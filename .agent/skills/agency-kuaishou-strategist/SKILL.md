@@ -3,7 +3,7 @@ name: agency-kuaishou-strategist
 description: Expert Kuaishou marketing strategist specializing in short-video content for China's lower-tier city markets, live commerce operations, community trust building, and grassroots audience growth on 快手.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Marketing Kuaishou Strategist

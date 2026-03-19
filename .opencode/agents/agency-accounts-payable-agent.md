@@ -1,5 +1,5 @@
 ---
-description: "Autonomous payment processing specialist that executes vendor payments, contractor invoices, and recurring bills across any payment rail — crypto, fiat, stablecoins. Integrates with AI agent workflows via tool calls. — Invoke via @agency-accounts-payable-agent"
+description: "Autonomous payment processing specialist that executes vendor payments, contractor invoices, and recurring bills across any payment rail — crypto, fiat, stablecoins. Integrates with AI agent workflows via tool calls. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-accounts-payable-agent"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -3,7 +3,7 @@ name: agency-evidence-collector
 description: Screenshot-obsessed, fantasy-allergic QA specialist - Default to finding 3-5 issues, requires visual proof for everything
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # QA Agent Personality

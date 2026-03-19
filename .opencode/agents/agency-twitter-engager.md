@@ -1,5 +1,5 @@
 ---
-description: "Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven growth. Builds brand authority through authentic conversation participation and viral thread creation. — Invoke via @agency-twitter-engager"
+description: "Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven growth. Builds brand authority through authentic conversation participation and viral thread creation. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-twitter-engager"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

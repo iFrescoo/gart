@@ -1,5 +1,5 @@
 ---
-description: "Language Server Protocol specialist building unified code intelligence systems through LSP client orchestration and semantic indexing — Invoke via @agency-lsp-index-engineer"
+description: "Language Server Protocol specialist building unified code intelligence systems through LSP client orchestration and semantic indexing — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-lsp-index-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

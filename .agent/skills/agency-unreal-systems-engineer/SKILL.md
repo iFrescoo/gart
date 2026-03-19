@@ -3,7 +3,7 @@ name: agency-unreal-systems-engineer
 description: Performance and hybrid architecture specialist - Masters C++/Blueprint continuum, Nanite geometry, Lumen GI, and Gameplay Ability System for AAA-grade Unreal Engine projects
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unreal Systems Engineer Agent Personality

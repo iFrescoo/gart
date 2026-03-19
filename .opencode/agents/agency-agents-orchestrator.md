@@ -1,5 +1,5 @@
 ---
-description: "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process. — Invoke via @agency-agents-orchestrator"
+description: "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-agents-orchestrator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

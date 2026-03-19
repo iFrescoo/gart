@@ -1,5 +1,5 @@
 ---
-description: "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency — Invoke via @agency-workflow-optimizer"
+description: "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-workflow-optimizer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

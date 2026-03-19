@@ -1,5 +1,5 @@
 ---
-description: "Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions. — Invoke via @agency-legal-compliance-checker"
+description: "Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-legal-compliance-checker"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

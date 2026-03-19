@@ -1,5 +1,5 @@
 ---
-description: "Expert sales coaching specialist focused on rep development, pipeline review facilitation, call coaching, deal strategy, and forecast accuracy. Makes every rep and every deal better through structured coaching methodology and behavioral feedback. — Invoke via @agency-sales-coach"
+description: "Expert sales coaching specialist focused on rep development, pipeline review facilitation, call coaching, deal strategy, and forecast accuracy. Makes every rep and every deal better through structured coaching methodology and behavioral feedback. — USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts. — Invoke via @agency-sales-coach"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

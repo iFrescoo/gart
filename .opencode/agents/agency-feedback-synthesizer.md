@@ -1,5 +1,5 @@
 ---
-description: "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations. — Invoke via @agency-feedback-synthesizer"
+description: "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations. — USE THIS AGENT when: prioritizing features, planning sprints, synthesizing user feedback, researching market trends, or tracking experiments. — Invoke via @agency-feedback-synthesizer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

@@ -1,5 +1,5 @@
 ---
-description: "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements — Invoke via @agency-senior-project-manager"
+description: "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements — USE THIS AGENT when: managing projects, tracking deliverables, coordinating teams, planning releases, or organizing workflows. — Invoke via @agency-senior-project-manager"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

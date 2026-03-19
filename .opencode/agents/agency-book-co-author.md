@@ -1,5 +1,5 @@
 ---
-description: "Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters. — Invoke via @agency-book-co-author"
+description: "Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-book-co-author"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

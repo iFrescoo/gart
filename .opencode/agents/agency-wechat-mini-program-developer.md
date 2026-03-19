@@ -1,5 +1,5 @@
 ---
-description: "Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem. — Invoke via @agency-wechat-mini-program-developer"
+description: "Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-wechat-mini-program-developer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

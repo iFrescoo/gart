@@ -1,5 +1,5 @@
 ---
-description: "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters — Invoke via @agency-report-distribution-agent"
+description: "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-report-distribution-agent"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -1,5 +1,5 @@
 ---
-description: "Coaches sales teams on elite discovery methodology — question design, current-state mapping, gap quantification, and call structure that surfaces real buying motivation. — Invoke via @agency-discovery-coach"
+description: "Coaches sales teams on elite discovery methodology — question design, current-state mapping, gap quantification, and call structure that surfaces real buying motivation. — USE THIS AGENT when: developing deal strategy, sales engineering, analyzing pipeline health, coaching discovery calls, or managing accounts. — Invoke via @agency-discovery-coach"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

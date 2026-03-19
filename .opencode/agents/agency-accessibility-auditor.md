@@ -1,5 +1,5 @@
 ---
-description: "Expert accessibility specialist who audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design. Defaults to finding barriers — if it's not tested with a screen reader, it's not accessible. — Invoke via @agency-accessibility-auditor"
+description: "Expert accessibility specialist who audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design. Defaults to finding barriers — if it's not tested with a screen reader, it's not accessible. — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-accessibility-auditor"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

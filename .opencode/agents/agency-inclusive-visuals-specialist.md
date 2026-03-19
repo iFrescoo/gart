@@ -1,5 +1,5 @@
 ---
-description: "Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video. — Invoke via @agency-inclusive-visuals-specialist"
+description: "Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video. — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-inclusive-visuals-specialist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

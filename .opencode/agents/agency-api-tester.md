@@ -1,5 +1,5 @@
 ---
-description: "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations — Invoke via @agency-api-tester"
+description: "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-api-tester"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.1

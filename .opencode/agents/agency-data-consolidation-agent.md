@@ -1,5 +1,5 @@
 ---
-description: "AI agent that consolidates extracted sales data into live reporting dashboards with territory, rep, and pipeline summaries — Invoke via @agency-data-consolidation-agent"
+description: "AI agent that consolidates extracted sales data into live reporting dashboards with territory, rep, and pipeline summaries — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-data-consolidation-agent"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -1,5 +1,5 @@
 ---
-description: "Expert Instagram marketing specialist focused on visual storytelling, community building, and multi-format content optimization. Masters aesthetic development and drives meaningful engagement. — Invoke via @agency-instagram-curator"
+description: "Expert Instagram marketing specialist focused on visual storytelling, community building, and multi-format content optimization. Masters aesthetic development and drives meaningful engagement. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-instagram-curator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

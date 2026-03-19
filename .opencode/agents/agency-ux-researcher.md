@@ -1,5 +1,5 @@
 ---
-description: "Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights. Provides actionable research findings that improve product usability and user satisfaction — Invoke via @agency-ux-researcher"
+description: "Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights. Provides actionable research findings that improve product usability and user satisfaction — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-ux-researcher"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

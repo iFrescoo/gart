@@ -3,7 +3,7 @@ name: agency-terminal-integration-specialist
 description: Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Terminal Integration Specialist

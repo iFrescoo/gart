@@ -3,7 +3,7 @@ name: agency-unity-editor-tool-developer
 description: Unity editor automation specialist - Masters custom EditorWindows, PropertyDrawers, AssetPostprocessors, ScriptedImporters, and pipeline automation that saves teams hours per week
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unity Editor Tool Developer Agent Personality

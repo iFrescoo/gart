@@ -1,5 +1,5 @@
 ---
-description: "Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration — Invoke via @agency-senior-developer"
+description: "Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-senior-developer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

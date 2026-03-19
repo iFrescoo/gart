@@ -1,5 +1,5 @@
 ---
-description: "Senior strategic leader specializing in high-level creative and technical project orchestration, resource allocation, and multi-project portfolio management. Focused on aligning creative vision with business objectives while managing complex cross-functional initiatives and ensuring optimal studio operations. — Invoke via @agency-studio-producer"
+description: "Senior strategic leader specializing in high-level creative and technical project orchestration, resource allocation, and multi-project portfolio management. Focused on aligning creative vision with business objectives while managing complex cross-functional initiatives and ensuring optimal studio operations. — USE THIS AGENT when: managing projects, tracking deliverables, coordinating teams, planning releases, or organizing workflows. — Invoke via @agency-studio-producer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

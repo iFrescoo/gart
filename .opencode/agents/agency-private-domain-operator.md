@@ -1,5 +1,5 @@
 ---
-description: "Expert in building enterprise WeChat (WeCom) private domain ecosystems, with deep expertise in SCRM systems, segmented community operations, Mini Program commerce integration, user lifecycle management, and full-funnel conversion optimization. — Invoke via @agency-private-domain-operator"
+description: "Expert in building enterprise WeChat (WeCom) private domain ecosystems, with deep expertise in SCRM systems, segmented community operations, Mini Program commerce integration, user lifecycle management, and full-funnel conversion optimization. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-private-domain-operator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

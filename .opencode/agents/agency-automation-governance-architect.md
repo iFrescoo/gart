@@ -1,5 +1,5 @@
 ---
-description: "Governance-first architect for business automations (n8n-first) who audits value, risk, and maintainability before implementation. — Invoke via @agency-automation-governance-architect"
+description: "Governance-first architect for business automations (n8n-first) who audits value, risk, and maintainability before implementation. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-automation-governance-architect"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

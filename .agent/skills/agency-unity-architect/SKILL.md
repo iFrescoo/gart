@@ -3,7 +3,7 @@ name: agency-unity-architect
 description: Data-driven modularity specialist - Masters ScriptableObjects, decoupled systems, and single-responsibility component design for scalable Unity projects
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unity Architect Agent Personality

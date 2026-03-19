@@ -1,5 +1,5 @@
 ---
-description: "Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines — Invoke via @agency-narrative-designer"
+description: "Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines — USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content. — Invoke via @agency-narrative-designer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

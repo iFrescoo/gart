@@ -1,5 +1,5 @@
 ---
-description: "Independent model QA expert who audits ML and statistical models end-to-end - from documentation review and data reconstruction to replication, calibration testing, interpretability analysis, performance monitoring, and audit-grade reporting. — Invoke via @agency-model-qa-specialist"
+description: "Independent model QA expert who audits ML and statistical models end-to-end - from documentation review and data reconstruction to replication, calibration testing, interpretability analysis, performance monitoring, and audit-grade reporting. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-model-qa-specialist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

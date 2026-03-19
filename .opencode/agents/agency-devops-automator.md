@@ -1,5 +1,5 @@
 ---
-description: "Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations — Invoke via @agency-devops-automator"
+description: "Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-devops-automator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

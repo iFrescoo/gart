@@ -1,5 +1,5 @@
 ---
-description: "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning — Invoke via @agency-brand-guardian"
+description: "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-brand-guardian"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

@@ -1,5 +1,5 @@
 ---
-description: "Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres — Invoke via @agency-game-designer"
+description: "Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres — USE THIS AGENT when: developing games with Unity/Unreal/Godot, designing game systems, creating game mechanics, or building game content. — Invoke via @agency-game-designer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

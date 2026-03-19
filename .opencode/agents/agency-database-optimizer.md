@@ -1,5 +1,5 @@
 ---
-description: "Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale. — Invoke via @agency-database-optimizer"
+description: "Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale. — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-database-optimizer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

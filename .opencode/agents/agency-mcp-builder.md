@@ -1,5 +1,5 @@
 ---
-description: "Expert Model Context Protocol developer who designs, builds, and tests MCP servers that extend AI agent capabilities with custom tools, resources, and prompts. — Invoke via @agency-mcp-builder"
+description: "Expert Model Context Protocol developer who designs, builds, and tests MCP servers that extend AI agent capabilities with custom tools, resources, and prompts. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-mcp-builder"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

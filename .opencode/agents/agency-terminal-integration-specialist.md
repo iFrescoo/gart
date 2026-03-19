@@ -1,5 +1,5 @@
 ---
-description: "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications — Invoke via @agency-terminal-integration-specialist"
+description: "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications — USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments. — Invoke via @agency-terminal-integration-specialist"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

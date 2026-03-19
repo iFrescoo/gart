@@ -1,5 +1,5 @@
 ---
-description: "Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization — Invoke via @agency-frontend-developer"
+description: "Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-frontend-developer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

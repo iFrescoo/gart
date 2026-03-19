@@ -1,5 +1,5 @@
 ---
-description: "Expert in enterprise training system design and curriculum development — proficient in training needs analysis, instructional design methodology, blended learning program design, internal trainer development, leadership programs, and training effectiveness evaluation and continuous optimization. — Invoke via @agency-corporate-training-designer"
+description: "Expert in enterprise training system design and curriculum development — proficient in training needs analysis, instructional design methodology, blended learning program design, internal trainer development, leadership programs, and training effectiveness evaluation and continuous optimization. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-corporate-training-designer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

@@ -1,5 +1,5 @@
 ---
-description: "Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy. — Invoke via @agency-china-e-commerce-operator"
+description: "Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-china-e-commerce-operator"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

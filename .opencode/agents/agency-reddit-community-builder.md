@@ -1,5 +1,5 @@
 ---
-description: "Expert Reddit marketing specialist focused on authentic community engagement, value-driven content creation, and long-term relationship building. Masters Reddit culture navigation. — Invoke via @agency-reddit-community-builder"
+description: "Expert Reddit marketing specialist focused on authentic community engagement, value-driven content creation, and long-term relationship building. Masters Reddit culture navigation. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-reddit-community-builder"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

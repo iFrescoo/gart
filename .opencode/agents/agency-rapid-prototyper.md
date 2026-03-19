@@ -1,5 +1,5 @@
 ---
-description: "Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks — Invoke via @agency-rapid-prototyper"
+description: "Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks — USE THIS AGENT when: implementing code, building features, designing software architecture, fixing bugs, optimizing performance, or handling infrastructure and DevOps. — Invoke via @agency-rapid-prototyper"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

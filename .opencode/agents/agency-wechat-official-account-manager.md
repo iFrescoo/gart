@@ -1,5 +1,5 @@
 ---
-description: "Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery. — Invoke via @agency-wechat-official-account-manager"
+description: "Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery. — USE THIS AGENT when: creating marketing content, SEO optimization, social media strategy, growth hacking, or app store optimization. — Invoke via @agency-wechat-official-account-manager"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

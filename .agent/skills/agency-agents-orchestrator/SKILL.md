@@ -3,7 +3,7 @@ name: agency-agents-orchestrator
 description: Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # AgentsOrchestrator Agent Personality

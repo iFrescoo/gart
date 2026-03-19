@@ -1,5 +1,5 @@
 ---
-description: "Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance — Invoke via @agency-ux-architect"
+description: "Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance — USE THIS AGENT when: designing UI/UX interfaces, creating design systems, reviewing accessibility, building brand identity, or conducting user research. — Invoke via @agency-ux-architect"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.5

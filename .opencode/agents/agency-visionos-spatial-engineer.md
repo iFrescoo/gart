@@ -1,5 +1,5 @@
 ---
-description: "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation — Invoke via @agency-visionos-spatial-engineer"
+description: "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation — USE THIS AGENT when: building AR/VR/XR experiences, visionOS applications, spatial interfaces, or immersive computing environments. — Invoke via @agency-visionos-spatial-engineer"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.3

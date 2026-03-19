@@ -3,7 +3,7 @@ name: agency-sales-data-extraction-agent
 description: AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Sales Data Extraction Agent

@@ -3,7 +3,7 @@ name: agency-wechat-mini-program-developer
 description: Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem.
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # WeChat Mini Program Developer Agent Personality

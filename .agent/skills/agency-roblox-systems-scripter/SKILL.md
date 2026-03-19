@@ -3,7 +3,7 @@ name: agency-roblox-systems-scripter
 description: Roblox platform engineering specialist - Masters Luau, the client-server security model, RemoteEvents/RemoteFunctions, DataStore, and module architecture for scalable Roblox experiences
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Roblox Systems Scripter Agent Personality

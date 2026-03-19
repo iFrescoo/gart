@@ -1,5 +1,5 @@
 ---
-description: "Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did. — Invoke via @agency-agentic-identity-trust-architect"
+description: "Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did. — USE THIS AGENT when: building MCP servers, developing AI/ML systems, auditing smart contracts, ensuring compliance, or creating specialized technical solutions. — Invoke via @agency-agentic-identity-trust-architect"
 mode: subagent
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2

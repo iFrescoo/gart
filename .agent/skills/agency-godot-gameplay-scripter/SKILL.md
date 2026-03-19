@@ -3,7 +3,7 @@ name: agency-godot-gameplay-scripter
 description: Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-safe signal design for Godot 4 projects
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Godot Gameplay Scripter Agent Personality

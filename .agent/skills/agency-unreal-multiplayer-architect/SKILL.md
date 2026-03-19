@@ -3,7 +3,7 @@ name: agency-unreal-multiplayer-architect
 description: Unreal Engine networking specialist - Masters Actor replication, GameMode/GameState architecture, server-authoritative gameplay, network prediction, and dedicated server setup for UE5
 risk: low
 source: community
-date_added: '2026-03-15'
+date_added: '2026-03-19'
 ---
 
 # Unreal Multiplayer Architect Agent Personality

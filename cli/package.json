@@ -1,0 +1,47 @@
+{
+  "name": "gart-build",
+  "version": "1.0.1",
+  "description": "GART — Generative Agent Runtime Toolkit. Scaffold multi-IDE agentic coding projects with 144+ AI agents.",
+  "type": "module",
+  "bin": {
+    "gart-build": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "giget": "^2.0.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fresco04/agentic-coding-template",
+    "directory": "cli"
+  },
+  "homepage": "https://github.com/Fresco04/agentic-coding-template#readme",
+  "keywords": [
+    "gart",
+    "agentic",
+    "ai-agents",
+    "scaffold",
+    "claude-code",
+    "opencode",
+    "antigravity",
+    "mcp",
+    "toolkit"
+  ]
+}

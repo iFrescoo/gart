@@ -7,9 +7,18 @@ import { scaffold } from './scaffold.js';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+const BANNER = `
+ ██████╗  █████╗ ██████╗ ████████╗
+██╔════╝ ██╔══██╗██╔══██╗╚══██╔══╝
+██║  ███╗███████║██████╔╝   ██║
+██║   ██║██╔══██║██╔══██╗   ██║
+╚██████╔╝██║  ██║██║  ██║   ██║
+ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝  `;
+
 async function main(): Promise<void> {
-  console.log('');
-  p.intro(`${pc.bgCyan(pc.black(' GART '))} ${pc.dim('Generative Agent Runtime Toolkit')}`);
+  console.log(pc.blue(BANNER));
+  console.log(`  ${pc.dim('Generative Agent Runtime Toolkit')}\n`);
+  p.intro(`${pc.bgBlue(pc.white(' gart-build '))} ${pc.dim('v1.0.2')}`);
 
   const argDir = process.argv[2];
 

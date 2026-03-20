@@ -1,220 +1,225 @@
-# Zasady — Claude Code
+# Rules — Claude Code
 
-## 1. Zasady pracy
+## Language
 
-- **NIGDY** nie generuj calego pliku dla malych zmian — edytuj konkretne linie
-- Zanim wygenerujesz dlugie rozwiazanie — napisz plan w 2-3 zdaniach i zapytaj: _"Czy mam isc w tym kierunku?"_
-- Zanim usuniesz plik lub wykonasz destrukcyjna komende — **zapytaj uzytkownika**
-- Nie instaluj zaleznosci bez zgody
-- Nie halucynuj. Jesli czegos nie wiesz: `"Nie wiem, potrzebuje wiecej kontekstu o [X]"`
-- Nie ma systemu lock plikow — dzialaj bezposrednio
+Respond in: English
+Write code comments in: English
+
+## 1. Working Rules
+
+- **NEVER** generate an entire file for small changes — edit specific lines
+- Before generating a long solution — write a plan in 2-3 sentences and ask: _"Should I go in this direction?"_
+- Before deleting a file or executing a destructive command — **ask the user**
+- Do not install dependencies without approval
+- Do not hallucinate. If you don't know something: `"I don't know, I need more context about [X]"`
+- There is no file lock system — work directly
 
 ---
 
-## 2. Generowanie kodu
+## 2. Code Generation
 
-- Minimalne, celowe zmiany — nie przepisuj tego co dziala
-- Sprawdzaj importy — nie dodawaj duplikatow, nie zostawiaj nieuzywanych
-- `// PRZED:` -> `// PO:` dla krytycznych zmian logiki
-- Czysty kod: male funkcje, czytelne nazwy, brak magicznych liczb
-- TypeScript: strict mode, brak `any`, explicit return types dla funkcji publicznych
+- Minimal, intentional changes — do not rewrite what already works
+- Check imports — do not add duplicates, do not leave unused ones
+- `// BEFORE:` -> `// AFTER:` for critical logic changes
+- Clean code: small functions, readable names, no magic numbers
+- TypeScript: strict mode, no `any`, explicit return types for public functions
 - Conventional Commits: `feat:` / `fix:` / `docs:` / `refactor:` / `test:` / `chore:`
 
 ---
 
-## 3. Nawigacja po kodzie
+## 3. Code Navigation
 
-1. **Grep** — dokladny string/regex po plikach
-2. **Glob** — wzorce sciezek, struktura folderow
-3. **Read** — gdy juz wiesz ktory plik
-4. **LSP** — goToDefinition, findReferences, hover, documentSymbol, getDiagnostics (11 jezykow)
+1. **Grep** — exact string/regex search across files
+2. **Glob** — path patterns, folder structure
+3. **Read** — when you already know which file
+4. **LSP** — goToDefinition, findReferences, hover, documentSymbol, getDiagnostics (11 languages)
 
-> ZAKAZ: Nie czytaj plikow po kolei w poszukiwaniu czegos. Najpierw znajdz przez Grep, potem czytaj.
+> FORBIDDEN: Do not read files one by one searching for something. First find via Grep, then read.
 
 ---
 
-## 4. Narzedzia MCP
+## 4. MCP Tools
 
-| Serwer         | Rola                                                       |
+| Server         | Role                                                       |
 | -------------- | ---------------------------------------------------------- |
-| `context-mode` | Ochrona context window — indeksuj duze outputy w sandboxie |
-| `MCP_DOCKER`   | Docker MCP Gateway — pelny zestaw serwerow                 |
+| `context-mode` | Context window protection — index large outputs in sandbox |
+| `MCP_DOCKER`   | Docker MCP Gateway — full set of servers                   |
 
-### MCP Docker — meta-narzedzia (zawsze dostepne)
+### MCP Docker — meta-tools (always available)
 
-| Narzedzie  | Opis                                                         |
+| Tool       | Description                                                  |
 | ---------- | ------------------------------------------------------------ |
-| `mcp-find` | Szukaj w katalogu 316+ serwerow MCP po nazwie/opisie         |
-| `mcp-exec` | Wywolaj narzedzie z dowolnego serwera bez dodawania do sesji |
-| `mcp-add`  | Dodaj serwer do biezacej sesji                               |
+| `mcp-find` | Search the catalog of 316+ MCP servers by name/description   |
+| `mcp-exec` | Invoke a tool from any server without adding it to the session |
+| `mcp-add`  | Add a server to the current session                          |
 
-### Przydatne serwery Docker MCP
+### Useful Docker MCP Servers
 
-- **context7** — dokumentacja bibliotek (`resolve-library-id` -> `query-docs`). Uzywaj zamiast halucynowania o API.
-- **playwright** — browser automation gdy fetch nie wystarczy (SPA, JS-rendered, Cloudflare)
+- **context7** — library documentation (`resolve-library-id` -> `query-docs`). Use instead of hallucinating about APIs.
+- **playwright** — browser automation when fetch is not enough (SPA, JS-rendered, Cloudflare)
 - **github-official** — GitHub API (issues, PR, commits, code search)
-- **memory** — pamiec miedzy sesjami (`memory_store` / `memory_retrieve`)
-- **sequential-thinking** — rozumowanie krok-po-kroku przy zlozonych problemach
+- **memory** — memory between sessions (`memory_store` / `memory_retrieve`)
+- **sequential-thinking** — step-by-step reasoning for complex problems
 
 ---
 
-## 5. Skills, subagenci i automatyzacje
+## 5. Skills, Subagents, and Automations
 
 ### Skills (18 — `.claude/skills/`)
 
-Wywoluj przez `Skill` tool:
+Invoke via `Skill` tool:
 
 `adapt`, `animate`, `audit`, `bolder`, `clarify`, `colorize`, `critique`, `delight`, `distill`, `extract`, `frontend-design`, `harden`, `normalize`, `onboard`, `optimize`, `polish`, `quieter`, `teach-impeccable`
 
-### Subagenci wbudowani
+### Built-in Subagents
 
-| Subagent          | Kiedy uzywac                                                  |
+| Subagent          | When to use                                                   |
 | ----------------- | ------------------------------------------------------------- |
-| `Explore`         | Szybka eksploracja codebase (pliki, wzorce, architektura)     |
-| `Plan`            | Projektowanie planu implementacji                             |
-| `General-purpose` | Zlozone, wieloetapowe zadania wymagajace autonomii            |
+| `Explore`         | Quick codebase exploration (files, patterns, architecture)    |
+| `Plan`            | Designing an implementation plan                              |
+| `General-purpose` | Complex, multi-step tasks requiring autonomy                  |
 
 ### Plan Mode
 
-Tryb planowania: `explore -> plan -> code`. Uzywaj do zlozonych zadan — najpierw zbadaj, zaplanuj, potem implementuj.
+Planning mode: `explore -> plan -> code`. Use for complex tasks — first investigate, plan, then implement.
 
 ### Hooks (`.claude/hooks/`)
 
-Shell commands wykonywane automatycznie w odpowiedzi na eventy (np. blokowanie niebezpiecznych komend). Konfiguracja w `.claude/settings.json`.
+Shell commands executed automatically in response to events (e.g., blocking dangerous commands). Configuration in `.claude/settings.json`.
 
 ### Scoped rules (`.claude/rules/`)
 
-Instrukcje per jezyk lub sciezka — ladowane automatycznie gdy Claude pracuje z pasujacymi plikami.
+Instructions per language or path — loaded automatically when Claude works with matching files.
 
 ### Auto-memory
 
-Automatyczne zapamietywanie wzorc i preferencji uzytkownika miedzy sesjami. Pliki w `~/.claude/projects/<projekt>/memory/`.
+Automatic memorization of user patterns and preferences between sessions. Files in `~/.claude/projects/<project>/memory/`.
 
 ---
 
-## 6. Bezpieczenstwo i jakosc
+## 6. Security and Quality
 
-**Bezpieczenstwo — sprawdzaj proaktywnie:**
+**Security — check proactively:**
 
-- SQL Injection (zapytania bez parametryzacji)
-- XSS (innerHTML, dangerouslySetInnerHTML bez sanityzacji)
-- CSRF (brakujace tokeny)
-- Hardcoded credentials / API keys w kodzie
-- Dane wrazliwe w logach lub odpowiedziach API
-- Pliki `.env` — nigdy nie commituj, nigdy nie czytaj na glos zawartosci
+- SQL Injection (queries without parameterization)
+- XSS (innerHTML, dangerouslySetInnerHTML without sanitization)
+- CSRF (missing tokens)
+- Hardcoded credentials / API keys in code
+- Sensitive data in logs or API responses
+- `.env` files — never commit, never read contents aloud
 
-**Wydajnosc — wskazuj konkretnie:**
+**Performance — point out specifically:**
 
-- Petle O(n^2) gdzie mozna O(n)
-- N+1 queries do bazy danych
-- Zbedne re-rendery w React (brakujace memo/useMemo/useCallback)
-- Memory leaks (nieoczyszczone event listenery, timery, subscriptions)
+- O(n^2) loops where O(n) is possible
+- N+1 queries to the database
+- Unnecessary re-renders in React (missing memo/useMemo/useCallback)
+- Memory leaks (uncleaned event listeners, timers, subscriptions)
 
 **Code review — format:**
 
 ```
-OK — [co jest dobrze]
-Do poprawy — [plik:linia] -> [sugerowany fix]
-Krytyczne — [plik:linia] -> [sugerowany fix]
+OK — [what is good]
+Needs improvement — [file:line] -> [suggested fix]
+Critical — [file:line] -> [suggested fix]
 ```
 
 ---
 
-## 7. Granice
+## 7. Boundaries
 
-| Akcja                                  | Zasada             |
+| Action                                 | Rule               |
 | -------------------------------------- | ------------------ |
-| Edycja pliku                           | Nie — dzialaj      |
-| Usuniecie pliku                        | TAK — zapytaj      |
-| `rm -rf`, `DROP TABLE`, reset --hard   | TAK — zapytaj      |
-| Instalacja nowych zaleznosci           | TAK — zapytaj      |
-| Zmiana konfiguracji CI/CD / deploymentu | TAK — zapytaj      |
-| Commit lub push                        | Pokaz co i zapytaj |
-| Odczyt / wypisanie zawartosci `.env`   | Nigdy              |
+| File editing                           | No — just do it    |
+| File deletion                          | YES — ask          |
+| `rm -rf`, `DROP TABLE`, reset --hard   | YES — ask          |
+| Installing new dependencies            | YES — ask          |
+| Changing CI/CD / deployment config     | YES — ask          |
+| Commit or push                         | Show what and ask  |
+| Reading / printing `.env` contents     | Never              |
 
 ---
 
-## 8. Inicjalizacja projektu
+## 8. Project Initialization
 
-Gdy sekcja KONTEKST PROJEKTU jest pusta:
+When the PROJECT CONTEXT section is empty:
 
-1. Sprawdz `package.json`, `requirements.txt`, `pyproject.toml`, `Dockerfile`, `.env.example` i strukture folderow
-2. Wywnioskuj cel biznesowy projektu
-3. Napisz raport w czacie: Tytul, Opis, Stack, Kluczowe zaleznosci
-4. Dolacz liste pytan o brakujace informacje
-5. Zapytaj: _"Czy zatwierdzasz ten opis?"_
-6. **Dopiero po akceptacji** — edytuj sekcje Kontekst projektu
-
----
-
-## 9. Dokumentacja
-
-- `docs/guides/` — referencje (debugging, MCP, agent workflows)
-- `docs/decisions/` — decyzje architektoniczne (ADR)
-- `docs/tasks/` — zadania i tracking
-- `docs/context/` — kontekst projektu, notatki, specki
+1. Check `package.json`, `requirements.txt`, `pyproject.toml`, `Dockerfile`, `.env.example` and folder structure
+2. Infer the business purpose of the project
+3. Write a report in chat: Title, Description, Stack, Key dependencies
+4. Include a list of questions about missing information
+5. Ask: _"Do you approve this description?"_
+6. **Only after approval** — edit the Project Context section
 
 ---
 
-## 10. Agency Agents (144+ specjalistow)
+## 9. Documentation
 
-Zintegrowano 144+ agentow z [agency-agents](https://github.com/msitarzewski/agency-agents). Dostepni jako `subagent_type` w Agent tool. Pelna lista w `.claude/agents/`.
+- `docs/guides/` — references (debugging, MCP, agent workflows)
+- `docs/decisions/` — architectural decisions (ADR)
+- `docs/tasks/` — tasks and tracking
+- `docs/context/` — project context, notes, specs
 
-### Auto-dispatch (Claude Code nie ma tabow — uzywa LLM reasoning)
+---
 
-**Wywolanie:** `Agent` tool z `subagent_type`, np. `"Frontend Developer"`. Claude automatycznie wybiera agenta gdy:
-1. Opis agenta zawiera **trigger phrase**: `"USE THIS AGENT when: implementing code..."` — Claude dopasowuje do zadania
-2. Korzysta z **orchestration skill** w `.claude/skills/orchestration/SKILL.md` — pelna routing table
+## 10. Agency Agents (144+ specialists)
 
-**Orchestration skill** — laduje routing table i wzorce delegacji. Claude uzywa go przy decyzji komu delegowac.
+Integrated 144+ agents from [agency-agents](https://github.com/msitarzewski/agency-agents). Available as `subagent_type` in Agent tool. Full list in `.claude/agents/`.
 
-### Routing table (kluczowe agenty)
+### Auto-dispatch (Claude Code has no tabs — uses LLM reasoning)
 
-| Zadanie | subagent_type |
+**Invocation:** `Agent` tool with `subagent_type`, e.g., `"Frontend Developer"`. Claude automatically selects an agent when:
+1. The agent description contains a **trigger phrase**: `"USE THIS AGENT when: implementing code..."` — Claude matches it to the task
+2. It uses the **orchestration skill** in `.claude/skills/orchestration/SKILL.md` — full routing table
+
+**Orchestration skill** — loads the routing table and delegation patterns. Claude uses it when deciding whom to delegate to.
+
+### Routing table (key agents)
+
+| Task | subagent_type |
 |---------|--------------|
-| Frontend kod (React, Vue) | `"Frontend Developer"` |
+| Frontend code (React, Vue) | `"Frontend Developer"` |
 | Backend / API | `"Backend Architect"` |
-| Architektura systemu | `"Software Architect"` |
+| System architecture | `"Software Architect"` |
 | Security review | `"Security Engineer"` |
 | DevOps / CI/CD | `"DevOps Automator"` |
-| Baza danych | `"Database Optimizer"` |
+| Database | `"Database Optimizer"` |
 | AI/ML | `"AI Engineer"` |
 | MCP server | `"MCP Builder"` |
 | Code review | `"Code Reviewer"` |
 | API testing | `"API Tester"` |
 | Performance | `"Performance Benchmarker"` |
 | UX design | `"UX Architect"` |
-| Dokumentacja | `"Technical Writer"` |
-| Eksploracja kodu | `"Codebase Explorer"` |
+| Documentation | `"Technical Writer"` |
+| Code exploration | `"Codebase Explorer"` |
 | GitHub examples | `"GitHub Code Searcher"` |
-| Debugowanie | `"Debugger"` |
-| Zaleznosci npm | `"Dependency Auditor"` |
+| Debugging | `"Debugger"` |
+| npm dependencies | `"Dependency Auditor"` |
 | Sprint planning | `"Sprint Prioritizer"` |
 | Content | `"Content Creator"` |
 | SEO | `"SEO Specialist"` |
 
-### Lokalni agenci (project-specific)
+### Local agents (project-specific)
 
-| subagent_type | Rola |
+| subagent_type | Role |
 |---------------|------|
-| `"Debugger"` | Root cause analysis, diagnozowanie bledow |
-| `"Test Runner"` | Uruchamianie testow, analiza wynikow |
+| `"Debugger"` | Root cause analysis, diagnosing errors |
+| `"Test Runner"` | Running tests, analyzing results |
 | `"Dependency Auditor"` | npm/bun audit |
-| `"Codebase Explorer"` | Eksploracja codebase + websearch |
+| `"Codebase Explorer"` | Codebase exploration + websearch |
 | `"GitHub Code Searcher"` | GitHub code search |
 
-Pelny katalog: `docs/context/agency-agents-catalog.md`
+Full catalog: `docs/context/agency-agents-catalog.md`
 
-Sync: `bash scripts/sync-agents.sh` (regeneruje agentow, trigger phrases, orchestration skill)
+Sync: `bash scripts/sync-agents.sh` (regenerates agents, trigger phrases, orchestration skill)
 
 ---
 
-## Kontekst projektu
+## Project Context
 
-<!-- DO UZUPELNIENIA: Agent wypelnia te sekcje po inicjalizacji projektu.
+<!-- TO BE FILLED: The agent fills this section after project initialization.
 Format:
-- Tytul:
-- Opis:
+- Title:
+- Description:
 - Stack:
-- Kluczowe zaleznosci:
-- Notatki: -->
+- Key dependencies:
+- Notes: -->

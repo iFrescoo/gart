@@ -1,84 +1,87 @@
-# Zasady — AntiGravity IDE
+# Rules — AntiGravity IDE
 
-Odpowiadaj **wylacznie po polsku**, chyba ze kod, komendy lub nazwy techniczne wymagaja angielskiego.
+## Language
 
----
-
-## 1. Zasady pracy
-
-- **NIGDY** nie generuj calego pliku dla malych zmian. Uzywaj `// ... reszta kodu bez zmian ...`
-- Badz **zwiezly i konkretny** — bez zbednego wypelniacza
-- Zanim wygenerujesz dlugie rozwiazanie — napisz plan w 2-3 zdaniach i zapytaj: _"Czy mam isc w tym kierunku?"_
-- Nie halucynuj. Jesli czegos nie wiesz: `"Nie wiem, potrzebuje wiecej kontekstu o [X]"`
-- Jedno konkretne pytanie gdy potrzebujesz clarification — nie lista pieciu
-- **Terminal:** Przed wykonaniem komendy — pokaz ja uzytkownikowi. Na koncu daj gotowa liste krokow (copy-paste ready) ze wskazaniem gdzie uruchomic: WSL, PowerShell, CMD lub terminal projektu.
-- Komendy destrukcyjne — **ZAWSZE** pytaj o zgode
-- Nie instaluj paczek bez jawnej zgody
-- Nie ma systemu lock plikow — dzialaj bezposrednio
+Respond in: English
+Write code comments in: English
 
 ---
 
-## 2. Generowanie kodu
+## 1. Working Principles
 
-- Minimalne, celowe zmiany — nie przepisuj tego co dziala
-- Sprawdzaj importy — nie dodawaj duplikatow, nie zostawiaj nieuzywanych
-- `// PRZED:` -> `// PO:` dla krytycznych zmian logiki
-- Czysty kod: male funkcje, czytelne nazwy, brak magicznych liczb
-- SOLID — szczegolnie Single Responsibility i Dependency Inversion
-- TypeScript: strict mode, brak `any`, explicit return types dla funkcji publicznych
+- **NEVER** generate an entire file for small changes. Use `// ... rest of the code unchanged ...`
+- Be **concise and specific** — no unnecessary filler
+- Before generating a lengthy solution — write a plan in 2-3 sentences and ask: _"Should I go in this direction?"_
+- Do not hallucinate. If you don't know something: `"I don't know, I need more context about [X]"`
+- One specific question when you need clarification — not a list of five
+- **Terminal:** Before executing a command — show it to the user. At the end, provide a ready list of steps (copy-paste ready) indicating where to run them: WSL, PowerShell, CMD, or project terminal.
+- Destructive commands — **ALWAYS** ask for permission
+- Do not install packages without explicit permission
+- There is no file lock system — work directly
+
+---
+
+## 2. Code Generation
+
+- Minimal, intentional changes — do not rewrite what already works
+- Check imports — do not add duplicates, do not leave unused ones
+- `// BEFORE:` -> `// AFTER:` for critical logic changes
+- Clean code: small functions, readable names, no magic numbers
+- SOLID — especially Single Responsibility and Dependency Inversion
+- TypeScript: strict mode, no `any`, explicit return types for public functions
 - Conventional Commits: `feat:` / `fix:` / `docs:` / `refactor:` / `test:` / `chore:`
 
 ---
 
-## 3. Nawigacja po kodzie
+## 3. Code Navigation
 
-1. **`mgrep`** (MCP) — zawsze jako pierwsze. Semantyczna szukajka: rozumie znaczenie, nie tylko tekst. Jedno zapytanie zamiast czytania 20 plikow. **Widzi pliki z `.gitignore` ktorych grep nie widzi.**
-2. **`lsp`** — go to definition, find references, call hierarchy. Uzywaj gdy znasz juz symbol.
-3. **`grep`** — dokladny string/regex. Uwaga: nie widzi plikow z `.gitignore`.
-4. **`glob`** / **`list`** — struktura katalogow, wzorce sciezek.
-5. **`read`** — czytaj plik tylko gdy juz wiesz ktory to i musisz zobaczyc zawartosc.
+1. **`mgrep`** (MCP) — always use first. Semantic search: understands meaning, not just text. One query instead of reading 20 files. **Sees files in `.gitignore` that grep cannot see.**
+2. **`lsp`** — go to definition, find references, call hierarchy. Use when you already know the symbol.
+3. **`grep`** — exact string/regex. Note: does not see files in `.gitignore`.
+4. **`glob`** / **`list`** — directory structure, path patterns.
+5. **`read`** — read a file only when you already know which one and need to see its contents.
 
-> ZAKAZ: Nie czytaj plikow po kolei w poszukiwaniu czegos. Najpierw znajdz przez mgrep/grep, potem czytaj.
+> PROHIBITED: Do not read files one by one searching for something. First find via mgrep/grep, then read.
 
 ---
 
-## 4. Narzedzia MCP
+## 4. MCP Tools
 
-| Serwer         | Rola                                                       |
+| Server         | Role                                                       |
 | -------------- | ---------------------------------------------------------- |
-| `mgrep`        | Semantic code search po projekcie                          |
-| `context-mode` | Ochrona context window — indeksuj duze outputy w sandboxie |
-| `gh_grep`      | GitHub code search (przez `@gh-search`)                    |
-| `MCP_DOCKER`   | Docker MCP Gateway — pelny zestaw serwerow                 |
+| `mgrep`        | Semantic code search across the project                    |
+| `context-mode` | Context window protection — index large outputs in sandbox |
+| `gh_grep`      | GitHub code search (via `@gh-search`)                      |
+| `MCP_DOCKER`   | Docker MCP Gateway — full set of servers                   |
 
-> AntiGravity ma limit 100 narzedzi. Uzywaj `--servers` do filtrowania i `mcp-exec` zamiast `mcp-add` dla rzadko uzywanych serwerow.
+> AntiGravity has a limit of 100 tools. Use `--servers` for filtering and `mcp-exec` instead of `mcp-add` for rarely used servers.
 
-### MCP Docker — meta-narzedzia (zawsze dostepne)
+### MCP Docker — Meta-Tools (Always Available)
 
-| Narzedzie  | Opis                                                         |
+| Tool       | Description                                                  |
 | ---------- | ------------------------------------------------------------ |
-| `mcp-find` | Szukaj w katalogu 316+ serwerow MCP po nazwie/opisie         |
-| `mcp-exec` | Wywolaj narzedzie z dowolnego serwera bez dodawania do sesji |
-| `mcp-add`  | Dodaj serwer do biezacej sesji                               |
+| `mcp-find` | Search the catalog of 316+ MCP servers by name/description   |
+| `mcp-exec` | Invoke a tool from any server without adding it to the session |
+| `mcp-add`  | Add a server to the current session                          |
 
-### Przydatne serwery Docker MCP
+### Useful Docker MCP Servers
 
-- **context7** — dokumentacja bibliotek (`resolve-library-id` -> `query-docs`). Uzywaj zamiast halucynowania o API.
-- **playwright** — browser automation gdy fetch nie wystarczy (SPA, JS-rendered, Cloudflare)
+- **context7** — library documentation (`resolve-library-id` -> `query-docs`). Use instead of hallucinating about APIs.
+- **playwright** — browser automation when fetch is not enough (SPA, JS-rendered, Cloudflare)
 - **github-official** — GitHub API (issues, PR, commits, code search)
-- **memory** — pamiec miedzy sesjami (`memory_store` / `memory_retrieve`)
-- **sequential-thinking** — rozumowanie krok-po-kroku przy zlozonych problemach
-- **docker-hub** — Docker Hub: obrazy, tagi, wersje
+- **memory** — memory between sessions (`memory_store` / `memory_retrieve`)
+- **sequential-thinking** — step-by-step reasoning for complex problems
+- **docker-hub** — Docker Hub: images, tags, versions
 
 ---
 
-## 5. Skills i agenci
+## 5. Skills and Agents
 
-### Trzy poziomy automatyzacji AntiGravity
+### Three Levels of AntiGravity Automation
 
-1. **Rules** (`.agent/rules/`) — instrukcje per jezyk/sciezka, ladowane automatycznie
-2. **Skills** (`.agent/skills/`) — jednorazowe akcje wywolywane na zadanie
-3. **Workflows** (`.agent/workflows/`) — wieloetapowe przeplywy laczace skille
+1. **Rules** (`.agent/rules/`) — instructions per language/path, loaded automatically
+2. **Skills** (`.agent/skills/`) — one-off actions invoked per task
+3. **Workflows** (`.agent/workflows/`) — multi-step flows combining skills
 
 ### Workflow Skills (7 — `.opencode/skills/`)
 
@@ -88,143 +91,143 @@ Odpowiadaj **wylacznie po polsku**, chyba ze kod, komendy lub nazwy techniczne w
 
 `adapt`, `animate`, `audit`, `bolder`, `clarify`, `colorize`, `critique`, `delight`, `distill`, `extract`, `frontend-design`, `harden`, `normalize`, `onboard`, `optimize`, `polish`, `quieter`, `teach-impeccable`
 
-### Agenci i orkiestracja
+### Agents and Orchestration
 
-**Workflow orkiestracji:** `.agent/workflows/orchestrate.md` — aktywuj gdy zadanie wymaga wielu specjalistow.
+**Orchestration workflow:** `.agent/workflows/orchestrate.md` — activate when a task requires multiple specialists.
 
-| Skill | Rola |
+| Skill | Role |
 |-------|------|
-| `agency-codebase-explorer` | Eksploracja codebase, research |
+| `agency-codebase-explorer` | Codebase exploration, research |
 | `agency-github-code-searcher` | GitHub code search |
-| `agency-debugger` | Analiza bledow, root cause |
-| `agency-test-runner` | Uruchamianie testow |
+| `agency-debugger` | Error analysis, root cause |
+| `agency-test-runner` | Running tests |
 | `agency-dependency-auditor` | npm/bun audit |
 | `agency-frontend-developer` | Frontend implementation |
 | `agency-backend-architect` | Backend / API |
-| `agency-software-architect` | Architektura systemu |
+| `agency-software-architect` | System architecture |
 | `agency-security-engineer` | Security review |
 | `agency-code-reviewer` | Code review |
-| `agency-technical-writer` | Dokumentacja |
-| `forge` | Tworzenie agentow/skills/komend (niezalezny) |
+| `agency-technical-writer` | Documentation |
+| `forge` | Creating agents/skills/commands (independent) |
 
 ---
 
-## 6. Bezpieczenstwo i jakosc
+## 6. Security and Quality
 
-**Bezpieczenstwo — sprawdzaj proaktywnie:**
+**Security — check proactively:**
 
-- SQL Injection (zapytania bez parametryzacji)
-- XSS (innerHTML, dangerouslySetInnerHTML bez sanityzacji)
-- CSRF (brakujace tokeny)
-- Hardcoded credentials / API keys w kodzie
-- Dane wrazliwe w logach lub odpowiedziach API
-- Pliki `.env` — nigdy nie commituj, nigdy nie czytaj na glos zawartosci
+- SQL Injection (queries without parameterization)
+- XSS (innerHTML, dangerouslySetInnerHTML without sanitization)
+- CSRF (missing tokens)
+- Hardcoded credentials / API keys in code
+- Sensitive data in logs or API responses
+- `.env` files — never commit, never read contents aloud
 
-**Wydajnosc — wskazuj konkretnie:**
+**Performance — point out specifically:**
 
-- Petle O(n^2) gdzie mozna O(n)
-- N+1 queries do bazy danych
-- Zbedne re-rendery w React (brakujace memo/useMemo/useCallback)
-- Memory leaks (nieoczyszczone event listenery, timery, subscriptions)
+- O(n^2) loops where O(n) is possible
+- N+1 database queries
+- Unnecessary re-renders in React (missing memo/useMemo/useCallback)
+- Memory leaks (uncleaned event listeners, timers, subscriptions)
 
 **Code review — format:**
 
 ```
-OK — [co jest dobrze]
-Do poprawy — [plik:linia] -> [sugerowany fix]
-Krytyczne — [plik:linia] -> [sugerowany fix]
+OK — [what is good]
+Needs improvement — [file:line] -> [suggested fix]
+Critical — [file:line] -> [suggested fix]
 ```
 
-**Debugowanie:** Pelny protokol w `docs/guides/debugging.md` (6 krokow: reprodukcja -> izolacja -> inspekcja -> hipoteza -> fix -> prewencja).
+**Debugging:** Full protocol in `docs/guides/debugging.md` (6 steps: reproduce -> isolate -> inspect -> hypothesize -> fix -> prevent).
 
 ---
 
-## 7. Granice
+## 7. Boundaries
 
-| Akcja                                  | Zasada             |
+| Action                                 | Rule               |
 | -------------------------------------- | ------------------ |
-| Edycja pliku                           | Nie — dzialaj      |
-| Usuniecie pliku                        | TAK — zapytaj      |
-| `rm -rf`, `DROP TABLE`, reset --hard   | TAK — zapytaj      |
-| Instalacja nowych zaleznosci           | TAK — zapytaj      |
-| Zmiana konfiguracji CI/CD / deploymentu | TAK — zapytaj      |
-| Commit lub push                        | Pokaz co i zapytaj |
-| Odczyt / wypisanie zawartosci `.env`   | Nigdy              |
+| File editing                           | No — just do it    |
+| File deletion                          | YES — ask first    |
+| `rm -rf`, `DROP TABLE`, reset --hard   | YES — ask first    |
+| Installing new dependencies            | YES — ask first    |
+| Changing CI/CD / deployment config     | YES — ask first    |
+| Commit or push                         | Show what and ask  |
+| Reading / printing `.env` contents     | Never              |
 
 ---
 
-## 8. Inicjalizacja projektu
+## 8. Project Initialization
 
-Gdy sekcja KONTEKST PROJEKTU jest pusta:
+When the PROJECT CONTEXT section is empty:
 
-1. Sprawdz `package.json`, `requirements.txt`, `pyproject.toml`, `Dockerfile`, `.env.example` i strukture folderow
-2. Wywnioskuj cel biznesowy projektu
-3. Napisz raport w czacie: Tytul, Opis, Stack, Kluczowe zaleznosci
-4. Dolacz liste pytan o brakujace informacje
-5. Zapytaj: _"Czy zatwierdzasz ten opis?"_
-6. **Dopiero po akceptacji** — edytuj sekcje Kontekst projektu
-
----
-
-## 9. Dokumentacja
-
-- `docs/guides/` — referencje (debugging, MCP, agent workflows)
-- `docs/decisions/` — decyzje architektoniczne (ADR)
-- `docs/tasks/` — zadania i tracking
-- `docs/context/` — kontekst projektu, notatki, specki
+1. Check `package.json`, `requirements.txt`, `pyproject.toml`, `Dockerfile`, `.env.example` and the folder structure
+2. Infer the business goal of the project
+3. Write a report in chat: Title, Description, Stack, Key dependencies
+4. Include a list of questions about missing information
+5. Ask: _"Do you approve this description?"_
+6. **Only after approval** — edit the Project Context section
 
 ---
 
-## 10. Agency Agents — Orkiestracja (144+ specjalistow)
+## 9. Documentation
 
-Dostepni jako skills w `.agent/skills/agency-*/SKILL.md`. Workflow orkiestracji: `.agent/workflows/orchestrate.md`.
+- `docs/guides/` — references (debugging, MCP, agent workflows)
+- `docs/decisions/` — architectural decisions (ADR)
+- `docs/tasks/` — tasks and tracking
+- `docs/context/` — project context, notes, specs
 
-### Kiedy delegowac do specjalistow
+---
 
-Aktywuj workflow `orchestrate` gdy:
-- Zadanie wymaga ekspertyzy z wielu dziedzin
-- Jest wiele niezaleznych podzadan (mozna rownolegle)
-- Zadanie ma fazy: research → implementacja → review → testy
+## 10. Agency Agents — Orchestration (144+ Specialists)
 
-### Wzorce delegacji
+Available as skills in `.agent/skills/agency-*/SKILL.md`. Orchestration workflow: `.agent/workflows/orchestrate.md`.
+
+### When to Delegate to Specialists
+
+Activate the `orchestrate` workflow when:
+- The task requires expertise from multiple domains
+- There are many independent subtasks (can run in parallel)
+- The task has phases: research → implementation → review → tests
+
+### Delegation Patterns
 
 **Sequential:** `agency-software-architect → agency-backend-architect → agency-code-reviewer`
 
-**Parallel:** `agency-frontend-developer + agency-backend-architect (jednoczesnie)`
+**Parallel:** `agency-frontend-developer + agency-backend-architect (simultaneously)`
 
 **Research first:** `agency-codebase-explorer → agency-[specialist] → agency-reality-checker`
 
-### Routing per typ zadania
+### Routing per Task Type
 
-| Zadanie | Aktywuj skill |
-|---------|---------------|
-| Frontend kod | agency-frontend-developer |
+| Task | Activate skill |
+|------|----------------|
+| Frontend code | agency-frontend-developer |
 | Backend / API | agency-backend-architect |
-| Architektura | agency-software-architect |
+| Architecture | agency-software-architect |
 | Security | agency-security-engineer |
 | DevOps / CI | agency-devops-automator |
-| Baza danych | agency-database-optimizer |
+| Database | agency-database-optimizer |
 | AI/ML | agency-ai-engineer |
 | Code review | agency-code-reviewer |
-| API testy | agency-api-tester |
+| API tests | agency-api-tester |
 | UX design | agency-ux-architect |
-| Dokumentacja | agency-technical-writer |
-| Eksploracja kodu | agency-codebase-explorer |
-| Debugowanie | agency-debugger |
-| Zaleznosci | agency-dependency-auditor |
+| Documentation | agency-technical-writer |
+| Code exploration | agency-codebase-explorer |
+| Debugging | agency-debugger |
+| Dependencies | agency-dependency-auditor |
 
-Pelny katalog: `docs/context/agency-agents-catalog.md`
+Full catalog: `docs/context/agency-agents-catalog.md`
 
-Sync: `bash scripts/sync-agents.sh` (regeneruje workflow, routing table)
+Sync: `bash scripts/sync-agents.sh` (regenerates workflow, routing table)
 
 ---
 
-## Kontekst projektu
+## Project Context
 
-<!-- DO UZUPELNIENIA: Agent wypelnia te sekcje po inicjalizacji projektu.
+<!-- TO BE FILLED: Agent fills this section after project initialization.
 Format:
-- Tytul:
-- Opis:
+- Title:
+- Description:
 - Stack:
-- Kluczowe zaleznosci:
-- Notatki: -->
+- Key dependencies:
+- Notes: -->

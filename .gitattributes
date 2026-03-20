@@ -1,0 +1,4 @@
+# Generated agents — hidden in GitHub PR diffs
+.claude/agents/** linguist-generated=true
+.opencode/agents/** linguist-generated=true
+.agent/skills/** linguist-generated=true

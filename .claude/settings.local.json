@@ -35,7 +35,11 @@
       "Bash(ls g:/agentic-coding-template/.opencode/agents/agency-*.md)",
       "Bash(ls g:/agentic-coding-template/.claude/agents/*.md)",
       "Bash(ls -d g:/agentic-coding-template/.agent/skills/agency-*/)",
-      "Bash(ls g:/agentic-coding-template/.opencode/agents/*.md)"
+      "Bash(ls g:/agentic-coding-template/.opencode/agents/*.md)",
+      "Bash(find /g/agentic-coding-template -maxdepth 2 -type d -name bin -o -type f -name *eslint* -o -type f -name .eslintrc*)",
+      "Bash(npm view:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

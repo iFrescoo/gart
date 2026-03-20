@@ -36,3 +36,7 @@ bun.lock
 dist/
 build/
 out/
+
+# CLI build output
+cli/dist/
+cli/node_modules/

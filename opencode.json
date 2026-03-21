@@ -26,7 +26,17 @@
     ".opencode/skills/systematic-debugging/SKILL.md",
     ".opencode/skills/writing-plans/SKILL.md",
     ".opencode/skills/frontend-design/SKILL.md",
-    ".opencode/skills/orchestration/SKILL.md"
+    ".opencode/skills/orchestration/SKILL.md",
+    ".claude/rules/core.md",
+    ".claude/rules/code-generation.md",
+    ".claude/rules/navigation.md",
+    ".claude/rules/security.md",
+    ".claude/rules/boundaries.md",
+    ".claude/rules/error-handling.md",
+    ".claude/rules/git.md",
+    ".claude/rules/typescript.md",
+    ".claude/rules/testing.md",
+    ".claude/rules/performance.md"
   ],
   "mcp": {
     "context-mode": {

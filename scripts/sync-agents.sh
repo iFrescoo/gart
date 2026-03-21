@@ -14,6 +14,8 @@
 #   9. Generate orchestration skill (.opencode/skills/ + .claude/skills/)
 #  10. Generate AntiGravity orchestration workflow
 #  11. Copy AntiGravity skills from upstream
+#  12. Copy impeccable design skills to AntiGravity
+#  13. Sync AntiGravity workflows → OpenCode commands
 #
 # Usage:
 #   ./scripts/sync-agents.sh [--force]
@@ -300,6 +302,24 @@ TEMPS[spatial-computing]="0.3"
 TEMPS[specialized]="0.2"
 TEMPS[integrations]="0.2"
 
+# Model per division — Flash for read-only/QA, Pro for implementation/creative
+declare -A MODELS
+MODEL_PRO="google/gemini-3.1-pro-preview-customtools"
+MODEL_FLASH="google/gemini-2.5-flash"
+MODELS[engineering]="$MODEL_PRO"
+MODELS[design]="$MODEL_PRO"
+MODELS[marketing]="$MODEL_PRO"
+MODELS[product]="$MODEL_PRO"
+MODELS[testing]="$MODEL_FLASH"
+MODELS[support]="$MODEL_FLASH"
+MODELS[project-management]="$MODEL_PRO"
+MODELS[sales]="$MODEL_PRO"
+MODELS[paid-media]="$MODEL_PRO"
+MODELS[game-development]="$MODEL_PRO"
+MODELS[spatial-computing]="$MODEL_PRO"
+MODELS[specialized]="$MODEL_PRO"
+MODELS[integrations]="$MODEL_PRO"
+
 # Colors per division
 declare -A COLORS
 COLORS[engineering]="#339af0"
@@ -581,6 +601,7 @@ for dir in "${AGENT_DIRS[@]}"; do
 
   perms="${PERMS[$dir]:-${PERMS[specialized]}}"
   temp="${TEMPS[$dir]:-0.2}"
+  model="${MODELS[$dir]:-$MODEL_PRO}"
   trigger="${TRIGGERS[$dir]:-}"
 
   for f in "$src"/*.md; do
@@ -600,7 +621,7 @@ for dir in "${AGENT_DIRS[@]}"; do
 ---
 description: "${desc_enriched} — Invoke via @${slug}"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: ${model}
 temperature: ${temp}
 color: "${color}"
 steps: 15
@@ -639,6 +660,7 @@ if [[ -d "$LOCAL_AGENTS_DIR" ]]; then
     color="$(resolve_color "$color_raw")"
     perms="${PERMS[$div]:-${PERMS[specialized]}}"
     temp="${TEMPS[$div]:-0.2}"
+    model="${MODELS[$div]:-$MODEL_PRO}"
     trigger="${TRIGGERS[$div]:-}"
     desc_enriched="${description}"
     [[ -n "$trigger" ]] && desc_enriched="${description} — ${trigger}"
@@ -648,7 +670,7 @@ if [[ -d "$LOCAL_AGENTS_DIR" ]]; then
 ---
 description: "${desc_enriched} — Invoke via @${slug}"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: ${model}
 temperature: ${temp}
 color: "${color}"
 steps: 20
@@ -737,7 +759,7 @@ for team in "${TEAM_ORDER[@]}"; do
 ---
 description: "${emoji} ${label} division coordinator — analyzes tasks and delegates to ${total_agents} specialists. — Invoke via @${team}"
 mode: primary
-model: google/gemini-3.1-pro-preview-customtools
+model: ${MODEL_PRO}
 temperature: 0.2
 color: "${color}"
 steps: 25
@@ -825,7 +847,7 @@ cat > "$OPENCODE_AGENTS/orchestrator.md" <<HEREDOC
 ---
 description: "🎯 CTO-level orchestrator — decomposes complex tasks and delegates to division teams and specialists across all ${total_all}+ agents. — Invoke via @orchestrator"
 mode: primary
-model: google/gemini-3.1-pro-preview-customtools
+model: ${MODEL_PRO}
 temperature: 0.2
 color: "#adb5bd"
 steps: 40
@@ -1080,6 +1102,63 @@ else
 fi
 
 # ==========================================================================
+# Step 12: Copy impeccable design skills to AntiGravity
+# ==========================================================================
+header "Step 12: Copying design skills to AntiGravity"
+
+DESIGN_SKILLS=(adapt animate audit bolder clarify colorize critique delight distill extract frontend-design harden normalize onboard optimize polish quieter teach-impeccable)
+ds_count=0
+for skill in "${DESIGN_SKILLS[@]}"; do
+  src="$PROJECT_ROOT/.claude/skills/${skill}"
+  if [[ -d "$src" ]]; then
+    dest="$ANTIGRAVITY_SKILLS/${skill}"
+    mkdir -p "$dest"
+    cp -r "$src"/* "$dest/"
+    (( ds_count++ )) || true
+  fi
+done
+info "AntiGravity: $ds_count impeccable design skills copied"
+
+# ==========================================================================
+# Step 13: Sync AntiGravity workflows → OpenCode commands
+# ==========================================================================
+header "Step 13: Syncing workflows to OpenCode commands"
+
+OPENCODE_COMMANDS="$PROJECT_ROOT/.opencode/commands"
+mkdir -p "$OPENCODE_COMMANDS"
+cmd_count=0
+for wf in "$AGENT_WORKFLOWS"/*.md; do
+  [[ -f "$wf" ]] || continue
+  base="$(basename "$wf" .md)"
+  # Skip orchestrate workflow — already handled by orchestrator agent
+  [[ "$base" == "orchestrate" ]] && continue
+
+  wf_name="$(get_field "name" "$wf")"
+  wf_desc="$(get_field "description" "$wf")"
+  wf_body="$(get_body "$wf")"
+  [[ -z "$wf_desc" ]] && continue
+
+  target="$OPENCODE_COMMANDS/${base}.md"
+  # Don't overwrite manually created commands
+  if [[ -f "$target" ]]; then
+    (( cmd_count++ )) || true
+    continue
+  fi
+
+  cat > "$target" <<CMDEOF
+---
+description: ${wf_desc}
+agent: build
+---
+
+${wf_body}
+CMDEOF
+
+  (( cmd_count++ )) || true
+done
+info "OpenCode: $cmd_count workflow commands synced to .opencode/commands/"
+
+# ==========================================================================
 # Summary
 # ==========================================================================
 header "Sync complete!"
@@ -1091,6 +1170,8 @@ echo "  Orchestrator:   1                      → .opencode/agents/orchestrator
 echo "  Orch. skill:    1                      → .opencode + .claude skills/"
 echo "  AG workflow:    1                      → .agent/workflows/"
 echo "  AntiGravity:    $ag_count skills       → .agent/skills/"
+echo "  Design skills:  $ds_count              → .agent/skills/ (from .claude/)"
+echo "  OC commands:    $cmd_count             → .opencode/commands/"
 echo ""
 echo "  Upstream:       $UPSTREAM_DIR"
 echo ""

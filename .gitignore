@@ -40,3 +40,6 @@ out/
 # CLI build output
 cli/dist/
 cli/node_modules/
+
+# Local IDE settings (user-specific paths/permissions)
+.claude/settings.local.json

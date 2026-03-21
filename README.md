@@ -38,9 +38,9 @@ The interactive CLI lets you:
 
 | Tool | Config Files | What's Included |
 |------|-------------|--------|
-| **Claude Code** | `.claude/`, `CLAUDE.md`, `.mcp.json` | 274 agents, 19 skills, 11 hooks, 23 rules |
+| **Claude Code** | `.claude/`, `CLAUDE.md`, `.mcp.json` | 274 agents, 19 skills, 11 hooks, 25 rules |
 | **OpenCode** | `.opencode/`, `opencode.json`, `AGENTS.md` | 154 agents, 25 skills, commands |
-| **AntiGravity** | `.agent/`, `GEMINI.md` | 155 skills, orchestration workflow |
+| **AntiGravity** | `.agent/`, `GEMINI.md` | 155 skills, 25 rules, 6 workflows |
 
 ## Scoped Rules (Claude Code)
 
@@ -73,6 +73,21 @@ GART includes 23 per-domain rule files in `.claude/rules/` — loaded automatica
 | `bash-logger` | Audit | Logs bash commands with timestamps |
 | `dep-audit` | Workflow | Runs `npm audit` after package.json changes |
 | `warn-large-files` | Workflow | Warns when files exceed 500 lines |
+
+## Scoped Rules & Workflows (AntiGravity)
+
+GART includes the same 23 per-domain rule files in `.agent/rules/` — loaded automatically when AntiGravity works with matching files. Same categories as Claude Code rules above.
+
+6 workflows in `.agent/workflows/` — triggered via `/` command:
+
+| Workflow | What it does |
+|----------|-------------|
+| `orchestrate` | Multi-agent delegation across specialist domains |
+| `code-review` | Structured review: OK / Needs improvement / Critical |
+| `debugging` | 6-step protocol: reproduce, isolate, inspect, hypothesize, fix, prevent |
+| `git-workflow` | Branch naming, Conventional Commits, PR checklist |
+| `testing` | Test strategy: unit, integration, e2e with coverage targets |
+| `security-audit` | OWASP Top 10 checklist, dependency audit, secrets check |
 
 ## Prerequisites
 

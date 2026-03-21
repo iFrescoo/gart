@@ -1,0 +1,95 @@
+{
+  "description": "Maps file extensions and path patterns to agent divisions for automated PR triage",
+  "patterns": {
+    "*.ts": ["engineering"],
+    "*.tsx": ["engineering", "design"],
+    "*.js": ["engineering"],
+    "*.jsx": ["engineering", "design"],
+    "*.css": ["design"],
+    "*.scss": ["design"],
+    "*.html": ["design"],
+    "*.vue": ["engineering", "design"],
+    "*.svelte": ["engineering", "design"],
+    "*.py": ["engineering"],
+    "*.rs": ["engineering"],
+    "*.go": ["engineering"],
+    "*.java": ["engineering"],
+    "*.sh": ["engineering"],
+    "*.sql": ["engineering"],
+    "*.prisma": ["engineering"],
+    "*.test.ts": ["testing"],
+    "*.test.tsx": ["testing"],
+    "*.spec.ts": ["testing"],
+    "*.test.js": ["testing"],
+    "*.e2e.ts": ["testing"],
+    "*.md": ["documentation"],
+    "*.mdx": ["documentation"],
+    "*.json": ["engineering"],
+    "*.yaml": ["engineering"],
+    "*.yml": ["engineering"],
+    "*.toml": ["engineering"],
+    "*.dockerfile": ["engineering"],
+    "Dockerfile": ["engineering"],
+    "*.tf": ["engineering"],
+    "*.gdscript": ["game-development"],
+    "*.gd": ["game-development"],
+    "*.cs": ["engineering", "game-development"],
+    "*.cpp": ["engineering"],
+    "*.hlsl": ["game-development"],
+    "*.glsl": ["game-development", "spatial-computing"],
+    "*.shader": ["game-development"],
+    "*.swift": ["engineering", "spatial-computing"],
+    "*.sol": ["engineering"]
+  },
+  "path_patterns": {
+    ".github/**": ["engineering"],
+    ".claude/**": ["engineering"],
+    ".opencode/**": ["engineering"],
+    ".agent/**": ["engineering"],
+    "docs/**": ["documentation"],
+    "tests/**": ["testing"],
+    "e2e/**": ["testing"],
+    "cypress/**": ["testing"],
+    "playwright/**": ["testing"],
+    "scripts/**": ["engineering"],
+    "infra/**": ["engineering"],
+    "terraform/**": ["engineering"],
+    "k8s/**": ["engineering"],
+    "marketing/**": ["marketing"],
+    "sales/**": ["sales"]
+  },
+  "division_agents": {
+    "engineering": [
+      "Frontend Developer",
+      "Backend Architect",
+      "DevOps Automator",
+      "GitHub Operations Master",
+      "Database Optimizer"
+    ],
+    "design": [
+      "UX Architect",
+      "UI Designer",
+      "Frontend Developer",
+      "Accessibility Auditor"
+    ],
+    "testing": [
+      "API Tester",
+      "Performance Benchmarker",
+      "Evidence Collector",
+      "Test Results Analyzer"
+    ],
+    "documentation": ["Technical Writer"],
+    "game-development": [
+      "Game Designer",
+      "Godot Gameplay Scripter",
+      "Unity Architect",
+      "Unreal Systems Engineer"
+    ],
+    "spatial-computing": [
+      "visionOS Spatial Engineer",
+      "XR Immersive Developer"
+    ],
+    "marketing": ["Content Creator", "SEO Specialist"],
+    "sales": ["Deal Strategist", "Sales Engineer"]
+  }
+}

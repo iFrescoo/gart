@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: cli/package-lock.json
+
+      - name: Install dependencies
+        run: cd cli && npm ci
+
+      - name: Typecheck
+        run: cd cli && npm run typecheck
+
+      - name: Build
+        run: cd cli && npm run build
+
+  validate-scripts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate sync-agents.sh syntax
+        run: bash -n scripts/sync-agents.sh
+
+  validate-agents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Count Claude Code agents
+        run: |
+          count=$(find .claude/agents -name '*.md' ! -name 'README.md' | wc -l)
+          echo "Claude Code agents: $count"
+          if [ "$count" -lt 270 ]; then
+            echo "::error::Expected at least 270 Claude Code agents, found $count"
+            exit 1
+          fi
+
+      - name: Count OpenCode agents
+        run: |
+          count=$(find .opencode/agents -name '*.md' ! -name 'README.md' | wc -l)
+          echo "OpenCode agents: $count"
+          if [ "$count" -lt 150 ]; then
+            echo "::error::Expected at least 150 OpenCode agents, found $count"
+            exit 1
+          fi
+
+      - name: Count AntiGravity skills
+        run: |
+          count=$(find .agent/skills -name 'SKILL.md' | wc -l)
+          echo "AntiGravity skills: $count"
+          if [ "$count" -lt 150 ]; then
+            echo "::error::Expected at least 150 AntiGravity skills, found $count"
+            exit 1
+          fi

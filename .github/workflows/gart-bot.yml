@@ -1,0 +1,209 @@
+name: GART Bot
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: gart-bot-${{ github.event.number || github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  pr-triage:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Analyze changed files and suggest agents
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+
+          # Get changed files
+          FILES=$(gh pr diff "$PR_NUMBER" --name-only)
+
+          if [ -z "$FILES" ]; then
+            echo "No changed files found"
+            exit 0
+          fi
+
+          # Load division mapping
+          MAPPING="scripts/file-to-division.json"
+          if [ ! -f "$MAPPING" ]; then
+            echo "file-to-division.json not found, skipping"
+            exit 0
+          fi
+
+          # Collect divisions from changed files
+          declare -A DIVISIONS
+          declare -A LABELS
+
+          while IFS= read -r file; do
+            ext="${file##*.}"
+
+            # Check path patterns first
+            if [[ "$file" == .github/* ]]; then
+              DIVISIONS[engineering]=1
+            elif [[ "$file" == .claude/* || "$file" == .opencode/* || "$file" == .agent/* ]]; then
+              DIVISIONS[engineering]=1
+            elif [[ "$file" == docs/* ]]; then
+              DIVISIONS[documentation]=1
+            elif [[ "$file" == tests/* || "$file" == e2e/* || "$file" == cypress/* || "$file" == playwright/* ]]; then
+              DIVISIONS[testing]=1
+            elif [[ "$file" == scripts/* ]]; then
+              DIVISIONS[engineering]=1
+            fi
+
+            # Check extension patterns
+            case "$ext" in
+              ts|js|py|rs|go|java|sh|sql|json|yaml|yml|toml)
+                DIVISIONS[engineering]=1 ;;
+              tsx|jsx|vue|svelte)
+                DIVISIONS[engineering]=1
+                DIVISIONS[design]=1 ;;
+              css|scss|html)
+                DIVISIONS[design]=1 ;;
+              md|mdx)
+                DIVISIONS[documentation]=1 ;;
+              gdscript|gd|hlsl|glsl|shader)
+                DIVISIONS[game-development]=1 ;;
+              swift)
+                DIVISIONS[engineering]=1
+                DIVISIONS[spatial-computing]=1 ;;
+              sol)
+                DIVISIONS[engineering]=1 ;;
+            esac
+
+            # Check for test files specifically
+            if [[ "$file" == *.test.* || "$file" == *.spec.* || "$file" == *.e2e.* ]]; then
+              DIVISIONS[testing]=1
+            fi
+          done <<< "$FILES"
+
+          if [ ${#DIVISIONS[@]} -eq 0 ]; then
+            echo "No divisions matched"
+            exit 0
+          fi
+
+          # Build comment with suggested agents per division
+          COMMENT="## 🤖 GART Agent Suggestions\n\n"
+          COMMENT+="Based on the changed files in this PR, here are the recommended agents:\n\n"
+
+          LABEL_ARGS=""
+
+          for div in "${!DIVISIONS[@]}"; do
+            case "$div" in
+              engineering)
+                COMMENT+="### ⚙️ Engineering\n"
+                COMMENT+="- \`@agency-frontend-developer\` — Frontend implementation\n"
+                COMMENT+="- \`@agency-backend-architect\` — Backend/API design\n"
+                COMMENT+="- \`@agency-devops-automator\` — CI/CD and infrastructure\n"
+                COMMENT+="- \`@agency-github-operations-master\` — GitHub platform operations\n"
+                LABEL_ARGS+=" --add-label engineering"
+                ;;
+              design)
+                COMMENT+="### 🎨 Design\n"
+                COMMENT+="- \`@agency-ux-architect\` — UX architecture and patterns\n"
+                COMMENT+="- \`@agency-ui-designer\` — Visual design and components\n"
+                COMMENT+="- \`@agency-accessibility-auditor\` — Accessibility compliance\n"
+                LABEL_ARGS+=" --add-label design"
+                ;;
+              testing)
+                COMMENT+="### 🧪 Testing\n"
+                COMMENT+="- \`@agency-api-tester\` — API validation\n"
+                COMMENT+="- \`@agency-performance-benchmarker\` — Performance testing\n"
+                COMMENT+="- \`@agency-evidence-collector\` — QA evidence\n"
+                LABEL_ARGS+=" --add-label testing"
+                ;;
+              documentation)
+                COMMENT+="### 📝 Documentation\n"
+                COMMENT+="- \`@agency-technical-writer\` — Documentation quality\n"
+                LABEL_ARGS+=" --add-label documentation"
+                ;;
+              game-development)
+                COMMENT+="### 🎮 Game Development\n"
+                COMMENT+="- \`@agency-game-designer\` — Game mechanics and design\n"
+                LABEL_ARGS+=" --add-label game-dev"
+                ;;
+              spatial-computing)
+                COMMENT+="### 🥽 Spatial Computing\n"
+                COMMENT+="- \`@agency-visionos-spatial-engineer\` — visionOS and spatial\n"
+                LABEL_ARGS+=" --add-label spatial"
+                ;;
+            esac
+            COMMENT+="\n"
+          done
+
+          COMMENT+="---\n*Auto-generated by GART Bot — [file-to-division mapping](scripts/file-to-division.json)*"
+
+          # Post comment (update existing or create new)
+          EXISTING=$(gh pr view "$PR_NUMBER" --json comments --jq '.comments[] | select(.body | contains("GART Agent Suggestions")) | .id' | head -1)
+
+          if [ -n "$EXISTING" ]; then
+            gh api "repos/${{ github.repository }}/issues/comments/${EXISTING}" \
+              -X PATCH -f body="$(echo -e "$COMMENT")"
+          else
+            gh pr comment "$PR_NUMBER" --body "$(echo -e "$COMMENT")"
+          fi
+
+          # Add labels (create if they don't exist, ignore errors)
+          if [ -n "$LABEL_ARGS" ]; then
+            eval gh pr edit "$PR_NUMBER" $LABEL_ARGS 2>/dev/null || true
+          fi
+
+  issue-triage:
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Auto-label issues by keywords
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          TITLE="${{ github.event.issue.title }}"
+          TITLE_LOWER=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]')
+
+          LABELS=""
+
+          # Bug detection
+          if echo "$TITLE_LOWER" | grep -qE '(bug|error|crash|broken|fix|issue|fail|not working)'; then
+            LABELS+=" --add-label bug"
+          fi
+
+          # Feature detection
+          if echo "$TITLE_LOWER" | grep -qE '(feature|add|new|request|enhance|improve|support)'; then
+            LABELS+=" --add-label enhancement"
+          fi
+
+          # Documentation detection
+          if echo "$TITLE_LOWER" | grep -qE '(doc|readme|guide|tutorial|example|howto|how to)'; then
+            LABELS+=" --add-label documentation"
+          fi
+
+          # Agent-related detection
+          if echo "$TITLE_LOWER" | grep -qE '(agent|skill|rule|hook|workflow|orchestrat)'; then
+            LABELS+=" --add-label agents"
+          fi
+
+          # CI/CD detection
+          if echo "$TITLE_LOWER" | grep -qE '(ci|cd|pipeline|action|deploy|build|publish|release)'; then
+            LABELS+=" --add-label ci/cd"
+          fi
+
+          if [ -n "$LABELS" ]; then
+            eval gh issue edit "$ISSUE_NUMBER" $LABELS 2>/dev/null || true
+            echo "Applied labels: $LABELS"
+          else
+            echo "No keyword matches found, no labels applied"
+          fi

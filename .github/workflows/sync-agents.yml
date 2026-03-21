@@ -1,0 +1,71 @@
+name: Sync Agents
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force full re-sync (ignore cache)'
+        required: false
+        default: 'false'
+        type: boolean
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday at 06:00 UTC
+
+concurrency:
+  group: agent-sync
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run sync-agents.sh
+        run: bash scripts/sync-agents.sh
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create PR with updates
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="chore/sync-agents-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "chore: sync agents from upstream
+
+          Automated weekly agent synchronization."
+
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "chore: sync agents from upstream" \
+            --body "## Summary
+          - Automated agent sync from upstream repository
+          - Run triggered by: ${{ github.event_name }}
+
+          ## Changes
+          $(git diff --stat HEAD~1)
+
+          ---
+          *Automated by GitHub Actions*" \
+            --label "chore"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

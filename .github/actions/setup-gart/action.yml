@@ -1,0 +1,25 @@
+name: Setup GART
+description: Reusable setup for GART CLI — checkout, Node.js, install, build
+
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: '20'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: cli/package-lock.json
+
+    - name: Install dependencies
+      shell: bash
+      run: cd cli && npm ci
+
+    - name: Build
+      shell: bash
+      run: cd cli && npm run build

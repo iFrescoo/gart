@@ -11,7 +11,7 @@ export async function runPrompts(
     const dir = await p.text({
       message: "Where should we create your project?",
       placeholder: "my-project",
-      validate(value) {
+      validate(value = "") {
         if (!value.trim()) return "Directory name is required.";
         if (/[<>:"|?*]/.test(value))
           return "Invalid characters in directory name.";
@@ -50,7 +50,7 @@ export async function runPrompts(
     const custom = await p.text({
       message: "Enter your language:",
       placeholder: "e.g. Ukrainian, Korean, Hindi...",
-      validate(value) {
+      validate(value = "") {
         if (!value.trim()) return "Language is required.";
       },
     });

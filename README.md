@@ -6,7 +6,7 @@
 npx gart-build my-project
 ```
 
-GART sets up a complete AI agent orchestration environment for **Claude Code**, **OpenCode** (Google Gemini), and **AntiGravity IDE** — with pre-configured agents, skills, hooks, and MCP server integrations.
+GART sets up a complete AI agent orchestration environment for **Claude Code**, **OpenCode** (Google Gemini), and **AntiGravity IDE** — with pre-configured agents, skills, hooks, scoped rules, and MCP server integrations.
 
 ## Quick Start
 
@@ -26,20 +26,53 @@ The interactive CLI lets you:
 
 | Component | Details |
 |-----------|---------|
-| **144+ Specialist Agents** | Engineering, Design, Game Dev, Marketing, Sales, QA, and more |
+| **274 Specialist Agents** | Engineering, Design, Game Dev, Marketing, Sales, QA, and more |
 | **Agent Orchestration** | Team coordinators, division routing, central orchestrator |
-| **19+ Skills** | Frontend design, debugging, brainstorming, git workflow, LSP navigation |
-| **MCP Integration** | Docker MCP Gateway (316+ servers), GitHub, Memory, Playwright |
+| **19 Skills** | Frontend design, debugging, brainstorming, git workflow, LSP navigation |
+| **23 Scoped Rules** | TypeScript, React, security, performance, accessibility, API design, and more |
+| **11 Hooks** | Dangerous command blocker, env leak protection, secret detection, auto-format, audit trail |
+| **MCP Pre-config** | GitHub, Memory, Playwright servers ready out of the box (`.mcp.json`) |
 | **Documentation** | Guides, ADR templates, task tracking, agent workflow reference |
-| **Security Hooks** | Block dangerous commands, permission matrices, safety controls |
 
 ## Supported Tools
 
-| Tool | Config Files | Agents |
+| Tool | Config Files | What's Included |
 |------|-------------|--------|
-| **Claude Code** | `.claude/`, `CLAUDE.md` | 274 agents, 19 skills, hooks |
+| **Claude Code** | `.claude/`, `CLAUDE.md`, `.mcp.json` | 274 agents, 19 skills, 11 hooks, 23 rules |
 | **OpenCode** | `.opencode/`, `opencode.json`, `AGENTS.md` | 154 agents, 25 skills, commands |
 | **AntiGravity** | `.agent/`, `GEMINI.md` | 155 skills, orchestration workflow |
+
+## Scoped Rules (Claude Code)
+
+GART includes 23 per-domain rule files in `.claude/rules/` — loaded automatically when Claude works with matching files:
+
+| Category | Rules |
+|----------|-------|
+| **Base** | core, code-generation, navigation, security, boundaries, mcp-tools, git, performance, error-handling, documentation |
+| **Languages** | typescript, python, css, html |
+| **Frameworks** | react, nextjs, tailwind |
+| **Testing** | testing, e2e |
+| **API & DB** | api-design, database |
+| **DevOps** | docker, ci-cd |
+| **Quality** | accessibility, code-review |
+
+## Hooks (Claude Code)
+
+11 hooks in `.claude/hooks/` — automated safety, quality, and audit:
+
+| Hook | Type | What it does |
+|------|------|-------------|
+| `block-dangerous-commands` | Security | Blocks `rm -rf`, `git push --force`, `DROP TABLE` |
+| `prevent-env-leak` | Security | Blocks `cat .env`, `printenv`, secret exposure |
+| `protect-files` | Security | Blocks editing `.env`, credentials, `.git/` |
+| `detect-secrets` | Security | Blocks hardcoded API keys, tokens, passwords |
+| `validate-commit-msg` | Quality | Enforces Conventional Commits format |
+| `auto-format` | Quality | Runs Prettier after edits |
+| `typecheck` | Quality | Runs `tsc --noEmit` after TS edits |
+| `audit-trail` | Audit | Logs every action to JSONL |
+| `bash-logger` | Audit | Logs bash commands with timestamps |
+| `dep-audit` | Workflow | Runs `npm audit` after package.json changes |
+| `warn-large-files` | Workflow | Warns when files exceed 500 lines |
 
 ## Prerequisites
 
@@ -72,15 +105,15 @@ bash scripts/sync-agents.sh
 2. You select which AI coding tools you use (Claude Code, OpenCode, AntiGravity)
 3. You choose your preferred agent response language
 4. GART scaffolds only the selected configs into your project
-5. Generated `package.json` and `README.md` are tailored to your selection
+5. Generated `package.json`, `README.md`, and `.mcp.json` are tailored to your selection
 
 ## Contributing
 
 This repository is the source for both the GART CLI and the template it scaffolds.
 
 ```bash
-git clone https://github.com/Fresco04/agentic-coding-template.git
-cd agentic-coding-template
+git clone https://github.com/iFrescoo/gart.git
+cd gart
 
 # CLI development
 cd cli
@@ -96,14 +129,20 @@ gart-build test-project
 
 ```
 ├── cli/              # GART CLI source (published to npm as "gart-build")
-├── .claude/          # Claude Code agents, skills, hooks
+├── .claude/          # Claude Code agents, skills, hooks, rules
+│   ├── agents/       # 274 specialist agents
+│   ├── skills/       # 19 skills + orchestration
+│   ├── hooks/        # 11 safety & quality hooks
+│   └── rules/        # 23 scoped rules (per-domain)
 ├── .opencode/        # OpenCode agents, skills, commands
 ├── .agent/           # AntiGravity skills, workflows
 ├── scripts/          # Agent sync pipeline
 ├── docs/             # Documentation templates
 ├── CLAUDE.md         # Claude Code instruction file
 ├── AGENTS.md         # OpenCode instruction file
-└── GEMINI.md         # AntiGravity instruction file
+├── GEMINI.md         # AntiGravity instruction file
+├── ROADMAP.md        # Future plans
+└── marketplace.json  # Plugin marketplace metadata
 ```
 
 ### Publishing
@@ -117,8 +156,8 @@ npm publish           # Requires npm login
 Or push a version tag for automatic publishing:
 
 ```bash
-git tag v1.0.1
-git push origin v1.0.1   # GitHub Action publishes to npm
+git tag v1.1.0
+git push origin v1.1.0   # GitHub Action publishes to npm
 ```
 
 ## License

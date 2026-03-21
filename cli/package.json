@@ -1,7 +1,7 @@
 {
   "name": "gart-build",
-  "version": "1.0.2",
-  "description": "GART — Generative Agent Runtime Toolkit. Scaffold multi-IDE agentic coding projects with 144+ AI agents.",
+  "version": "1.1.0",
+  "description": "GART — Generative Agent Runtime Toolkit. Scaffold multi-IDE agentic coding projects with 274 AI agents, 23 scoped rules, 11 hooks.",
   "type": "module",
   "bin": {
     "gart-build": "./dist/index.js"
@@ -29,10 +29,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Fresco04/agentic-coding-template",
+    "url": "https://github.com/iFrescoo/gart",
     "directory": "cli"
   },
-  "homepage": "https://github.com/Fresco04/agentic-coding-template#readme",
+  "homepage": "https://github.com/iFrescoo/gart#readme",
   "keywords": [
     "gart",
     "agentic",

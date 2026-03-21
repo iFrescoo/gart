@@ -8,7 +8,7 @@ const SHELL = platform() === 'win32' ? { shell: true } : {};
 import { downloadTemplate } from 'giget';
 import type { ScaffoldOptions } from './types.js';
 import { BASE_FILES, TOOL_CONFIGS, EXCLUDED_PATHS } from './constants.js';
-import { generatePackageJson, transformOpencodeJson, injectLanguage } from './transform.js';
+import { generatePackageJson, generateMcpJson, transformOpencodeJson, injectLanguage } from './transform.js';
 import { generateReadme } from './readme-generator.js';
 
 async function exists(path: string): Promise<boolean> {
@@ -76,7 +76,14 @@ export async function scaffold(
   });
   await writeFile(join(targetDir, 'README.md'), readmeContent, 'utf-8');
 
-  // 6. Transform opencode.json (remove hardcoded paths)
+  // 6. Generate .mcp.json (Claude Code MCP pre-configuration)
+  const mcpContent = generateMcpJson(options.tools);
+  if (mcpContent) {
+    onStatus('Generating MCP config...');
+    await writeFile(join(targetDir, '.mcp.json'), mcpContent, 'utf-8');
+  }
+
+  // 7. Transform opencode.json (remove hardcoded paths)
   if (options.tools.includes('opencode')) {
     const opencodeJsonPath = join(targetDir, 'opencode.json');
     if (await exists(opencodeJsonPath)) {

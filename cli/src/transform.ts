@@ -33,6 +33,32 @@ export async function transformOpencodeJson(filePath: string): Promise<void> {
   await writeFile(filePath, JSON.stringify(config, null, 2) + '\n', 'utf-8');
 }
 
+export function generateMcpJson(tools: Tool[]): string | null {
+  if (!tools.includes('claude-code')) return null;
+
+  const config: Record<string, unknown> = {
+    mcpServers: {
+      github: {
+        command: 'npx',
+        args: ['-y', '@modelcontextprotocol/server-github'],
+        env: {
+          GITHUB_PERSONAL_ACCESS_TOKEN: '${GITHUB_PERSONAL_ACCESS_TOKEN}',
+        },
+      },
+      memory: {
+        command: 'npx',
+        args: ['-y', '@modelcontextprotocol/server-memory'],
+      },
+      playwright: {
+        command: 'npx',
+        args: ['-y', '@playwright/mcp'],
+      },
+    },
+  };
+
+  return JSON.stringify(config, null, 2) + '\n';
+}
+
 export async function injectLanguage(
   targetDir: string,
   tools: Tool[],

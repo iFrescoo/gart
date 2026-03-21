@@ -39,7 +39,8 @@
       "Bash(find /g/agentic-coding-template -maxdepth 2 -type d -name bin -o -type f -name *eslint* -o -type f -name .eslintrc*)",
       "Bash(npm view:*)",
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(ls -la \"g:\\\\agentic-coding-template\\\\.claude\"\" 2>/dev/null | grep -E \"^d \")"
     ]
   }
 }

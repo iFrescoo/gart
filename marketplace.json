@@ -1,0 +1,22 @@
+{
+  "name": "gart",
+  "version": "1.1.0",
+  "description": "GART — Generative Agent Runtime Toolkit. 274 AI agents, 19 skills, 11 hooks, 23 scoped rules for agentic coding.",
+  "homepage": "https://github.com/iFrescoo/gart",
+  "repository": "https://github.com/iFrescoo/gart",
+  "skills": [".claude/skills/*/SKILL.md"],
+  "agents": [".claude/agents/*.md"],
+  "hooks": [".claude/hooks/*.sh"],
+  "rules": [".claude/rules/*.md"],
+  "keywords": [
+    "gart",
+    "agentic",
+    "ai-agents",
+    "claude-code",
+    "skills",
+    "hooks",
+    "mcp",
+    "orchestration",
+    "toolkit"
+  ]
+}

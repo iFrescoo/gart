@@ -18,7 +18,7 @@ const BANNER = `
 async function main(): Promise<void> {
   console.log(pc.blue(BANNER));
   console.log(`  ${pc.dim('Generative Agent Runtime Toolkit')}\n`);
-  p.intro(`${pc.bgBlue(pc.white(' gart-build '))} ${pc.dim('v1.0.2')}`);
+  p.intro(`${pc.bgBlue(pc.white(' gart-build '))} ${pc.dim('v1.1.0')}`);
 
   const argDir = process.argv[2];
 

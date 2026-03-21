@@ -7,6 +7,68 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/block-dangerous-commands.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/prevent-env-leak.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/validate-commit-msg.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/bash-logger.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/protect-files.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/warn-large-files.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/detect-secrets.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/auto-format.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/typecheck.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/dep-audit.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-trail.sh"
           }
         ]
       }

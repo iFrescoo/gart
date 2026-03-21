@@ -14,7 +14,7 @@ export const TOOL_CONFIGS: Record<Tool, ToolConfig> = {
   'claude-code': {
     id: 'claude-code',
     label: 'Claude Code',
-    hint: '274 agents, 19 skills, hooks',
+    hint: '274 agents, 19 skills, 11 hooks, 23 rules',
     files: ['.claude', 'CLAUDE.md'],
   },
   opencode: {
@@ -45,7 +45,10 @@ export const EXCLUDED_PATHS: string[] = [
   'README.md',
   'package.json',
   'LICENSE',
+  'ROADMAP.md',
+  'marketplace.json',
   '.git',
+  '.gitattributes',
 ];
 
 export const LANGUAGES: Language[] = [

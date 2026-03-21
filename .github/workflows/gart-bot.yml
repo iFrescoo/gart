@@ -156,8 +156,11 @@ jobs:
             gh pr comment "$PR_NUMBER" --body "$(echo -e "$COMMENT")"
           fi
 
-          # Add labels (create if they don't exist, ignore errors)
+          # Ensure labels exist, then apply
           if [ -n "$LABEL_ARGS" ]; then
+            for label in engineering design testing documentation game-dev spatial; do
+              gh label create "$label" --force 2>/dev/null || true
+            done
             eval gh pr edit "$PR_NUMBER" $LABEL_ARGS 2>/dev/null || true
           fi
 

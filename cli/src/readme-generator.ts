@@ -63,7 +63,7 @@ export function generateReadme({ projectName, tools, language }: ReadmeOptions):
   if (hasAntigravity) {
     sections.push(`### AntiGravity`);
     sections.push('Open the project folder in the AntiGravity IDE.');
-    sections.push(`Reads \`GEMINI.md\`. Skills in \`.agent/skills/\`, workflows in \`.agent/workflows/\`.\n`);
+    sections.push(`Reads \`GEMINI.md\`. Skills in \`.agent/skills/\`, rules in \`.agent/rules/\`, workflows in \`.agent/workflows/\`.\n`);
   }
 
   // Agent Orchestration

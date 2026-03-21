@@ -36,7 +36,6 @@ export const EXCLUDED_PATHS: string[] = [
   "cli",
   ".github",
   "docs-dev",
-  "undefined",
   "node_modules",
   ".agency-agents-upstream",
   "package-lock.json",

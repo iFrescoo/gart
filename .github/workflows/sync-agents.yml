@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: 'Force full re-sync (ignore cache)'
+        description: "Force full re-sync (ignore cache)"
         required: false
-        default: 'false'
+        default: false
         type: boolean
   schedule:
-    - cron: '0 6 * * 1' # Every Monday at 06:00 UTC
+    - cron: "0 6 * * 1" # Every Monday at 06:00 UTC
 
 concurrency:
   group: agent-sync

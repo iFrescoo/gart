@@ -10,7 +10,7 @@ export async function runPrompts(
   if (!projectDir) {
     const dir = await p.text({
       message: "Where should we create your project?",
-      placeholder: "my-project",
+      placeholder: "my-project (or . for current directory)",
       validate(value = "") {
         if (!value.trim()) return "Directory name is required.";
         if (/[<>:"|?*]/.test(value))

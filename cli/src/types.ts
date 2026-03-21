@@ -1,4 +1,4 @@
-export type Tool = 'claude-code' | 'opencode' | 'antigravity';
+export type Tool = "claude-code" | "opencode" | "antigravity";
 
 export interface ToolConfig {
   id: Tool;
@@ -19,4 +19,5 @@ export interface ScaffoldOptions {
   language: string;
   gitInit: boolean;
   installDeps: boolean;
+  gitignore: boolean;
 }

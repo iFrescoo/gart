@@ -40,8 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Validate sync-agents.sh syntax
-        run: bash -n scripts/sync-agents.sh
+      - name: Validate script syntax
+        run: |
+          bash -n scripts/gart.sh
+          bash -n scripts/lib/sync-agents.sh
+          bash -n scripts/lib/validate.sh
 
   validate-agents:
     runs-on: ubuntu-latest

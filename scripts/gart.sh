@@ -104,6 +104,86 @@ case "${1:-help}" in
     echo "Run 'bash scripts/gart.sh validate' for a full project health check."
     ;;
 
+  mcp)
+    echo "GART — MCP Servers"
+    echo "==================="
+    echo ""
+    echo "Pre-configured servers (20 via Docker MCP Gateway + 4 via npx):"
+    echo ""
+    echo "  Docker MCP Gateway:"
+    echo "    ast-grep, Atlas Docs, Context7, Docker Hub, Fetch,"
+    echo "    Filesystem, Git, GitHub Official, Hugging Face, Markdownify,"
+    echo "    Memory, NPM Sentinel, Paper Search, Playwright, Semgrep,"
+    echo "    Sequential Thinking, SQLite, WolframAlpha, YouTube, ArXiv"
+    echo ""
+    echo "  npx (Claude Code .mcp.json):"
+    echo "    server-github, server-memory, playwright, sqlite"
+    echo ""
+    echo "To search for more (300+ available):"
+    echo "  In your AI tool, use:  mcp-find <keyword>"
+    echo "  Then add with:         mcp-add <server-name>"
+    echo ""
+    echo "Browse: https://hub.docker.com/mcp/explore"
+    ;;
+
+  extensions)
+    echo "GART — Recommended VS Code Extensions (22)"
+    echo "============================================"
+    echo ""
+    echo "Categories: Audit, Security, Debug, Git, Accessibility,"
+    echo "            Testing, CI/CD, Performance, DX, Quality"
+    echo ""
+
+    EXTENSIONS=(
+      "sonarsource.sonarlint-vscode"
+      "dbaeumer.vscode-eslint"
+      "esbenp.prettier-vscode"
+      "usernamehw.errorlens"
+      "eamodio.gitlens"
+      "mhutchie.git-graph"
+      "deque-systems.vscode-axe-linter"
+      "snyk-security.snyk-vulnerability-scanner"
+      "gitguardian.gitguardian-vscode"
+      "github.vscode-github-actions"
+      "rangav.vscode-thunder-client"
+      "orta.vscode-jest"
+      "ms-vscode.vscode-js-profile-flame"
+      "Gruntfuggly.todo-tree"
+      "wix.vscode-import-cost"
+      "streetsidesoftware.code-spell-checker"
+      "bradlc.vscode-tailwindcss"
+      "DavidAnson.vscode-markdownlint"
+      "redhat.vscode-yaml"
+      "kisstkondoros.vscode-codemetrics"
+      "chrmarti.regex"
+      "emilast.LogFileHighlighter"
+    )
+
+    # Detect IDE CLI
+    if command -v code &>/dev/null; then
+      IDE_CMD="code"
+    elif command -v antigravity &>/dev/null; then
+      IDE_CMD="antigravity"
+    else
+      echo "No IDE CLI found ('code' or 'antigravity')."
+      echo ""
+      echo "Option 1: Open VS Code -> Cmd+Shift+P -> 'Shell Command: Install code in PATH'"
+      echo "Option 2: Open project in VS Code — it will prompt from .vscode/extensions.json"
+      exit 1
+    fi
+
+    echo "Using: $IDE_CMD"
+    echo ""
+
+    for ext in "${EXTENSIONS[@]}"; do
+      $IDE_CMD --install-extension "$ext" --force 2>/dev/null \
+        && echo "  ✓ $ext" \
+        || echo "  ✗ $ext (failed)"
+    done
+    echo ""
+    echo "Done! Restart your IDE to activate all extensions."
+    ;;
+
   models)
     shift
     if command -v free-coding-models &>/dev/null; then
@@ -126,7 +206,9 @@ case "${1:-help}" in
     echo "  validate  — Health-check your project"
     echo "  sync      — Update 274+ agents from upstream"
     echo "  doctor    — Diagnose setup issues"
-    echo "  models    — Browse & auto-configure free LLM providers (174 models, 23 providers)"
-    echo "  help      — Show this help message"
+    echo "  models     — Browse & auto-configure free LLM providers (174 models, 23 providers)"
+    echo "  extensions — Install 22 recommended VS Code extensions (audit, security, DX)"
+    echo "  mcp        — List pre-configured MCP servers (20 Docker + 4 npx)"
+    echo "  help       — Show this help message"
     ;;
 esac

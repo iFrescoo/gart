@@ -216,4 +216,16 @@ export async function scaffold(
       // Will show warning in outro
     }
   }
+
+  // 13. Extensions info
+  onStatus(
+    "22 recommended VS Code extensions saved to .vscode/extensions.json",
+  );
+  onStatus(
+    "   Open in VS Code to install, or run: bash scripts/gart.sh extensions",
+  );
+
+  // 14. MCP info
+  onStatus("20 MCP servers pre-configured via Docker Gateway + 4 via npx");
+  onStatus("   Run 'bash scripts/gart.sh mcp' to see full list");
 }

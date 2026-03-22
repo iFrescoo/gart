@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "sonarsource.sonarlint-vscode",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "deque-systems.vscode-axe-linter",
+    "snyk-security.snyk-vulnerability-scanner",
+    "gitguardian.gitguardian-vscode",
+    "github.vscode-github-actions",
+    "rangav.vscode-thunder-client",
+    "orta.vscode-jest",
+    "ms-vscode.vscode-js-profile-flame",
+    "Gruntfuggly.todo-tree",
+    "wix.vscode-import-cost",
+    "streetsidesoftware.code-spell-checker",
+    "bradlc.vscode-tailwindcss",
+    "DavidAnson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "kisstkondoros.vscode-codemetrics",
+    "chrmarti.regex",
+    "emilast.LogFileHighlighter"
+  ]
+}

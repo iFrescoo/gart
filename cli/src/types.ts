@@ -5,6 +5,7 @@ export interface ToolConfig {
   label: string;
   hint: string;
   files: string[];
+  gitignoreFiles: string[]; // subset of files to gitignore (heavy/regeneratable only)
   transforms?: string[];
 }
 

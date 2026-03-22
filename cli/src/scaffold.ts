@@ -166,12 +166,15 @@ export async function scaffold(
   if (options.gitignore) {
     const gartEntries: string[] = [];
     for (const tool of options.tools) {
-      for (const file of TOOL_CONFIGS[tool].files) {
+      for (const file of TOOL_CONFIGS[tool].gitignoreFiles) {
         gartEntries.push(file.startsWith(".") ? `${file}/` : file);
       }
     }
     if (options.tools.includes("claude-code")) {
       gartEntries.push(".mcp.json");
+    }
+    if (options.includeSync) {
+      gartEntries.push(".gart/agents/");
     }
     const gitignorePath = join(targetDir, ".gitignore");
     const existing = (await exists(gitignorePath))
@@ -189,7 +192,7 @@ export async function scaffold(
   if (options.gitInit) {
     onStatus("Initializing git repository...");
     try {
-      execFileSync("git", ["init"], {
+      execFileSync("git", ["init", "-b", "main"], {
         cwd: targetDir,
         stdio: "ignore",
         ...SHELL,

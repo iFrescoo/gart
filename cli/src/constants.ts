@@ -16,12 +16,14 @@ export const TOOL_CONFIGS: Record<Tool, ToolConfig> = {
     label: "Claude Code",
     hint: "275 agents, 20 skills, 11 hooks, 26 rules",
     files: [".claude", "CLAUDE.md"],
+    gitignoreFiles: [".claude"], // CLAUDE.md is user-edited — commit it
   },
   opencode: {
     id: "opencode",
     label: "OpenCode",
     hint: "155 agents, 26 skills, commands",
     files: [".opencode", "opencode.json", "AGENTS.md"],
+    gitignoreFiles: [".opencode", "opencode.json"], // AGENTS.md is user-edited — commit it
     transforms: ["opencode.json"],
   },
   antigravity: {
@@ -29,6 +31,7 @@ export const TOOL_CONFIGS: Record<Tool, ToolConfig> = {
     label: "AntiGravity",
     hint: "174 skills, 26 rules, 14 workflows",
     files: [".agent", "GEMINI.md"],
+    gitignoreFiles: [".agent"], // GEMINI.md is user-edited — commit it
   },
 };
 

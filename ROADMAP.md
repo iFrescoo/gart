@@ -72,6 +72,33 @@ Grounded in [architecture/research.md](docs-dev/architecture/research.md) — So
 - [ ] **Structured handoff schemas** — define what context each agent needs and must produce per workflow phase. [ANALOGICAL mapping]
 - [ ] **Coopetition formalization** — make `reality-checker` adversarial review a mandatory pipeline phase. [DIRECT mapping]
 
+### Skills & Marketplace Integration
+
+- [ ] `gart.sh skills` subcommand — wrapper for `npx skills add` with GART-aware paths (auto-install to correct `.claude/skills/`, `.opencode/skills/`, or `.agent/skills/`)
+- [ ] `find-skills` integration — bundle [vercel-labs/find-skills](https://skills.sh) meta-skill so users can discover and install skills on demand (661K installs)
+- [ ] `verification-before-completion` skill — force verification step before marking tasks done, reduces hallucination ([obra/superpowers](https://skills.sh))
+- [ ] Document generation skills — evaluate Anthropic's `pdf`/`docx`/`pptx`/`xlsx` skills for inclusion (~50K installs each)
+- [ ] SETUP.md marketplace section — point users to [skillsmp.com](https://skillsmp.com) (280K+ skills) and [skills.sh](https://skills.sh) (89K+ skills) for self-service skill discovery
+
+### AI Model Architecture & Multi-Agent Routing
+
+> Based on research in [nvidia-nim.md](docs-dev/architecture/nvidia-nim.md) and [llm-comparison.md](docs-dev/architecture/llm-comparison.md) — strategic cost-to-performance routing between free (NVIDIA NIM) and paid APIs.
+
+- [ ] **Complexity Estimator** — classify incoming tasks by tier before routing: `MICRO` (linting, docs, <500 LOC) → NIM free; `STANDARD` (RAG, code gen) → NIM with paid fallback; `CRITICAL` (macro-architecture, legal RAG, Computer Use) → paid API. This is the core of a cost-optimized orchestrator
+- [ ] **NVIDIA NIM integration guide** — document free endpoint setup (`build.nvidia.com`). Key models: Nemotron 3 Super 120B (reasoning + RAG, 1M ctx), MiniMax-M2.5 (coding, 89.6% HumanEval), Llama 4 Scout (linting, TTFT ~0.33s), Mistral Large 3 (multilingual dispatcher), Cosmos Reason 2 8B (Vision RAG), Phi-4-multimodal (OCR). Rate limit: ~40 RPM/model. Source: [nvidia-nim.md](docs-dev/architecture/nvidia-nim.md)
+- [ ] **Paid API fallback gates** — document when NIM is insufficient and escalation is mandatory: macro-engineering (Claude Opus 4.6, SWE-bench 80.8%), tier-0 reasoning (GPT-5.4, HLE 41.6%), Computer Use / RPA (GPT-5.4, OSWorld 75%), long-form video (Gemini 3.1 Pro, MMMU-Pro 80.5%), legal RAG / MRCR v2 (Claude Opus 4.6, 76%). Source: [llm-comparison.md](docs-dev/architecture/llm-comparison.md)
+- [ ] **GART agent division routing table** — map each of GART's 274 agent divisions to optimal model tier: Engineering agents → Opus/Codex for macro, MiniMax for micro; Design agents → Gemini for vision; Research agents → Sonnet for RAG
+- [ ] **`.env.example` model provider section** — add `NVIDIA_NIM_API_KEY`, commented routing config, and links to `build.nvidia.com` free tier
+
+### Free LLM Providers & Model Discovery
+
+> Resources for running GART on free/low-cost models — especially useful for OpenCode which accepts any OpenAI-compatible endpoint.
+
+- [ ] **OpenCode free model guide** — document OpenRouter as drop-in free key: one API key, 50+ models including Qwen3-Coder and Llama 4 Scout, OpenAI-compatible. Set `OPENROUTER_API_KEY` in `.env`, configure base URL in `opencode.json`. Sources: [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources), [openrouter.ai](https://openrouter.ai)
+- [ ] **Groq integration guide** — fastest free inference (LPU hardware, sub-second responses). Free tier: Llama 4 Scout (30K tokens/min), Kimi K2, Qwen3-32B, 1K–14K req/day. OpenAI-compatible at `https://api.groq.com/openai/v1`. Best for speed-sensitive agentic loops. Source: [console.groq.com](https://console.groq.com)
+- [ ] **`free-coding-models` in SETUP.md** — CLI tool that pings 174 free models across 23 providers in real-time, ranks by stability score (latency + jitter + uptime), auto-writes config for OpenCode. Install: `npm install -g free-coding-models`. Does not yet support Claude Code or AntiGravity natively. Source: [vava-nessa/free-coding-models](https://github.com/vava-nessa/free-coding-models)
+- [ ] **`.env.example` free provider section** — add commented-out `OPENROUTER_API_KEY`, `GROQ_API_KEY`, `CEREBRAS_API_KEY` entries with links to free signup, so users have a ready checklist for zero-cost setup
+
 ### GitHub Integration
 
 - [ ] GitHub Pages agent catalog — searchable `https://ifrescoo.github.io/gart/` with 274+ agents, filterable by division/platform

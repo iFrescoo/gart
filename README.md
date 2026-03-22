@@ -244,6 +244,11 @@ GART builds on top of the excellent work from:
 - **[msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents)** — The upstream source for 274+ specialist AI agents, organized by division and role. GART's sync pipeline (`gart.sh sync`) pulls, enriches, and deploys these agents across Claude Code, OpenCode, and AntiGravity IDE.
 - **[Anthropic](https://anthropic.com)** — Claude Code and the Claude API powering the agent runtime.
 - **[OpenCode](https://opencode.ai)** — Multi-model AI coding assistant with plugin architecture.
+- **[mksglu/context-mode](https://github.com/mksglu/context-mode)** — Privacy-first MCP server for context window protection. Keeps raw tool output in a sandbox, reducing context consumption by ~98%.
+- **[vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit)** — Community agent/skill/workflow kit for Google AntiGravity IDE. Inspired GART's `.agent/` structure with specialized agents, skills, and workflows.
+- **[mixedbread-ai/mgrep](https://github.com/mixedbread-ai/mgrep)** — Semantic code search CLI by Mixedbread AI. Used in GART's OpenCode setup for intent-based code exploration alongside traditional grep.
+- **[skillsmp.com](https://skillsmp.com)** — Community skill marketplace with 280K+ indexed Agent Skills. Browse and discover skills for Claude Code, OpenCode, and more.
+- **[skills.sh](https://skills.sh)** — Vercel-backed skill leaderboard with install telemetry tracking across 19+ AI coding agents.
 
 ## License
 

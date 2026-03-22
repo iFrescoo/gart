@@ -1,40 +1,40 @@
-# Protokół Debugowania
+# Debugging Protocol
 
-Przy trudnych bugach stosuj ten flow:
+For difficult bugs, follow this flow:
 
-## Krok 1 — Reprodukcja
+## Step 1 — Reproduction
 
-- Stwórz minimalny przypadek reprodukcji
-- Udokumentuj dokładne kroki do wywołania buga
-- Sprawdź wersje: OS, Node, framework, zależności
+- Create a minimal reproduction case
+- Document the exact steps to trigger the bug
+- Check versions: OS, Node, framework, dependencies
 
-## Krok 2 — Izolacja
+## Step 2 — Isolation
 
-- Binary search: wyłącz połowę kodu/feature
-- `git bisect` — kiedy bug został wprowadzony?
-- Usuń zależności jedna po drugiej
+- Binary search: disable half the code/features
+- `git bisect` — when was the bug introduced?
+- Remove dependencies one by one
 
-## Krok 3 — Inspekcja
+## Step 3 — Inspection
 
-- Strategiczne `console.log` lub debugger statements
-- Sprawdź network requests i responses
-- Przejrzyj ostatnie zmiany w `git log`
-- `lsp hover` dla typów, `lsp findReferences` dla przepływu danych
+- Strategic `console.log` or debugger statements
+- Check network requests and responses
+- Review recent changes in `git log`
+- `lsp hover` for types, `lsp findReferences` for data flow
 
-## Krok 4 — Hipoteza
+## Step 4 — Hypothesis
 
-- Sformułuj teorię — root cause, nie symptom
-- Sprawdź race conditions i timing issues
-- Przetestuj każde założenie osobno
+- Formulate a theory — root cause, not symptom
+- Check for race conditions and timing issues
+- Test each assumption separately
 
-## Krok 5 — Fix i Weryfikacja
+## Step 5 — Fix and Verification
 
-- Przetestuj fix dokładnie
-- Dodaj regression test
-- Udokumentuj root cause w komentarzu lub commit message
+- Test the fix thoroughly
+- Add a regression test
+- Document the root cause in a comment or commit message
 
-## Krok 6 — Prewencja
+## Step 6 — Prevention
 
-- Lepszy error handling
-- Lepsze logowanie
-- Testy edge case'ów
+- Better error handling
+- Better logging
+- Tests for edge cases

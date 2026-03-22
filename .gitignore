@@ -1,22 +1,21 @@
 node_modules/
 
-# Template development (nie kopiowane do nowych projektow)
-docs-dev/
+# OpenCode plugin logs
 .opencode/plugin/subtask2/logs/
 
-# Środowisko (Environment variables)
+# Environment variables
 .env
 .env.*
 !.env.example
 
-# Logi (Logs)
+# Logs
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Pliki systemowe (OS generated files)
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -28,8 +27,8 @@ Thumbs.db
 # Bun lockfile (root uses npm/package-lock.json)
 bun.lock
 
-# Agency-agents upstream clone (sync source)
-.agency-agents-upstream/
+# GART upstream clone — sync source cache (recreated by gart.sh sync)
+.gart/upstream/
 
 # Build / Output
 dist/

@@ -58,21 +58,37 @@ export async function runPrompts(
     finalLanguage = custom;
   }
 
-  // Step 4: Git init
+  // Step 4: Include agent sync
+  const includeSync = await p.confirm({
+    message:
+      "Include agent sync? (Update 274+ agents to latest via gart.sh sync)",
+    initialValue: true,
+  });
+  if (p.isCancel(includeSync)) return null;
+
+  // Step 5: Include GitHub Actions workflows
+  const includeWorkflows = await p.confirm({
+    message:
+      "Include GitHub Actions workflows? (CI, dependabot auto-merge, PR triage)",
+    initialValue: false,
+  });
+  if (p.isCancel(includeWorkflows)) return null;
+
+  // Step 6: Git init
   const gitInit = await p.confirm({
     message: "Initialize git repository?",
     initialValue: true,
   });
   if (p.isCancel(gitInit)) return null;
 
-  // Step 5: Install dependencies
+  // Step 7: Install dependencies
   const installDeps = await p.confirm({
     message: "Install dependencies?",
     initialValue: true,
   });
   if (p.isCancel(installDeps)) return null;
 
-  // Step 6: Gitignore
+  // Step 8: Gitignore
   const gitignore = await p.confirm({
     message: "Add GART folders to .gitignore?",
     initialValue: true,
@@ -83,6 +99,8 @@ export async function runPrompts(
     projectDir,
     tools: tools as Tool[],
     language: finalLanguage,
+    includeSync,
+    includeWorkflows,
     gitInit,
     installDeps,
     gitignore,

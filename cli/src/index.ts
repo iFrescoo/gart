@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+declare const __VERSION__: string;
+
 import * as p from "@clack/prompts";
 import pc from "picocolors";
 import { runPrompts } from "./prompts.js";
@@ -18,7 +20,9 @@ const BANNER = `
 async function main(): Promise<void> {
   console.log(pc.blue(BANNER));
   console.log(`  ${pc.dim("Generative Agent Runtime Toolkit")}\n`);
-  p.intro(`${pc.bgBlue(pc.white(" gart-build "))} ${pc.dim("v1.1.0")}`);
+  p.intro(
+    `${pc.bgBlue(pc.white(" gart-build "))} ${pc.dim(`v${__VERSION__}`)}`,
+  );
 
   const argDir = process.argv[2];
 
@@ -72,6 +76,7 @@ async function main(): Promise<void> {
   p.note(
     [
       ...(options.projectDir === "." ? [] : [`cd ${options.projectDir}`]),
+      "cat SETUP.md              # Post-install setup guide",
       "cp .env.example .env     # Add your API keys",
       ...launchCmds,
     ].join("\n"),

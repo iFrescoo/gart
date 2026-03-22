@@ -41,7 +41,7 @@ This document maps academic research to GART's practical architecture. Every con
 | **Actors**                              | 274 agents with role-based specialization across 12 divisions, each defined by markdown description + trigger phrases     | **[DIRECT]**     |
 | **Type: Cooperation**                   | Purely cooperative — agents do not compete or negotiate. Sequential/parallel delegation, never adversarial.               | **[DIRECT]**     |
 | **Structure: Hierarchical Centralized** | 2-tier hub-and-spoke: Orchestrator → 11 Team Leads → Specialists. Routing table in `orchestration/SKILL.md`.              | **[DIRECT]**     |
-| **Strategy: Role-based**                | Fixed roles assigned at sync time via `sync-agents.sh`. Roles defined by markdown descriptions, not dynamically assigned. | **[DIRECT]**     |
+| **Strategy: Role-based**                | Fixed roles assigned at sync time via `gart.sh sync`. Roles defined by markdown descriptions, not dynamically assigned.   | **[DIRECT]**     |
 | **Coordination Protocol**               | Text-based handoff via file paths and prompt instructions. No formal message schemas, no shared blackboard, no voting.    | **[ANALOGICAL]** |
 
 **What the survey says about GART's architectural choices:**
@@ -163,7 +163,7 @@ Same as Source 2. The "whiteboard vs river" metaphor reinforces the context-reus
 
 | Item          | Source | Type | Action                                           |
 | ------------- | ------ | ---- | ------------------------------------------------ |
-| This document | All    | —    | Created as `docs/context/research-foundation.md` |
+| This document | All    | —    | Moved to `docs-dev/architecture/research.md` |
 
 ### Future: ROADMAP Items (tagged `[research-driven]`)
 

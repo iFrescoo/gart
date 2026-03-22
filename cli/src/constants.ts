@@ -37,7 +37,7 @@ export const EXCLUDED_PATHS: string[] = [
   ".github",
   "docs-dev",
   "node_modules",
-  ".agency-agents-upstream",
+  ".gart",
   "package-lock.json",
   "bun.lock",
   "opencode-workspace.code-workspace",
@@ -48,6 +48,7 @@ export const EXCLUDED_PATHS: string[] = [
   "marketplace.json",
   ".git",
   ".gitattributes",
+  "CONTRIBUTING.md",
 ];
 
 export const LANGUAGES: Language[] = [

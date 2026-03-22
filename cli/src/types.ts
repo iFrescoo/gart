@@ -17,6 +17,8 @@ export interface ScaffoldOptions {
   projectDir: string;
   tools: Tool[];
   language: string;
+  includeSync: boolean;
+  includeWorkflows: boolean;
   gitInit: boolean;
   installDeps: boolean;
   gitignore: boolean;

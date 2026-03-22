@@ -8,7 +8,7 @@
 #   3. Collect agent data by division (for team generation)
 #   4. Copy to .claude/agents/ + enrich with trigger phrases
 #   5. Post-process OpenCode agents (permissions, model, temp, triggers)
-#   6. Generate local agents from scripts/local-agents/ → all 3 IDEs
+#   6. Generate local agents from .gart/agents/ → all 3 IDEs
 #   7. Generate team-* division agents (OpenCode primary agents = tabs)
 #   8. Generate orchestrator.md (knows ALL agents)
 #   9. Generate orchestration skill (.opencode/skills/ + .claude/skills/)
@@ -53,8 +53,8 @@ header() { echo -e "\n${BOLD}$*${RESET}"; }
 
 # --- Paths ---
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-UPSTREAM_DIR="$PROJECT_ROOT/.agency-agents-upstream"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+UPSTREAM_DIR="$PROJECT_ROOT/.gart/upstream"
 UPSTREAM_REPO="https://github.com/msitarzewski/agency-agents.git"
 
 OPENCODE_AGENTS="$PROJECT_ROOT/.opencode/agents"
@@ -63,7 +63,7 @@ ANTIGRAVITY_SKILLS="$PROJECT_ROOT/.agent/skills"
 OPENCODE_SKILLS="$PROJECT_ROOT/.opencode/skills/orchestration"
 CLAUDE_SKILLS="$PROJECT_ROOT/.claude/skills/orchestration"
 AGENT_WORKFLOWS="$PROJECT_ROOT/.agent/workflows"
-LOCAL_AGENTS_DIR="$PROJECT_ROOT/scripts/local-agents"
+LOCAL_AGENTS_DIR="$PROJECT_ROOT/.gart/agents"
 
 # Source category dirs in upstream repo
 AGENT_DIRS=(
@@ -639,9 +639,9 @@ done
 info "OpenCode: $oc_count agents enriched and copied to .opencode/agents/"
 
 # ==========================================================================
-# Step 6: Generate local agents (scripts/local-agents/ → all 3 IDEs)
+# Step 6: Generate local agents (.gart/agents/ → all 3 IDEs)
 # ==========================================================================
-header "Step 6: Generating local agents from scripts/local-agents/"
+header "Step 6: Generating local agents from .gart/agents/"
 
 local_count=0
 if [[ -d "$LOCAL_AGENTS_DIR" ]]; then
@@ -701,7 +701,7 @@ HEREDOC
   done
   info "Local agents: $local_count processed to all 3 IDEs"
 else
-  warn "scripts/local-agents/ not found — skipping local agents"
+  warn ".gart/agents/ not found — skipping local agents"
 fi
 
 # ==========================================================================

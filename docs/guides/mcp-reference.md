@@ -1,61 +1,61 @@
 # MCP — Docker Gateway Reference
 
-Centralny gateway łączący IDE z ekosystemem MCP.
+Central gateway connecting the IDE with the MCP ecosystem.
 
-**Komenda:** `docker-mcp.exe gateway run --verify-signatures`
+**Command:** `docker-mcp.exe gateway run --verify-signatures`
 
-## Aktywne serwery
+## Active Servers
 
-| Serwer               | Tools    | Opis                                   |
-| -------------------- | -------- | -------------------------------------- |
-| `ast-grep`           | 1        | AST-based structural code search       |
-| `atlas-docs`         | 5        | MongoDB Atlas dokumentacja             |
-| `context7`           | 2        | Dokumentacja bibliotek na żywo         |
-| `docker-hub`         | 13       | Docker Hub — obrazy, tagi, wersje      |
-| `fetch`              | 1+1p     | Pobieranie stron, web scraping         |
-| `filesystem`         | 11       | Operacje na plikach                    |
-| `git`                | 12       | Git operacje                           |
-| `github-official`    | 41+2p+5r | GitHub API                             |
-| `hugging-face`       | 10+4p    | Hugging Face hub                       |
-| `markdownify`        | 11       | Konwersja do markdown                  |
-| `memory`             | 9        | Persystentna pamięć (knowledge graph)  |
-| `npm-sentinel`       | 19+2r    | NPM analiza paczek                     |
-| `paper-search`       | 8        | Wyszukiwanie publikacji naukowych      |
-| `playwright`         | 22       | Browser automation (headless)          |
-| `ref`                | —        | Dokumentacja (API key wymagany)        |
-| `semgrep`            | —        | SAST — code security scanning          |
-| `sequentialthinking` | 1        | Strukturalne rozumowanie krok-po-kroku |
-| `sqlite-mcp-server`  | —        | SQLite operacje                        |
-| `wolfram-alpha`      | —        | Obliczenia matematyczne                |
-| `youtube_transcript` | —        | Transkrypcje YouTube                   |
+| Server               | Tools    | Description                         |
+| -------------------- | -------- | ----------------------------------- |
+| `ast-grep`           | 1        | AST-based structural code search    |
+| `atlas-docs`         | 5        | MongoDB Atlas documentation         |
+| `context7`           | 2        | Live library documentation          |
+| `docker-hub`         | 13       | Docker Hub — images, tags, versions |
+| `fetch`              | 1+1p     | Web page fetching, web scraping     |
+| `filesystem`         | 11       | File system operations              |
+| `git`                | 12       | Git operations                      |
+| `github-official`    | 41+2p+5r | GitHub API                          |
+| `hugging-face`       | 10+4p    | Hugging Face hub                    |
+| `markdownify`        | 11       | Markdown conversion                 |
+| `memory`             | 9        | Persistent memory (knowledge graph) |
+| `npm-sentinel`       | 19+2r    | NPM package analysis                |
+| `paper-search`       | 8        | Scientific publication search       |
+| `playwright`         | 22       | Browser automation (headless)       |
+| `ref`                | —        | Documentation (API key required)    |
+| `semgrep`            | —        | SAST — code security scanning       |
+| `sequentialthinking` | 1        | Step-by-step structured reasoning   |
+| `sqlite-mcp-server`  | —        | SQLite operations                   |
+| `wolfram-alpha`      | —        | Mathematical computations           |
+| `youtube_transcript` | —        | YouTube transcripts                 |
 
-## Dynamic MCP (meta-narzędzia)
+## Dynamic MCP (Meta-tools)
 
-Gateway eksponuje 5 meta-narzędzi zawsze dostępnych:
+The gateway exposes 5 meta-tools that are always available:
 
-| Narzędzie        | Opis                                                              |
-| ---------------- | ----------------------------------------------------------------- |
-| `mcp-find`       | Szukaj w katalogu 316+ serwerów po nazwie/opisie                  |
-| `mcp-exec`       | Wywołaj narzędzie z dowolnego serwera bez dodawania do sesji      |
-| `mcp-add`        | Dodaj serwer do bieżącej sesji (zwiększa liczbę tools)           |
-| `mcp-remove`     | Usuń serwer z sesji                                               |
-| `mcp-config-set` | Ustaw wartość konfiguracyjną serwera                              |
+| Tool             | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| `mcp-find`       | Search the catalog of 316+ servers by name/description       |
+| `mcp-exec`       | Call a tool from any server without adding it to the session |
+| `mcp-add`        | Add a server to the current session (increases tool count)   |
+| `mcp-remove`     | Remove a server from the session                             |
+| `mcp-config-set` | Set a server configuration value                             |
 
-`mcp-exec` — kluczowe dla IDE z limitem narzędzi (omija limit bez dodawania do sesji).
+`mcp-exec` — key for IDEs with tool limits (bypasses the limit without adding to the session).
 
-## Flagi gateway
+## Gateway Flags
 
-| Flaga                 | Opis                                             |
-| --------------------- | ------------------------------------------------ |
-| `--verify-signatures` | Weryfikacja podpisów i attestacji obrazów Docker  |
-| `--servers <nazwa>`   | Filtruje serwery — ogranicza liczbę tools         |
-| `--log-calls`         | Audit log wywołań narzędzi (domyślnie on)         |
+| Flag                  | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| `--verify-signatures` | Verify Docker image signatures and attestations |
+| `--servers <name>`    | Filter servers — limits the number of tools     |
+| `--log-calls`         | Audit log of tool calls (on by default)         |
 
-## Znane problemy
+## Known Issues
 
-| Problem                         | Rozwiązanie                                                       |
-| ------------------------------- | ----------------------------------------------------------------- |
-| "Failed to connect" w IDE       | Użyj pełnej ścieżki `docker-mcp.exe`, dodaj env vars Windows     |
-| Timeout >30s                    | `MCP_TIMEOUT=60000` jako zmienna środowiskowa użytkownika Windows |
-| "N tools exceeds limit"         | Użyj `--servers` do filtrowania; `mcp-exec` dla rzadko używanych  |
-| Serwer crashuje z EOF           | Sprawdź wymagane API keys w Docker Desktop → Configure            |
+| Problem                    | Solution                                                       |
+| -------------------------- | -------------------------------------------------------------- |
+| "Failed to connect" in IDE | Use the full path to `docker-mcp.exe`, add Windows env vars    |
+| Timeout >30s               | Set `MCP_TIMEOUT=60000` as a Windows user environment variable |
+| "N tools exceeds limit"    | Use `--servers` to filter; `mcp-exec` for rarely used tools    |
+| Server crashes with EOF    | Check required API keys in Docker Desktop → Configure          |

@@ -15,7 +15,12 @@ import { platform } from "node:os";
 const SHELL = platform() === "win32" ? { shell: true } : {};
 import { downloadTemplate } from "giget";
 import type { ScaffoldOptions } from "./types.js";
-import { BASE_FILES, TOOL_CONFIGS, EXCLUDED_PATHS } from "./constants.js";
+import {
+  BASE_FILES,
+  TOOL_CONFIGS,
+  EXCLUDED_PATHS,
+  TEMPLATE_SOURCE,
+} from "./constants.js";
 import {
   generatePackageJson,
   generateMcpJson,
@@ -23,6 +28,7 @@ import {
   injectLanguage,
 } from "./transform.js";
 import { generateReadme } from "./readme-generator.js";
+import { generateSetup } from "./setup-generator.js";
 
 async function exists(path: string): Promise<boolean> {
   try {
@@ -50,13 +56,10 @@ export async function scaffold(
 
   // 1. Download template from GitHub
   onStatus("Fetching template from GitHub...");
-  const { dir: tempDir } = await downloadTemplate(
-    "github:Fresco04/agentic-coding-template#main",
-    {
-      force: true,
-      dir: join(targetDir, ".gart-temp"),
-    },
-  );
+  const { dir: tempDir } = await downloadTemplate(TEMPLATE_SOURCE, {
+    force: true,
+    dir: join(targetDir, ".gart-temp"),
+  });
 
   // 2. Determine which entries to copy
   const allowedEntries = new Set<string>(BASE_FILES);
@@ -78,6 +81,31 @@ export async function scaffold(
     await copyEntry(src, dest);
   }
 
+  // 3b. Conditional: copy .gart/agents/ and sync scripts (opt-in)
+  if (options.includeSync) {
+    const gartSrc = join(tempDir, ".gart");
+    if (await exists(gartSrc)) {
+      onStatus("Copying agent sync templates...");
+      await copyEntry(gartSrc, join(targetDir, ".gart"));
+    }
+    // Copy divisions.json and file-to-division.json for sync + gart-bot
+    for (const f of ["divisions.json", "file-to-division.json"]) {
+      const src = join(tempDir, "scripts", f);
+      if (await exists(src)) {
+        await copyEntry(src, join(targetDir, "scripts", f));
+      }
+    }
+  }
+
+  // 3c. Conditional: copy .github/workflows/ (opt-in)
+  if (options.includeWorkflows) {
+    const ghSrc = join(tempDir, ".github");
+    if (await exists(ghSrc)) {
+      onStatus("Copying GitHub Actions workflows...");
+      await copyEntry(ghSrc, join(targetDir, ".github"));
+    }
+  }
+
   // 4. Generate package.json
   onStatus("Generating package.json...");
   const pkgContent = generatePackageJson(options.projectDir, options.tools);
@@ -92,14 +120,22 @@ export async function scaffold(
   });
   await writeFile(join(targetDir, "README.md"), readmeContent, "utf-8");
 
-  // 6. Generate .mcp.json (Claude Code MCP pre-configuration)
+  // 6. Generate SETUP.md
+  onStatus("Generating setup guide...");
+  const setupContent = generateSetup({
+    tools: options.tools,
+    language: options.language,
+  });
+  await writeFile(join(targetDir, "SETUP.md"), setupContent, "utf-8");
+
+  // 7. Generate .mcp.json (Claude Code MCP pre-configuration)
   const mcpContent = generateMcpJson(options.tools);
   if (mcpContent) {
     onStatus("Generating MCP config...");
     await writeFile(join(targetDir, ".mcp.json"), mcpContent, "utf-8");
   }
 
-  // 7. Transform opencode.json (remove hardcoded paths)
+  // 8. Transform opencode.json (generate OS-appropriate MCP_DOCKER)
   if (options.tools.includes("opencode")) {
     const opencodeJsonPath = join(targetDir, "opencode.json");
     if (await exists(opencodeJsonPath)) {
@@ -108,7 +144,7 @@ export async function scaffold(
     }
   }
 
-  // 8. Inject language preference
+  // 9. Inject language preference
   if (options.language !== "English") {
     onStatus("Setting agent language...");
   }

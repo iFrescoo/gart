@@ -56,8 +56,8 @@ for dir in "${PROTECTED_DIRS[@]}"; do
   fi
 done
 
-# Check .env.* pattern (any .env variant)
-if echo "$FILENAME" | grep -qE '^\.env\.'; then
+# Check .env.* pattern (any .env variant) — .env.example is a template, not a secret
+if [ "$FILENAME" != ".env.example" ] && echo "$FILENAME" | grep -qE '^\.env\.'; then
   echo "BLOCKED: Cannot modify environment file '$FILENAME'."
   echo "This file may contain secrets. Edit it manually if needed."
   exit 2

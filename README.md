@@ -136,6 +136,47 @@ GART includes 23 per-domain rule files in `.claude/rules/` — loaded automatica
 | `dep-audit`                | Workflow | Runs `npm audit` after package.json changes       |
 | `warn-large-files`         | Workflow | Warns when files exceed 500 lines                 |
 
+## Auto-Approve Permissions (Claude Code)
+
+GART pre-configures `.claude/settings.json` with sensible auto-approve rules so Claude doesn't ask for confirmation on every file read, edit, or search. Dangerous commands (`rm -rf`, `git push --force`, `git reset --hard`) are explicitly denied.
+
+**To reduce prompts in your own projects**, copy this to your global settings (`~/.claude/settings.json`):
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(bash *)",
+      "Bash(echo *)",
+      "Bash(find *)",
+      "Bash(grep *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)"
+    ]
+  }
+}
+```
+
+> Hooks still enforce safety (secret detection, env leak protection, dangerous command blocking) even with auto-approve enabled.
+
 ## Scoped Rules & Workflows (AntiGravity)
 
 GART includes the same 23 per-domain rule files in `.agent/rules/` — loaded automatically when AntiGravity works with matching files. Same categories as Claude Code rules above.

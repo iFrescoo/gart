@@ -1,4 +1,47 @@
 {
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(bun *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(echo *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(chmod *)",
+      "Bash(cd *)",
+      "Bash(pwd)",
+      "Bash(which *)",
+      "Bash(where *)",
+      "Bash(bash *)",
+      "mcp__MCP_DOCKER__*",
+      "mcp__claude_ai_Context7__*",
+      "mcp__plugin_context-mode_context-mode__*",
+      "mcp__plugin_context7_context7__*"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(DROP TABLE *)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

@@ -249,6 +249,7 @@ GART builds on top of the excellent work from:
 - **[mixedbread-ai/mgrep](https://github.com/mixedbread-ai/mgrep)** — Semantic code search CLI by Mixedbread AI. Used in GART's OpenCode setup for intent-based code exploration alongside traditional grep.
 - **[skillsmp.com](https://skillsmp.com)** — Community skill marketplace with 280K+ indexed Agent Skills. Browse and discover skills for Claude Code, OpenCode, and more.
 - **[skills.sh](https://skills.sh)** — Vercel-backed skill leaderboard with install telemetry tracking across 19+ AI coding agents.
+- **[vava-nessa/free-coding-models](https://github.com/vava-nessa/free-coding-models)** — CLI that pings 174 free LLM models across 23 providers in real-time, ranks by stability and latency, and writes config for coding tools. Powers `bash scripts/gart.sh models`.
 
 ## License
 

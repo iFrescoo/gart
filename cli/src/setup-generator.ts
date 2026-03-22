@@ -103,8 +103,28 @@ export function generateSetup({ tools, language }: SetupOptions): string {
     sections.push("Skills in `.agent/skills/`, rules in `.agent/rules/`.\n");
   }
 
+  // Free LLM model discovery (always shown)
+  sections.push(`## ${toolStep + 1}. Free LLM Model Discovery (Optional)\n`);
+  sections.push(
+    "GART includes `bash scripts/gart.sh models` — a wrapper for [free-coding-models](https://github.com/vava-nessa/free-coding-models).\n",
+  );
+  sections.push(
+    "It pings 174 free LLM models across 23 providers (Groq, Cerebras, NVIDIA NIM, OpenRouter, +19 more), ranks by latency and stability, and writes config for your coding tool.\n",
+  );
+  sections.push("```bash");
+  sections.push(
+    "bash scripts/gart.sh models          # interactive TUI — browse all models",
+  );
+  sections.push(
+    "bash scripts/gart.sh models --tier S  # show only top-tier (S-rank) models",
+  );
+  sections.push("```\n");
+  sections.push(
+    "> Requires `npm install -g free-coding-models` or `npx` (auto-downloaded on first run).\n",
+  );
+
   // 5. Verification checklist
-  const checkStep = toolStep + 1;
+  const checkStep = toolStep + 2;
   sections.push(`## ${checkStep}. Verification Checklist\n`);
   sections.push("- [ ] `.env` configured with API keys");
   if (hasOpencode) {

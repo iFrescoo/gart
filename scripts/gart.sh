@@ -104,6 +104,19 @@ case "${1:-help}" in
     echo "Run 'bash scripts/gart.sh validate' for a full project health check."
     ;;
 
+  models)
+    shift
+    if command -v free-coding-models &>/dev/null; then
+      free-coding-models "$@"
+    elif command -v npx &>/dev/null; then
+      npx -y free-coding-models "$@"
+    else
+      echo "free-coding-models not found."
+      echo "Install: npm install -g free-coding-models"
+      exit 1
+    fi
+    ;;
+
   help|*)
     echo "GART — Generative Agent Runtime Toolkit"
     echo ""
@@ -113,6 +126,7 @@ case "${1:-help}" in
     echo "  validate  — Health-check your project"
     echo "  sync      — Update 274+ agents from upstream"
     echo "  doctor    — Diagnose setup issues"
+    echo "  models    — Browse & auto-configure free LLM providers (174 models, 23 providers)"
     echo "  help      — Show this help message"
     ;;
 esac

@@ -41,8 +41,6 @@ Tasks confirmed but not yet done. Ordered by priority.
 
 ## 📌 Planned
 
-NEW: czy mozesz dodac w soihc ustawieniach (claude) abym nie musial caly czas potwierdzac twoicgh dzilaan w roznych sesjach i proiejktach? ze czy mzoesz np. uzyc mcp docker albo wykonac bash? chce abys byl zautomatyzowany i zeby te potwierdzenia byly tylko w wyjatkowych sytuacjach i zeby bylo to tez w GART tym proejkcie. innych userów tez to pewnie wkurza ale trzeb abedzie to zaznaczyc w readmie.
-
 ### CLI & Scaffold
 
 - [ ] `gart doctor` command — diagnose project setup issues (missing deps, broken hooks, MCP connectivity)

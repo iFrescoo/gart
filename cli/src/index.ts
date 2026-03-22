@@ -53,11 +53,23 @@ async function main(): Promise<void> {
 
   try {
     await scaffold(options, (msg) => {
-      s.message(msg);
+      try {
+        s.message(msg);
+      } catch {
+        /* stream may be destroyed by IDE */
+      }
     });
-    s.stop("Done!");
+    try {
+      s.stop("Done!");
+    } catch {
+      console.log("\nDone!");
+    }
   } catch (err) {
-    s.stop("Failed.");
+    try {
+      s.stop("Failed.");
+    } catch {
+      console.log("\nFailed.");
+    }
     p.log.error(
       err instanceof Error ? err.message : "An unexpected error occurred.",
     );

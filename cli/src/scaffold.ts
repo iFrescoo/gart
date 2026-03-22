@@ -150,8 +150,17 @@ export async function scaffold(
   }
   await injectLanguage(targetDir, options.tools, options.language);
 
-  // 9. Clean up temp directory
-  await rm(join(targetDir, ".gart-temp"), { recursive: true, force: true });
+  // 9. Clean up temp directory (retry on Windows EBUSY — IDE file watchers hold locks)
+  const tempPath = join(targetDir, ".gart-temp");
+  for (let i = 0; i < 3; i++) {
+    try {
+      await rm(tempPath, { recursive: true, force: true });
+      break;
+    } catch {
+      if (i < 2) await new Promise((r) => setTimeout(r, 500));
+      // If all retries fail, .gart-temp is left behind — harmless, gitignored
+    }
+  }
 
   // 10. Append GART entries to .gitignore
   if (options.gitignore) {

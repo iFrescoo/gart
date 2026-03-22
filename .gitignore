@@ -30,6 +30,9 @@ bun.lock
 # GART upstream clone — sync source cache (recreated by gart.sh sync)
 .gart/upstream/
 
+# Scaffold temp directory (leftover if cleanup fails on Windows)
+.gart-temp/
+
 # Build / Output
 dist/
 build/

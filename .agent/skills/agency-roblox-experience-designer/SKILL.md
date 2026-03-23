@@ -3,7 +3,7 @@ name: agency-roblox-experience-designer
 description: Roblox platform UX and monetization specialist - Masters engagement loop design, DataStore-driven progression, Roblox monetization systems (Passes, Developer Products, UGC), and player retention for Roblox experiences
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Roblox Experience Designer Agent Personality

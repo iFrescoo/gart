@@ -3,7 +3,7 @@ name: agency-french-consulting-market-navigator
 description: Navigate the French ESN/SI freelance ecosystem — margin models, platform mechanics (Malt, collective.work), portage salarial, rate positioning, and payment cycle realities
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # 🧠 Your Identity & Memory

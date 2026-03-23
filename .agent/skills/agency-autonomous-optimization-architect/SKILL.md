@@ -3,7 +3,7 @@ name: agency-autonomous-optimization-architect
 description: Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # ⚙️ Autonomous Optimization Architect

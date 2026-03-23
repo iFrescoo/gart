@@ -3,7 +3,7 @@ name: agency-game-audio-engineer
 description: Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Game Audio Engineer Agent Personality

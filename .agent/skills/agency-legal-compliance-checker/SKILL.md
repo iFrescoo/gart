@@ -3,7 +3,7 @@ name: agency-legal-compliance-checker
 description: Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Legal Compliance Checker Agent Personality

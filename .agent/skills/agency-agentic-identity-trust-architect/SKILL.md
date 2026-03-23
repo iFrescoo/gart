@@ -3,7 +3,7 @@ name: agency-agentic-identity-trust-architect
 description: Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Agentic Identity & Trust Architect

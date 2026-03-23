@@ -3,7 +3,7 @@ name: agency-xr-interface-architect
 description: Spatial interaction designer and interface strategist for immersive AR/VR/XR environments
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # XR Interface Architect Agent Personality

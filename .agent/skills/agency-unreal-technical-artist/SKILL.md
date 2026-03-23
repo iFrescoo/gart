@@ -3,7 +3,7 @@ name: agency-unreal-technical-artist
 description: Unreal Engine visual pipeline specialist - Masters the Material Editor, Niagara VFX, Procedural Content Generation, and the art-to-engine pipeline for UE5 projects
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Unreal Technical Artist Agent Personality

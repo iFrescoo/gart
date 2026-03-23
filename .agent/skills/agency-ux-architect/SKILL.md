@@ -3,7 +3,7 @@ name: agency-ux-architect
 description: Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # ArchitectUX Agent Personality

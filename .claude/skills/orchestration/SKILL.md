@@ -47,8 +47,8 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-autonomous-optimization-architect — Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.
 - @agency-backend-architect — Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure. Builds robust, secure, performant server-side applications and microservices
 - @agency-code-reviewer — Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences.
-- @agency-database-optimizer — Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale.
 - @agency-data-engineer — Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms to turn raw data into trusted, analytics-ready assets.
+- @agency-database-optimizer — Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale.
 - @agency-devops-automator — Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations
 - @agency-embedded-firmware-engineer — Specialist in bare-metal and RTOS firmware - ESP32/ESP-IDF, PlatformIO, Arduino, ARM Cortex-M, STM32 HAL/LL, Nordic nRF5/nRF Connect SDK, FreeRTOS, Zephyr
 - @agency-feishu-integration-developer — Full-stack integration expert specializing in the Feishu (Lark) Open Platform — proficient in Feishu bots, mini programs, approval workflows, Bitable (multidimensional spreadsheets), interactive message cards, Webhooks, SSO authentication, and workflow automation, building enterprise-grade collaboration and automation solutions within the Feishu ecosystem.
@@ -69,7 +69,6 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-debugger — Expert debugging specialist that diagnoses errors, analyzes stack traces, identifies root causes, and provides precise fix recommendations — without modifying any files.
 - @agency-dependency-auditor — Expert package management specialist that audits npm/bun dependencies for vulnerabilities, outdated versions, and license issues — always asks before installing or removing anything.
 - @agency-github-code-searcher — Expert GitHub code search specialist that finds real-world implementation examples, patterns, and known exploits across public repositories using gh_grep — zero file modifications.
-- @agency-github-operations-master — Expert GitHub platform specialist covering Actions workflows, REST/GraphQL API, CLI automation, Issues/Projects v2, PRs, Releases, Packages, Security (Dependabot/CodeQL/secret scanning), Webhooks, and Pages.
 
 **Design (@team-design):**
 - @agency-brand-guardian — Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning
@@ -205,45 +204,4 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-legal-compliance-checker — Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
 - @agency-support-responder — Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.
 
-## Model Selection Guide
 
-When delegating to subagents via the `Agent` tool, use the `model` parameter to optimize cost without sacrificing quality where it matters:
-
-| Task Type | Model | Cost | When to Use |
-|-----------|-------|------|-------------|
-| Research / exploration | `haiku` | Lowest | File search, code grep, reading docs, finding definitions, listing dependencies |
-| Implementation / coding | `sonnet` | Medium | Writing code, refactoring, code review, test writing, frontend/backend work |
-| Architecture / security | `opus` | Highest | System design, security audits, complex debugging, critical decision-making |
-
-### Agent-to-Model Mapping
-
-**Use `model: "haiku"` for these agents** (read-only, research, exploration):
-- Explore, Codebase Explorer, GitHub Code Searcher
-- Evidence Collector, Debugger, Dependency Auditor
-- Test Runner, Test Results Analyzer
-- Trend Researcher, Feedback Synthesizer
-
-**Use `model: "sonnet"` for these agents** (implementation, coding, review):
-- Frontend Developer, Backend Architect, Mobile App Builder
-- Code Reviewer, Database Optimizer, DevOps Automator
-- Technical Writer, API Tester, Performance Benchmarker
-- GitHub Operations Master, MCP Builder, Rapid Prototyper
-
-**Use `model: "opus"` for these agents** (critical decisions, architecture):
-- Software Architect, Security Engineer, AI Engineer
-- Compliance Auditor, Blockchain Security Auditor
-- Threat Detection Engineer, SRE
-
-### Example
-
-```
-Agent(subagent_type="Explore", model="haiku", prompt="find all API route files")
-Agent(subagent_type="Frontend Developer", model="sonnet", prompt="implement the login form")
-Agent(subagent_type="Security Engineer", model="opus", prompt="audit auth middleware for vulnerabilities")
-```
-
-### Cost Impact
-Typical orchestration session (10 subagent calls): ~60-80% cost reduction vs all-Opus.
-- 6 research calls × haiku = minimal cost
-- 3 implementation calls × sonnet = moderate cost
-- 1 architecture call × opus = full cost

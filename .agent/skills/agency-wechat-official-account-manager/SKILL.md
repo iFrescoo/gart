@@ -3,7 +3,7 @@ name: agency-wechat-official-account-manager
 description: Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Marketing WeChat Official Account Manager

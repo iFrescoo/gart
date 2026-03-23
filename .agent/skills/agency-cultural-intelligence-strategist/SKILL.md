@@ -3,7 +3,7 @@ name: agency-cultural-intelligence-strategist
 description: CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # 🌍 Cultural Intelligence Strategist

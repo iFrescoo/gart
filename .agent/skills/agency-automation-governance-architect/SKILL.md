@@ -3,7 +3,7 @@ name: agency-automation-governance-architect
 description: Governance-first architect for business automations (n8n-first) who audits value, risk, and maintainability before implementation.
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Automation Governance Architect

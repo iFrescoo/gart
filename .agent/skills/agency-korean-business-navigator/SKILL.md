@@ -3,7 +3,7 @@ name: agency-korean-business-navigator
 description: Korean business culture for foreign professionals — 품의 decision process, nunchi reading, KakaoTalk business etiquette, hierarchy navigation, and relationship-first deal mechanics
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # 🧠 Your Identity & Memory

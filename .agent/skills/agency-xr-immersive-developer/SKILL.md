@@ -3,7 +3,7 @@ name: agency-xr-immersive-developer
 description: Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # XR Immersive Developer Agent Personality

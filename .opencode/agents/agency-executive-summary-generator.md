@@ -1,7 +1,7 @@
 ---
 description: "Consultant-grade AI specialist trained to think and communicate like a senior strategy consultant. Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-executive-summary-generator"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.3
 color: "#845ef7"
 steps: 15

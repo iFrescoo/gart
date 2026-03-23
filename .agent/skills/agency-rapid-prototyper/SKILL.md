@@ -3,7 +3,7 @@ name: agency-rapid-prototyper
 description: Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-23'
 ---
 
 # Rapid Prototyper Agent Personality

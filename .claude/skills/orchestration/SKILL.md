@@ -39,25 +39,28 @@ Sequential: `architect → developer → reviewer → tester`
 Parallel: `frontend-developer + backend-architect (simultaneously)`
 Research first: `codebase-explorer → specialist → reality-checker`
 
-## Full Routing Table (141 agents)
+## Full Routing Table (147 agents)
 
 **Engineering (@team-engineering):**
 - @agency-ai-data-remediation-engineer — "Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scale. Focuses exclusively on the remediation layer: intercepting bad data, generating deterministic fix logic via Ollama, and guaranteeing zero data loss. Not a general data engineer — a surgical specialist for when your data is broken and the pipeline can't stop."
 - @agency-ai-engineer — Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.
 - @agency-autonomous-optimization-architect — Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.
 - @agency-backend-architect — Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure. Builds robust, secure, performant server-side applications and microservices
+- @agency-cms-developer — Drupal and WordPress specialist for theme development, custom plugins/modules, content architecture, and code-first CMS implementation
 - @agency-code-reviewer — Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences.
-- @agency-database-optimizer — Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale.
 - @agency-data-engineer — Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms to turn raw data into trusted, analytics-ready assets.
+- @agency-database-optimizer — Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale.
 - @agency-devops-automator — Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations
+- @agency-email-intelligence-engineer — Expert in extracting structured, reasoning-ready data from raw email threads for AI agents and automation systems
 - @agency-embedded-firmware-engineer — Specialist in bare-metal and RTOS firmware - ESP32/ESP-IDF, PlatformIO, Arduino, ARM Cortex-M, STM32 HAL/LL, Nordic nRF5/nRF Connect SDK, FreeRTOS, Zephyr
 - @agency-feishu-integration-developer — Full-stack integration expert specializing in the Feishu (Lark) Open Platform — proficient in Feishu bots, mini programs, approval workflows, Bitable (multidimensional spreadsheets), interactive message cards, Webhooks, SSO authentication, and workflow automation, building enterprise-grade collaboration and automation solutions within the Feishu ecosystem.
+- @agency-filament-optimization-specialist — Expert in restructuring and optimizing Filament PHP admin interfaces for maximum usability and efficiency. Focuses on impactful structural changes — not just cosmetic tweaks.
 - @agency-frontend-developer — Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization
 - @agency-git-workflow-master — Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management.
 - @agency-incident-response-commander — Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations.
 - @agency-mobile-app-builder — Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks
 - @agency-rapid-prototyper — Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks
-- @agency-security-engineer — Expert application security engineer specializing in threat modeling, vulnerability assessment, secure code review, and security architecture design for modern web and cloud-native applications.
+- @agency-security-engineer — Expert application security engineer specializing in threat modeling, vulnerability assessment, secure code review, security architecture design, and incident response for modern web, API, and cloud-native applications.
 - @agency-senior-developer — Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration
 - @agency-software-architect — Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems.
 - @agency-solidity-smart-contract-engineer — Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design across Ethereum and L2 chains.
@@ -69,7 +72,6 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-debugger — Expert debugging specialist that diagnoses errors, analyzes stack traces, identifies root causes, and provides precise fix recommendations — without modifying any files.
 - @agency-dependency-auditor — Expert package management specialist that audits npm/bun dependencies for vulnerabilities, outdated versions, and license issues — always asks before installing or removing anything.
 - @agency-github-code-searcher — Expert GitHub code search specialist that finds real-world implementation examples, patterns, and known exploits across public repositories using gh_grep — zero file modifications.
-- @agency-github-operations-master — Expert GitHub platform specialist covering Actions workflows, REST/GraphQL API, CLI automation, Issues/Projects v2, PRs, Releases, Packages, Security (Dependabot/CodeQL/secret scanning), Webhooks, and Pages.
 
 **Design (@team-design):**
 - @agency-brand-guardian — Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning
@@ -115,6 +117,7 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-book-co-author — Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters.
 - @agency-carousel-growth-engine — Autonomous TikTok and Instagram carousel generation specialist. Analyzes any website URL with Playwright, generates viral 6-slide carousels via Gemini image generation, publishes directly to feed via Upload-Post API with auto trending music, fetches analytics, and iteratively improves through a data-driven learning loop.
 - @agency-china-e-commerce-operator — Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy.
+- @agency-china-market-localization-strategist — Full-stack China market localization expert who transforms real-time trend signals into executable go-to-market strategies across Douyin, Xiaohongshu, WeChat, Bilibili, and beyond
 - @agency-content-creator — Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels.
 - @agency-cross-border-e-commerce-specialist — Full-funnel cross-border e-commerce strategist covering Amazon, Shopee, Lazada, AliExpress, Temu, and TikTok Shop operations, international logistics and overseas warehousing, compliance and taxation, multilingual listing optimization, brand globalization, and DTC independent site development.
 - @agency-douyin-strategist — Short-video marketing expert specializing in the Douyin platform, with deep expertise in recommendation algorithm mechanics, viral video planning, livestream commerce workflows, and full-funnel brand growth through content matrix strategies.
@@ -131,6 +134,7 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-social-media-strategist — Expert social media strategist for LinkedIn, Twitter, and professional platforms. Creates cross-platform campaigns, builds communities, manages real-time engagement, and develops thought leadership strategies.
 - @agency-tiktok-strategist — Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth.
 - @agency-twitter-engager — Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven growth. Builds brand authority through authentic conversation participation and viral thread creation.
+- @agency-video-optimization-specialist — Video marketing strategist specializing in YouTube algorithm optimization, audience retention, chaptering, thumbnail concepts, and cross-platform video syndication.
 - @agency-wechat-official-account-manager — Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery.
 - @agency-weibo-strategist — Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community management, public sentiment monitoring, fan economy strategies, and Weibo advertising, helping brands achieve viral reach and sustained growth on China's leading public discourse platform.
 - @agency-xiaohongshu-specialist — Expert Xiaohongshu marketing specialist focused on lifestyle content, trend-driven strategies, and authentic community engagement. Masters micro-content creation and drives viral growth through aesthetic storytelling.
@@ -186,6 +190,7 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-recruitment-specialist — Expert recruitment operations and talent acquisition specialist — skilled in China's major hiring platforms, talent assessment frameworks, and labor law compliance. Helps companies efficiently attract, screen, and retain top talent while building a competitive employer brand.
 - @agency-report-distribution-agent — AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters
 - @agency-sales-data-extraction-agent — AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting
+- @agency-civil-engineer — Expert civil and structural engineer with global standards coverage — Eurocode, DIN, ACI, AISC, ASCE, AS/NZS, CSA, GB, IS, AIJ, and more. Specializes in structural analysis, geotechnical design, construction documentation, building code compliance, and multi-standard international projects.
 - @agency-cultural-intelligence-strategist — CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities.
 - @agency-developer-advocate — Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers.
 - @agency-document-generator — Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approaches with proper formatting, charts, and data visualization.
@@ -205,45 +210,4 @@ Research first: `codebase-explorer → specialist → reality-checker`
 - @agency-legal-compliance-checker — Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
 - @agency-support-responder — Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.
 
-## Model Selection Guide
 
-When delegating to subagents via the `Agent` tool, use the `model` parameter to optimize cost without sacrificing quality where it matters:
-
-| Task Type | Model | Cost | When to Use |
-|-----------|-------|------|-------------|
-| Research / exploration | `haiku` | Lowest | File search, code grep, reading docs, finding definitions, listing dependencies |
-| Implementation / coding | `sonnet` | Medium | Writing code, refactoring, code review, test writing, frontend/backend work |
-| Architecture / security | `opus` | Highest | System design, security audits, complex debugging, critical decision-making |
-
-### Agent-to-Model Mapping
-
-**Use `model: "haiku"` for these agents** (read-only, research, exploration):
-- Explore, Codebase Explorer, GitHub Code Searcher
-- Evidence Collector, Debugger, Dependency Auditor
-- Test Runner, Test Results Analyzer
-- Trend Researcher, Feedback Synthesizer
-
-**Use `model: "sonnet"` for these agents** (implementation, coding, review):
-- Frontend Developer, Backend Architect, Mobile App Builder
-- Code Reviewer, Database Optimizer, DevOps Automator
-- Technical Writer, API Tester, Performance Benchmarker
-- GitHub Operations Master, MCP Builder, Rapid Prototyper
-
-**Use `model: "opus"` for these agents** (critical decisions, architecture):
-- Software Architect, Security Engineer, AI Engineer
-- Compliance Auditor, Blockchain Security Auditor
-- Threat Detection Engineer, SRE
-
-### Example
-
-```
-Agent(subagent_type="Explore", model="haiku", prompt="find all API route files")
-Agent(subagent_type="Frontend Developer", model="sonnet", prompt="implement the login form")
-Agent(subagent_type="Security Engineer", model="opus", prompt="audit auth middleware for vulnerabilities")
-```
-
-### Cost Impact
-Typical orchestration session (10 subagent calls): ~60-80% cost reduction vs all-Opus.
-- 6 research calls × haiku = minimal cost
-- 3 implementation calls × sonnet = moderate cost
-- 1 architecture call × opus = full cost

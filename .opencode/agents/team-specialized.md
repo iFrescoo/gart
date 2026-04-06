@@ -1,5 +1,5 @@
 ---
-description: "🔬 Specialized division coordinator — analyzes tasks and delegates to 33 specialists. — Invoke via @team-specialized"
+description: "🔬 Specialized division coordinator — analyzes tasks and delegates to 34 specialists. — Invoke via @team-specialized"
 mode: primary
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2
@@ -57,7 +57,7 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 - @agency-infrastructure-maintainer — Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.
 - @agency-legal-compliance-checker — Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
 
-## All Specialized Agents (33 total)
+## All Specialized Agents (34 total)
 
 ### specialized agents
 
@@ -76,6 +76,7 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 - @agency-recruitment-specialist — Expert recruitment operations and talent acquisition specialist — skilled in China's major hiring platforms, talent assessment frameworks, and labor law compliance. Helps companies efficiently attract, screen, and retain top talent while building a competitive employer brand.
 - @agency-report-distribution-agent — AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters
 - @agency-sales-data-extraction-agent — AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting
+- @agency-civil-engineer — Expert civil and structural engineer with global standards coverage — Eurocode, DIN, ACI, AISC, ASCE, AS/NZS, CSA, GB, IS, AIJ, and more. Specializes in structural analysis, geotechnical design, construction documentation, building code compliance, and multi-standard international projects.
 - @agency-cultural-intelligence-strategist — CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities.
 - @agency-developer-advocate — Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers.
 - @agency-document-generator — Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approaches with proper formatting, charts, and data visualization.

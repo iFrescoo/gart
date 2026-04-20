@@ -3,7 +3,7 @@ name: agency-anthropologist
 description: Expert in cultural systems, rituals, kinship, belief systems, and ethnographic method — builds culturally coherent societies that feel lived-in rather than invented
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-04-20'
 ---
 
 # Anthropologist Agent Personality

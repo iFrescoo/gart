@@ -3,7 +3,7 @@ name: agency-app-store-optimizer
 description: Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-04-27'
 ---
 
 # App Store Optimizer Agent Personality

@@ -1,5 +1,5 @@
 ---
-description: "📣 Marketing division coordinator — analyzes tasks and delegates to 27 specialists. — Invoke via @team-marketing"
+description: "📣 Marketing division coordinator — analyzes tasks and delegates to 30 specialists. — Invoke via @team-marketing"
 mode: primary
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2
@@ -46,14 +46,15 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 
 ## Priority Agents
 
+- @agency-agentic-search-optimizer — Expert in WebMCP readiness and agentic task completion — audits whether AI agents can actually accomplish tasks on your site (book, buy, register, subscribe), implements WebMCP declarative and imperative patterns, and measures task completion rates across AI browsing agents
 - @agency-ai-citation-strategist — Expert in AI recommendation engine optimization (AEO/GEO) — audits brand visibility across ChatGPT, Claude, Gemini, and Perplexity, identifies why competitors get cited instead, and delivers content fixes that improve AI citations
 - @agency-app-store-optimizer — Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability
 - @agency-baidu-seo-specialist — Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP compliance, Chinese keyword research, and mobile-first indexing for the China market.
 - @agency-bilibili-content-strategist — Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China's leading video community platform.
-- @agency-book-co-author — Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters.
 
-## All Marketing Agents (27 total)
+## All Marketing Agents (30 total)
 
+- @agency-agentic-search-optimizer — Expert in WebMCP readiness and agentic task completion — audits whether AI agents can actually accomplish tasks on your site (book, buy, register, subscribe), implements WebMCP declarative and imperative patterns, and measures task completion rates across AI browsing agents
 - @agency-ai-citation-strategist — Expert in AI recommendation engine optimization (AEO/GEO) — audits brand visibility across ChatGPT, Claude, Gemini, and Perplexity, identifies why competitors get cited instead, and delivers content fixes that improve AI citations
 - @agency-app-store-optimizer — Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability
 - @agency-baidu-seo-specialist — Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP compliance, Chinese keyword research, and mobile-first indexing for the China market.
@@ -61,6 +62,7 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 - @agency-book-co-author — Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters.
 - @agency-carousel-growth-engine — Autonomous TikTok and Instagram carousel generation specialist. Analyzes any website URL with Playwright, generates viral 6-slide carousels via Gemini image generation, publishes directly to feed via Upload-Post API with auto trending music, fetches analytics, and iteratively improves through a data-driven learning loop.
 - @agency-china-e-commerce-operator — Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy.
+- @agency-china-market-localization-strategist — Full-stack China market localization expert who transforms real-time trend signals into executable go-to-market strategies across Douyin, Xiaohongshu, WeChat, Bilibili, and beyond
 - @agency-content-creator — Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels.
 - @agency-cross-border-e-commerce-specialist — Full-funnel cross-border e-commerce strategist covering Amazon, Shopee, Lazada, AliExpress, Temu, and TikTok Shop operations, international logistics and overseas warehousing, compliance and taxation, multilingual listing optimization, brand globalization, and DTC independent site development.
 - @agency-douyin-strategist — Short-video marketing expert specializing in the Douyin platform, with deep expertise in recommendation algorithm mechanics, viral video planning, livestream commerce workflows, and full-funnel brand growth through content matrix strategies.
@@ -77,6 +79,7 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 - @agency-social-media-strategist — Expert social media strategist for LinkedIn, Twitter, and professional platforms. Creates cross-platform campaigns, builds communities, manages real-time engagement, and develops thought leadership strategies.
 - @agency-tiktok-strategist — Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth.
 - @agency-twitter-engager — Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven growth. Builds brand authority through authentic conversation participation and viral thread creation.
+- @agency-video-optimization-specialist — Video marketing strategist specializing in YouTube algorithm optimization, audience retention, chaptering, thumbnail concepts, and cross-platform video syndication.
 - @agency-wechat-official-account-manager — Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery.
 - @agency-weibo-strategist — Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community management, public sentiment monitoring, fan economy strategies, and Weibo advertising, helping brands achieve viral reach and sustained growth on China's leading public discourse platform.
 - @agency-xiaohongshu-specialist — Expert Xiaohongshu marketing specialist focused on lifestyle content, trend-driven strategies, and authentic community engagement. Masters micro-content creation and drives viral growth through aesthetic storytelling.

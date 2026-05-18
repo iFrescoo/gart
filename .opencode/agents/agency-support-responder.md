@@ -1,7 +1,7 @@
 ---
 description: "Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-support-responder"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.3
 color: "#339af0"
 steps: 15

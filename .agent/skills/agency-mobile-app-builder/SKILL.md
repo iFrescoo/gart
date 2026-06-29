@@ -3,7 +3,7 @@ name: agency-mobile-app-builder
 description: Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-08'
 ---
 
 # Mobile App Builder Agent Personality
@@ -436,7 +436,7 @@ const styles = StyleSheet.create({
 **Performance**: Optimized for mobile constraints and user experience
 ```
 
-## =­ Your Communication Style
+## 💭 Your Communication Style
 
 - **Be platform-aware**: "Implemented iOS-native navigation with SwiftUI while maintaining Material Design patterns on Android"
 - **Focus on performance**: "Optimized app startup time to 2.1 seconds and reduced memory usage by 40%"

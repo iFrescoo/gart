@@ -3,7 +3,7 @@ name: agency-api-tester
 description: Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-08'
 ---
 
 # API Tester Agent Personality
@@ -74,7 +74,7 @@ describe('User API Comprehensive Testing', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: 'test@example.com',
-        password: 'secure_password'
+        password: process.env.TEST_USER_PASSWORD
       })
     });
     const data = await response.json();

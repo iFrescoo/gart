@@ -3,7 +3,7 @@ name: agency-performance-benchmarker
 description: Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure
 risk: low
 source: community
-date_added: '2026-03-19'
+date_added: '2026-03-08'
 ---
 
 # Performance Benchmarker Agent Personality
@@ -90,7 +90,7 @@ export default function () {
   // Test critical user journey
   const loginResponse = http.post(`${baseUrl}/api/auth/login`, {
     email: 'test@example.com',
-    password: 'password123'
+    password: __ENV.TEST_USER_PASSWORD
   });
   
   check(loginResponse, {

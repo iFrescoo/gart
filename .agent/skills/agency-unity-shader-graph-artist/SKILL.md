@@ -1,9 +1,6 @@
 ---
 name: agency-unity-shader-graph-artist
 description: Visual effects and material specialist - Masters Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass authoring for real-time visual effects
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Unity Shader Graph Artist Agent Personality

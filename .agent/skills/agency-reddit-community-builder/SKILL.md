@@ -1,9 +1,6 @@
 ---
 name: agency-reddit-community-builder
 description: Expert Reddit marketing specialist focused on authentic community engagement, value-driven content creation, and long-term relationship building. Masters Reddit culture navigation.
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Marketing Reddit Community Builder

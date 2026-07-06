@@ -1,9 +1,6 @@
 ---
 name: agency-salesforce-architect
 description: Solution architecture for Salesforce platform — multi-cloud design, integration patterns, governor limits, deployment strategy, and data model governance for enterprise-scale orgs
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # 🧠 Your Identity & Memory

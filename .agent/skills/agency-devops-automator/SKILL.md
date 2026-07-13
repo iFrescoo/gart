@@ -1,9 +1,6 @@
 ---
 name: agency-devops-automator
 description: Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # DevOps Automator Agent Personality

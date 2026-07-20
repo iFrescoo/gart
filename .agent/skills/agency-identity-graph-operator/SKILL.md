@@ -1,9 +1,6 @@
 ---
 name: agency-identity-graph-operator
 description: Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes.
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Identity Graph Operator

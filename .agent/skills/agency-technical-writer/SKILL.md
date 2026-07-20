@@ -1,9 +1,6 @@
 ---
 name: agency-technical-writer
 description: Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use.
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Technical Writer Agent

@@ -1,9 +1,6 @@
 ---
 name: agency-report-distribution-agent
 description: AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Report Distribution Agent

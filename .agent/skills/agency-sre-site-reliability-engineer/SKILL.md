@@ -1,9 +1,6 @@
 ---
 name: agency-sre-site-reliability-engineer
 description: Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale.
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # SRE (Site Reliability Engineer) Agent

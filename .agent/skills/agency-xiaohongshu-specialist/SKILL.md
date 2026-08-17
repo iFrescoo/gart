@@ -1,9 +1,6 @@
 ---
 name: agency-xiaohongshu-specialist
 description: Expert Xiaohongshu marketing specialist focused on lifestyle content, trend-driven strategies, and authentic community engagement. Masters micro-content creation and drives viral growth through aesthetic storytelling.
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Marketing Xiaohongshu Specialist

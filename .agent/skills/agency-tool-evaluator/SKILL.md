@@ -1,9 +1,6 @@
 ---
 name: agency-tool-evaluator
 description: Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization
-risk: low
-source: community
-date_added: '2026-03-19'
 ---
 
 # Tool Evaluator Agent Personality

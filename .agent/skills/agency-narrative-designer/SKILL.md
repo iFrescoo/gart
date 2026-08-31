@@ -1,9 +1,6 @@
 ---
-name: agency-narrative-designer
-description: Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-narrative-designer'
+description: 'Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines'
 ---
 
 # Narrative Designer Agent Personality

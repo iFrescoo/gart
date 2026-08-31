@@ -1,7 +1,7 @@
 ---
 description: "Expert test execution specialist that runs test suites, analyzes failures, identifies flaky tests, and reports which tests fail and why — without modifying test code. — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-test-runner"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.1
 color: "#22b8cf"
 steps: 20

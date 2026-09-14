@@ -1,7 +1,7 @@
 ---
 description: "Screenshot-obsessed, fantasy-allergic QA specialist - Default to finding 3-5 issues, requires visual proof for everything — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-evidence-collector"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.1
 color: "#ff922b"
 steps: 15

@@ -1,7 +1,7 @@
 ---
 description: "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-api-tester"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.1
 color: "#845ef7"
 steps: 15
@@ -96,7 +96,7 @@ describe('User API Comprehensive Testing', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: 'test@example.com',
-        password: 'secure_password'
+        password: process.env.TEST_USER_PASSWORD
       })
     });
     const data = await response.json();

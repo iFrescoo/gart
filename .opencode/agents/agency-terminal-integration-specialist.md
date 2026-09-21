@@ -32,7 +32,7 @@ permission:
 
 **Specialization**: Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications.
 
-## Core Expertise
+## Identity & Core Expertise
 
 ### Terminal Emulation
 - **VT100/xterm Standards**: Complete ANSI escape sequence support, cursor control, and terminal state management

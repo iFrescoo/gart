@@ -1,9 +1,6 @@
 ---
-name: agency-analytics-reporter
-description: Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-analytics-reporter'
+description: 'Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.'
 ---
 
 # Analytics Reporter Agent Personality
@@ -115,10 +112,16 @@ def customer_segmentation_analysis(df):
         'revenue': 'monetary'
     })
     
-    # Create RFM scores
-    rfm['r_score'] = pd.qcut(rfm['recency'], 5, labels=[5,4,3,2,1])
-    rfm['f_score'] = pd.qcut(rfm['frequency'].rank(method='first'), 5, labels=[1,2,3,4,5])
-    rfm['m_score'] = pd.qcut(rfm['monetary'], 5, labels=[1,2,3,4,5])
+    # Percentile bands tolerate sparse cohorts and keep identical values together.
+    # These are relative scores within this cohort, not absolute value thresholds.
+    def score(values, higher_is_better=True):
+        percentile = values.rank(method='average', pct=True)
+        band = np.ceil(percentile * 5).clip(1, 5).astype(int)
+        return band if higher_is_better else 6 - band
+
+    rfm['r_score'] = score(rfm['recency'], higher_is_better=False)
+    rfm['f_score'] = score(rfm['frequency'])
+    rfm['m_score'] = score(rfm['monetary'])
     
     # Customer segments
     rfm['rfm_score'] = rfm['r_score'].astype(str) + rfm['f_score'].astype(str) + rfm['m_score'].astype(str)
@@ -164,25 +167,31 @@ def generate_customer_insights(rfm_df):
 // Marketing Attribution and ROI Analysis
 const marketingDashboard = {
   // Multi-touch attribution model
+  // conversions.conversion_id and marketing_touchpoints.touchpoint_id are unique IDs.
+  // Each conversion has its own journey; two touches split revenue equally.
   attributionAnalysis: `
     WITH customer_touchpoints AS (
       SELECT 
-        customer_id,
-        channel,
-        campaign,
-        touchpoint_date,
-        conversion_date,
-        revenue,
-        ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY touchpoint_date) as touch_sequence,
-        COUNT(*) OVER (PARTITION BY customer_id) as total_touches
+        c.conversion_id,
+        mt.customer_id,
+        mt.channel,
+        mt.campaign,
+        mt.touchpoint_date,
+        c.conversion_date,
+        c.revenue,
+        ROW_NUMBER() OVER (
+          PARTITION BY c.conversion_id ORDER BY mt.touchpoint_date, mt.touchpoint_id
+        ) as touch_sequence,
+        COUNT(*) OVER (PARTITION BY c.conversion_id) as total_touches
       FROM marketing_touchpoints mt
       JOIN conversions c ON mt.customer_id = c.customer_id
-      WHERE touchpoint_date <= conversion_date
+      WHERE mt.touchpoint_date <= c.conversion_date
     ),
     attribution_weights AS (
       SELECT *,
         CASE 
-          WHEN touch_sequence = 1 AND total_touches = 1 THEN 1.0  -- Single touch
+          WHEN total_touches = 1 THEN 1.0                        -- Single touch
+          WHEN total_touches = 2 THEN 0.5                        -- Two-touch journey
           WHEN touch_sequence = 1 THEN 0.4                       -- First touch
           WHEN touch_sequence = total_touches THEN 0.4           -- Last touch
           ELSE 0.2 / (total_touches - 2)                        -- Middle touches
@@ -193,8 +202,8 @@ const marketingDashboard = {
       channel,
       campaign,
       SUM(revenue * attribution_weight) as attributed_revenue,
-      COUNT(DISTINCT customer_id) as attributed_conversions,
-      SUM(revenue * attribution_weight) / COUNT(DISTINCT customer_id) as revenue_per_conversion
+      COUNT(DISTINCT conversion_id) as attributed_conversions,
+      SUM(revenue * attribution_weight) / COUNT(DISTINCT conversion_id) as revenue_per_conversion
     FROM attribution_weights
     GROUP BY channel, campaign
     ORDER BY attributed_revenue DESC;
@@ -302,6 +311,7 @@ const marketingDashboard = {
 **Monitoring Frequency**: [Review schedule and reporting cadence]
 **Dashboard Links**: [Access to real-time monitoring dashboards]
 
+---
 **Analytics Reporter**: [Your name]
 **Analysis Date**: [Date]
 **Next Review**: [Scheduled follow-up date]
@@ -359,5 +369,6 @@ You're successful when:
 - Visualization tools mastery including Tableau, Power BI, and custom dashboard development
 - Data pipeline architecture for real-time analytics and automated reporting
 
+---
 
 **Instructions Reference**: Your detailed analytical methodology is in your core training - refer to comprehensive statistical frameworks, business intelligence best practices, and data visualization guidelines for complete guidance.

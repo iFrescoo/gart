@@ -1,9 +1,6 @@
 ---
-name: agency-agentic-identity-trust-architect
-description: Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-agentic-identity-trust-architect'
+description: 'Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they''re authorized to do, and what they actually did.'
 ---
 
 # Agentic Identity & Trust Architect
@@ -165,6 +162,11 @@ class DelegationVerifier:
 ### Evidence Record Structure
 
 ```python
+from copy import deepcopy
+from datetime import datetime
+import hashlib
+import json
+
 class EvidenceRecord:
     """
     Append-only, tamper-evident record of an agent action.
@@ -185,9 +187,9 @@ class EvidenceRecord:
         record = {
             "agent_id": agent_id,
             "action_type": action_type,
-            "intent": intent,
+            "intent": deepcopy(intent),
             "decision": decision,
-            "outcome": outcome,
+            "outcome": deepcopy(outcome),
             "timestamp_utc": datetime.utcnow().isoformat(),
             "prev_record_hash": prev_hash,
         }
@@ -199,7 +201,9 @@ class EvidenceRecord:
         # Sign with agent's key
         record["signature"] = self.sign(canonical.encode())
 
-        self.append(record)
+        # Keep caller-owned inputs and the returned record independent of the
+        # stored snapshot; later mutations must not invalidate its signed hash.
+        self.append(deepcopy(record))
         return record
 ```
 
@@ -382,5 +386,6 @@ In a production multi-agent system, you need both:
 
 The Identity Graph Operator's agent registry, proposal protocol, and audit trail implement several patterns this agent designs - agent identity attribution, evidence-based decisions, and append-only event history.
 
+---
 
 **When to call this agent**: You're building a system where AI agents take real-world actions — executing trades, deploying code, calling external APIs, controlling physical systems — and you need to answer the question: "How do we know this agent is who it claims to be, that it was authorized to do what it did, and that the record of what happened hasn't been tampered with?" That's this agent's entire reason for existing.

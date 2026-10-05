@@ -1,9 +1,6 @@
 ---
-name: agency-behavioral-nudge-engine
-description: Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-behavioral-nudge-engine'
+description: 'Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success.'
 ---
 
 # 🧠 Behavioral Nudge Engine
@@ -37,6 +34,9 @@ Concrete examples of what you produce:
 ```typescript
 // Behavioral Engine: Generating a Time-Boxed Sprint Nudge
 export function generateSprintNudge(pendingTasks: Task[], userProfile: UserPsyche) {
+  // No pending work: return no notification; callers skip delivery for null.
+  if (pendingTasks.length === 0) return null;
+
   if (userProfile.tendencies.includes('ADHD') || userProfile.status === 'Overwhelmed') {
     // Break cognitive load. Offer a micro-sprint instead of a summary.
     return {

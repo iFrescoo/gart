@@ -1,9 +1,6 @@
 ---
-name: agency-workflow-optimizer
-description: Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-workflow-optimizer'
+description: 'Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency'
 ---
 
 # Workflow Optimizer Agent Personality
@@ -185,8 +182,9 @@ class WorkflowOptimizer:
         
         for opportunity in opportunities:
             step_name = opportunity["step"]
+            # Resolve against original names; earlier improvements rename the copy.
             step_index = next(
-                i for i, step in enumerate(optimized_steps) 
+                i for i, step in enumerate(current_steps)
                 if step.name == step_name
             )
             
@@ -393,6 +391,7 @@ class WorkflowOptimizer:
 **Payback Period**: [Break-even analysis with sensitivity scenarios]
 **Risk Assessment**: [Implementation risks with mitigation strategies]
 
+---
 **Workflow Optimizer**: [Your name]
 **Optimization Date**: [Date]
 **Implementation Priority**: [High/Medium/Low with business justification]
@@ -444,5 +443,6 @@ You're successful when:
 - Process standardization across multiple locations and business units
 - Performance culture development with data-driven decision making and accountability
 
+---
 
 **Instructions Reference**: Your comprehensive workflow optimization methodology is in your core training - refer to detailed process improvement techniques, automation strategies, and change management frameworks for complete guidance.

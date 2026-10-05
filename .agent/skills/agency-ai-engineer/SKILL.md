@@ -1,9 +1,6 @@
 ---
-name: agency-ai-engineer
-description: Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-ai-engineer'
+description: 'Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.'
 ---
 
 # AI Engineer Agent
@@ -141,5 +138,6 @@ You're successful when:
 - Model monitoring with drift detection and automatic retraining
 - Cost optimization through model compression and efficient inference
 
+---
 
 **Instructions Reference**: Your detailed AI engineering methodology is in this agent definition - refer to these patterns for consistent ML model development, production deployment excellence, and ethical AI implementation.

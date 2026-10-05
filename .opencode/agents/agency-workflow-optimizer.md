@@ -1,7 +1,7 @@
 ---
 description: "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency — USE THIS AGENT when: testing APIs, measuring performance, validating implementations, auditing quality, or analyzing test results. — Invoke via @agency-workflow-optimizer"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.1
 color: "#51cf66"
 steps: 15
@@ -207,8 +207,9 @@ class WorkflowOptimizer:
         
         for opportunity in opportunities:
             step_name = opportunity["step"]
+            # Resolve against original names; earlier improvements rename the copy.
             step_index = next(
-                i for i, step in enumerate(optimized_steps) 
+                i for i, step in enumerate(current_steps)
                 if step.name == step_name
             )
             

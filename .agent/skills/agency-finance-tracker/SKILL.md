@@ -1,9 +1,6 @@
 ---
-name: agency-finance-tracker
-description: Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-finance-tracker'
+description: 'Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth.'
 ---
 
 # Finance Tracker Agent Personality
@@ -100,7 +97,7 @@ ORDER BY department, quarter;
 ```python
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+from datetime import datetime
 import matplotlib.pyplot as plt
 
 class CashFlowManager:
@@ -112,7 +109,9 @@ class CashFlowManager:
         """
         Generate 12-month rolling cash flow forecast
         """
-        forecast = pd.DataFrame()
+        rows = []
+        cumulative_cash = self.current_cash
+        start_month = pd.Timestamp(datetime.now()).to_period('M')
         
         # Historical patterns analysis
         monthly_patterns = self.data.groupby('month').agg({
@@ -123,7 +122,7 @@ class CashFlowManager:
         
         # Generate forecast with seasonality
         for i in range(periods):
-            forecast_date = datetime.now() + timedelta(days=30*i)
+            forecast_date = (start_month + i).to_timestamp()
             month = forecast_date.month
             
             # Apply seasonality factors
@@ -136,17 +135,21 @@ class CashFlowManager:
             
             net_flow = forecasted_receipts - forecasted_payments
             
-            forecast = forecast.append({
+            cumulative_cash += net_flow
+            rows.append({
                 'date': forecast_date,
                 'forecasted_receipts': forecasted_receipts,
                 'forecasted_payments': forecasted_payments,
                 'net_cash_flow': net_flow,
-                'cumulative_cash': self.current_cash + forecast['net_cash_flow'].sum() if len(forecast) > 0 else self.current_cash + net_flow,
+                'cumulative_cash': cumulative_cash,
                 'confidence_interval_low': net_flow * 0.85,
                 'confidence_interval_high': net_flow * 1.15
-            }, ignore_index=True)
+            })
         
-        return forecast
+        return pd.DataFrame(rows, columns=[
+            'date', 'forecasted_receipts', 'forecasted_payments', 'net_cash_flow',
+            'cumulative_cash', 'confidence_interval_low', 'confidence_interval_high'
+        ])
     
     def identify_cash_flow_risks(self, forecast_df):
         """
@@ -215,14 +218,23 @@ class InvestmentAnalyzer:
         Calculate Internal Rate of Return
         """
         from scipy.optimize import fsolve
+        import math
         
         def npv_function(rate):
             return sum([cf / ((1 + rate) ** (i + 1)) for i, cf in enumerate(cash_flows)]) - initial_investment
         
         try:
-            irr = fsolve(npv_function, 0.1)[0]
+            roots, info, status, _ = fsolve(npv_function, 0.1, full_output=True)
+            irr = float(roots[0])
+            # fsolve returns its last iterate even when no root was found.
+            # A finite iterate is not evidence of a valid investment return.
+            scale = max(1.0, abs(initial_investment), sum(abs(cf) for cf in cash_flows))
+            if (status != 1 or not math.isfinite(irr) or irr <= -1 or
+                    not math.isfinite(float(info['fvec'][0])) or
+                    abs(float(info['fvec'][0])) > 1e-7 * scale):
+                return None
             return irr
-        except:
+        except (ValueError, TypeError, OverflowError, ZeroDivisionError):
             return None
     
     def payback_period(self, cash_flows, initial_investment):
@@ -252,7 +264,7 @@ class InvestmentAnalyzer:
             'project_name': project_name,
             'initial_investment': initial_investment,
             'npv': npv,
-            'irr': irr * 100 if irr else None,
+            'irr': irr * 100 if irr is not None else None,
             'payback_period': payback,
             'roi_percentage': roi,
             'risk_score': risk_score,
@@ -378,6 +390,7 @@ class InvestmentAnalyzer:
 **Audit Preparation**: [Documentation and control improvements]
 **Reporting Enhancement**: [Dashboard and reporting system improvements]
 
+---
 **Finance Tracker**: [Your name]
 **Report Date**: [Date]
 **Review Period**: [Period covered]
@@ -436,5 +449,6 @@ You're successful when:
 - Operational risk management with business continuity and insurance analysis
 - Market risk management with hedging strategies and portfolio diversification
 
+---
 
 **Instructions Reference**: Your detailed financial methodology is in your core training - refer to comprehensive financial analysis frameworks, budgeting best practices, and investment evaluation guidelines for complete guidance.

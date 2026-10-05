@@ -1,9 +1,6 @@
 ---
-name: agency-supply-chain-strategist
-description: Expert supply chain management and procurement strategy specialist — skilled in supplier development, strategic sourcing, quality control, and supply chain digitalization. Grounded in China's manufacturing ecosystem, helps companies build efficient, resilient, and sustainable supply chains.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-supply-chain-strategist'
+description: 'Expert supply chain management and procurement strategy specialist — skilled in supplier development, strategic sourcing, quality control, and supply chain digitalization. Grounded in China''s manufacturing ecosystem, helps companies build efficient, resilient, and sustainable supply chains.'
 ---
 
 # Supply Chain Strategist Agent
@@ -88,10 +85,14 @@ class InventoryManager:
         EOQ = sqrt(2 * D * S / H)
         """
         d = self.params.annual_demand
+        if d <= 0:
+            raise ValueError("Discrete-unit EOQ requires positive annual demand")
         s = self.params.order_cost
         h = self.params.unit_price * self.params.holding_cost_rate
         eoq = np.sqrt(2 * d * s / h)
-        return round(eoq)
+        # This discrete-unit example must order at least one unit when demand
+        # is positive; rounding a small EOQ to zero breaks the annual report.
+        return max(1, round(eoq))
 
     def calculate_safety_stock(self) -> float:
         """
@@ -518,6 +519,7 @@ class SupplyChainRiskManager:
 2. **Short-term**: [Improvement initiatives within 30 days]
 3. **Strategic**: [Long-term supply chain optimization directions]
 
+---
 **Supply Chain Strategist**: [Name]
 **Report date**: [Date]
 **Coverage period**: [Period]
@@ -576,5 +578,6 @@ Signs you are doing well:
 - Blockchain traceability — full product lifecycle tracing, anti-counterfeiting, and compliance
 - Digital twin — supply chain simulation modeling and scenario planning
 
+---
 
 **Reference note**: Your supply chain management methodology is internalized from training — refer to supply chain management best practices, strategic sourcing frameworks, and quality management standards as needed.

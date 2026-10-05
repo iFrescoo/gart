@@ -1,9 +1,6 @@
 ---
-name: agency-support-responder
-description: Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-support-responder'
+description: 'Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.'
 ---
 
 # Support Responder Agent Personality
@@ -182,28 +179,44 @@ class SupportAnalytics:
     
     def identify_support_trends(self):
         """
-        Identify trends and patterns in support data
+        Compare calendar periods, preserving year boundaries and missing evidence.
         """
+        dated = self.data.dropna(subset=['created_date']).set_index('created_date').sort_index()
+
+        def compare_recent_periods(values, lower_is_better=False):
+            if len(values) < 2 or values.iloc[-2:].isna().any():
+                return 'insufficient_data'
+            previous, current = values.iloc[-2], values.iloc[-1]
+            if current == previous:
+                return 'stable'
+            improving = current < previous if lower_is_better else current > previous
+            return 'improving' if improving else 'declining'
+
         trends = {}
-        
-        # Ticket volume trends
-        daily_volume = self.data.groupby(self.data['created_date'].dt.date).size()
-        trends['volume_trend'] = 'increasing' if daily_volume.iloc[-7:].mean() > daily_volume.iloc[-14:-7].mean() else 'decreasing'
-        
-        # Common issue categories
-        issue_frequency = self.data['issue_category'].value_counts()
-        trends['top_issues'] = issue_frequency.head(5).to_dict()
-        
-        # Customer satisfaction trends
-        monthly_csat = self.data.groupby(self.data['created_date'].dt.month)['csat_score'].mean()
-        trends['satisfaction_trend'] = 'improving' if monthly_csat.iloc[-1] > monthly_csat.iloc[-2] else 'declining'
-        
-        # Response time trends
-        weekly_response_time = self.data.groupby(self.data['created_date'].dt.week)['first_response_time'].mean()
-        trends['response_time_trend'] = 'improving' if weekly_response_time.iloc[-1] < weekly_response_time.iloc[-2] else 'declining'
-        
+        # Assumes collection covers each day between the first and last dates.
+        # Include zero-ticket calendar days and compare consecutive seven-day
+        # windows ending on the latest observed date, not seven active dates.
+        daily_volume = dated.resample('D').size()
+        trends['volume_trend'] = 'insufficient_data'
+        if len(daily_volume) >= 14:
+            previous = daily_volume.iloc[-14:-7].mean()
+            current = daily_volume.iloc[-7:].mean()
+            trends['volume_trend'] = (
+                'stable' if current == previous else
+                'increasing' if current > previous else 'decreasing'
+            )
+
+        trends['top_issues'] = self.data['issue_category'].value_counts().head(5).to_dict()
+        # Calendar resampling keeps December before January and inserts missing
+        # months/weeks as NaN rather than merging different years or guessing a trend.
+        monthly_csat = dated['csat_score'].resample('MS').mean()
+        trends['satisfaction_trend'] = compare_recent_periods(monthly_csat)
+        weekly_response_time = dated['first_response_time'].resample('W').mean()
+        trends['response_time_trend'] = compare_recent_periods(
+            weekly_response_time, lower_is_better=True
+        )
         return trends
-    
+
     def generate_improvement_recommendations(self):
         """
         Generate specific recommendations based on support data analysis
@@ -521,6 +534,7 @@ class KnowledgeBaseManager:
 **Best Practices**: [Successful techniques that can be shared with team]
 **Customer Feedback Integration**: [How customer input will influence future support]
 
+---
 **Support Responder**: [Your name]
 **Interaction Date**: [Date and time]
 **Case ID**: [Unique case identifier]
@@ -579,5 +593,6 @@ You're successful when:
 - Content creation and curation with continuous improvement based on usage analytics
 - Training program development with new hire onboarding and ongoing skill enhancement
 
+---
 
 **Instructions Reference**: Your detailed customer service methodology is in your core training - refer to comprehensive support frameworks, customer success strategies, and communication best practices for complete guidance.

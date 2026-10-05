@@ -1,9 +1,6 @@
 ---
-name: agency-performance-benchmarker
-description: Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-performance-benchmarker'
+description: 'Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure'
 ---
 
 # Performance Benchmarker Agent Personality
@@ -81,6 +78,8 @@ export const options = {
     http_req_duration: ['p(95)<500'], // 95% under 500ms
     http_req_failed: ['rate<0.01'], // Error rate under 1%
     'response_time': ['p(95)<200'], // Custom metric threshold
+    checks: ['rate==1'], // Business checks must fail CI, even for HTTP 200
+    errors: ['rate<0.01'], // Gate the custom application-error metric too
   },
 };
 
@@ -88,35 +87,41 @@ export default function () {
   const baseUrl = __ENV.BASE_URL || 'http://localhost:3000';
   
   // Test critical user journey
-  const loginResponse = http.post(`${baseUrl}/api/auth/login`, {
+  const loginResponse = http.post(`${baseUrl}/api/auth/login`, JSON.stringify({
     email: 'test@example.com',
-    password: 'password123'
-  });
+    password: __ENV.TEST_USER_PASSWORD
+  }), { headers: { 'Content-Type': 'application/json' } });
+
+  // A successful HTTP status can still carry invalid JSON or no token.
+  let token;
+  try { token = loginResponse.json('token'); } catch (_) { /* checked below */ }
   
-  check(loginResponse, {
+  const loginOK = check(loginResponse, {
     'login successful': (r) => r.status === 200,
+    'login token present': () => typeof token === 'string' && token.length > 0,
     'login response time OK': (r) => r.timings.duration < 200,
   });
   
-  errorRate.add(loginResponse.status !== 200);
+  errorRate.add(!loginOK);
   responseTimeTrend.add(loginResponse.timings.duration);
   throughputCounter.add(1);
   
-  if (loginResponse.status === 200) {
-    const token = loginResponse.json('token');
+  if (loginOK) {
     
     // Test authenticated API performance
     const apiResponse = http.get(`${baseUrl}/api/dashboard`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     
-    check(apiResponse, {
+    let data;
+    try { data = apiResponse.json('data'); } catch (_) { /* checked below */ }
+    const dashboardOK = check(apiResponse, {
       'dashboard load successful': (r) => r.status === 200,
       'dashboard response time OK': (r) => r.timings.duration < 300,
-      'dashboard data complete': (r) => r.json('data.length') > 0,
+      'dashboard data complete': () => Array.isArray(data) && data.length > 0,
     });
     
-    errorRate.add(apiResponse.status !== 200);
+    errorRate.add(!dashboardOK);
     responseTimeTrend.add(apiResponse.timings.duration);
   }
   
@@ -149,6 +154,8 @@ function generateHTMLReport(data) {
   `;
 }
 ```
+
+Adapt the example's nonempty dashboard-data contract and thresholds to the agreed test dataset and SLO. k6 `check()` records results but needs a threshold to affect the process exit status; HTTP failure metrics alone cannot catch a `200` response with a missing token or malformed payload.
 
 ## 🔄 Your Workflow Process
 
@@ -211,6 +218,7 @@ function generateHTMLReport(data) {
 **Long-Term**: [Strategic optimizations for future scalability]
 **Monitoring**: [Ongoing monitoring and alerting recommendations]
 
+---
 **Performance Benchmarker**: [Your name]
 **Analysis Date**: [Date]
 **Performance Status**: [MEETS/FAILS SLA requirements with detailed reasoning]
@@ -262,5 +270,6 @@ You're successful when:
 - Auto-scaling configuration with predictive scaling based on performance metrics
 - Multi-region performance optimization with latency minimization strategies
 
+---
 
 **Instructions Reference**: Your comprehensive performance engineering methodology is in your core training - refer to detailed testing strategies, optimization techniques, and monitoring solutions for complete guidance.

@@ -1,9 +1,6 @@
 ---
-name: agency-identity-graph-operator
-description: Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-identity-graph-operator'
+description: 'Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes.'
 ---
 
 # Identity Graph Operator
@@ -115,7 +112,8 @@ class IdentityMatcher:
     """
 
     def score_pair(self, record_a: dict, record_b: dict, rules: list) -> float:
-        total_weight = 0.0
+        # Keep the configured evidence denominator, even when fields are missing.
+        total_weight = sum(rule['weight'] for rule in rules)
         weighted_score = 0.0
 
         for rule in rules:
@@ -130,10 +128,13 @@ class IdentityMatcher:
             val_a = self.normalize(val_a, rule.get("normalizer", "generic"))
             val_b = self.normalize(val_b, rule.get("normalizer", "generic"))
 
+            if not val_a or not val_b:
+                continue  # empty normalized identifiers are not a match
+
             # Compare using the specified method
             score = self.compare(val_a, val_b, rule.get("comparator", "exact"))
             weighted_score += score * rule["weight"]
-            total_weight += rule["weight"]
+            # Missing evidence must never increase confidence.
 
         return weighted_score / total_weight if total_weight > 0 else 0.0
 
@@ -255,5 +256,6 @@ You're successful when:
 | **Support Responder** | Resolve customer identity before the support agent responds. "Is this the same customer who called yesterday?" |
 | **Agentic Identity & Trust Architect** | You handle entity identity (who is this person/company?). They handle agent identity (who is this agent and what can it do?). Complementary, not competing. |
 
+---
 
 **When to call this agent**: You're building a multi-agent system where more than one agent touches the same real-world entities (customers, products, companies, transactions). The moment two agents can encounter the same entity from different sources, you need shared identity resolution. Without it, you get duplicates, conflicts, and cascading errors. This agent operates the shared identity graph that prevents all of that.

@@ -1,9 +1,6 @@
 ---
-name: agency-autonomous-optimization-architect
-description: Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-autonomous-optimization-architect'
+description: 'Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.'
 ---
 
 # ⚙️ Autonomous Optimization Architect
@@ -58,7 +55,14 @@ export async function optimizeAndRoute(
       
       // Background Self-Learning: Asynchronously test the output 
       // against a cheaper model to see if we can optimize later.
-      shadowTestAgainstAlternative(serviceTask, result, getCheapestProvider(providers));
+      // Shadow failures must not enter the production retry/circuit-breaker path.
+      // Deferring the call also captures synchronous adapter failures.
+      void Promise.resolve()
+        .then(() => shadowTestAgainstAlternative(
+          serviceTask, result, getCheapestProvider(providers)))
+        .catch((error) => {
+          console.error('Shadow evaluation failed', error);
+        });
       
       return result;
 

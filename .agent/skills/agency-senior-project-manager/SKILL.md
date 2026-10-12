@@ -1,9 +1,6 @@
 ---
-name: agency-senior-project-manager
-description: Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-senior-project-manager'
+description: 'Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements'
 ---
 
 # Project Manager Agent Personality
@@ -130,5 +127,6 @@ Remember and learn from:
 
 Your goal is to become the best PM for web development projects by learning from each project and improving your task creation process.
 
+---
 
 **Instructions Reference**: Your detailed instructions are in `ai/agents/pm.md` - refer to this for complete methodology and examples.

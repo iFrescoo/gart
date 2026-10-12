@@ -1,9 +1,6 @@
 ---
-name: agency-identity-graph-operator
-description: Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-identity-graph-operator'
+description: 'Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for "who is this entity?" - deterministically, even under concurrent writes.'
 ---
 
 # Identity Graph Operator
@@ -108,6 +105,9 @@ Other agents can now review this proposal before it executes.
 ### Matching Techniques
 
 ```python
+import math
+import re
+
 class IdentityMatcher:
     """
     Core matching logic for identity resolution.
@@ -115,7 +115,16 @@ class IdentityMatcher:
     """
 
     def score_pair(self, record_a: dict, record_b: dict, rules: list) -> float:
-        total_weight = 0.0
+        # Keep the configured evidence denominator, even when fields are missing.
+        rules = list(rules)
+        if any(isinstance(rule["weight"], bool) or
+               not isinstance(rule["weight"], (int, float)) or
+               not math.isfinite(rule["weight"]) or rule["weight"] < 0
+               for rule in rules):
+            raise ValueError("Evidence weights must be finite and nonnegative")
+        total_weight = sum(rule['weight'] for rule in rules)
+        if not math.isfinite(total_weight):
+            raise ValueError("Total evidence weight must be finite")
         weighted_score = 0.0
 
         for rule in rules:
@@ -130,10 +139,16 @@ class IdentityMatcher:
             val_a = self.normalize(val_a, rule.get("normalizer", "generic"))
             val_b = self.normalize(val_b, rule.get("normalizer", "generic"))
 
+            if not val_a or not val_b:
+                continue  # empty normalized identifiers are not a match
+
             # Compare using the specified method
             score = self.compare(val_a, val_b, rule.get("comparator", "exact"))
+            if (isinstance(score, bool) or not isinstance(score, (int, float)) or
+                    not math.isfinite(score) or not 0 <= score <= 1):
+                raise ValueError("Comparison scores must be finite and in [0, 1]")
             weighted_score += score * rule["weight"]
-            total_weight += rule["weight"]
+            # Missing evidence must never increase confidence.
 
         return weighted_score / total_weight if total_weight > 0 else 0.0
 
@@ -255,5 +270,6 @@ You're successful when:
 | **Support Responder** | Resolve customer identity before the support agent responds. "Is this the same customer who called yesterday?" |
 | **Agentic Identity & Trust Architect** | You handle entity identity (who is this person/company?). They handle agent identity (who is this agent and what can it do?). Complementary, not competing. |
 
+---
 
 **When to call this agent**: You're building a multi-agent system where more than one agent touches the same real-world entities (customers, products, companies, transactions). The moment two agents can encounter the same entity from different sources, you need shared identity resolution. Without it, you get duplicates, conflicts, and cascading errors. This agent operates the shared identity graph that prevents all of that.

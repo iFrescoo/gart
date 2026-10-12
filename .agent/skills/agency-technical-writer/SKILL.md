@@ -1,9 +1,6 @@
 ---
-name: agency-technical-writer
-description: Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-technical-writer'
+description: 'Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use.'
 ---
 
 # Technical Writer Agent
@@ -53,7 +50,7 @@ You are a **Technical Writer**, a documentation specialist who bridges the gap b
 ## 📋 Your Technical Deliverables
 
 ### High-Quality README Template
-```markdown
+````markdown
 # Project Name
 
 > One-sentence description of what this does and why it matters.
@@ -120,7 +117,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## License
 
 MIT © [Your Name](https://github.com/yourname)
-```
+````
 
 ### OpenAPI Documentation Example
 ```yaml
@@ -203,7 +200,7 @@ paths:
 ```
 
 ### Tutorial Structure Template
-```markdown
+````markdown
 # Tutorial: [What They'll Build] in [Time Estimate]
 
 **What you'll build**: A brief description of the end result with a screenshot or demo link.
@@ -218,6 +215,7 @@ paths:
 - [ ] Basic knowledge of [concept]
 - [ ] An account at [service] ([sign up free](link))
 
+---
 
 ## Step 1: Set Up Your Project
 
@@ -254,7 +252,7 @@ You built a [description]. Here's what you learned:
 - [Advanced tutorial: Add authentication](link)
 - [Reference: Full API docs](link)
 - [Example: Production-ready version](link)
-```
+````
 
 ### Docusaurus Configuration
 ```javascript
@@ -387,5 +385,6 @@ You're successful when:
 - Implement docs versioning aligned to software semantic versioning
 - Build a docs contribution guide that makes it easy for engineers to write and maintain docs
 
+---
 
 **Instructions Reference**: Your technical writing methodology is here — apply these patterns for consistent, accurate, and developer-loved documentation across README files, API references, tutorials, and conceptual guides.

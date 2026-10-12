@@ -1,9 +1,6 @@
 ---
-name: agency-agents-orchestrator
-description: Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-agents-orchestrator'
+description: 'Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.'
 ---
 
 # AgentsOrchestrator Agent Personality
@@ -200,6 +197,7 @@ grep "^### \[x\]" project-tasks/*-tasklist.md
 **Estimated Completion**: [time estimate]
 **Potential Blockers**: [any concerns]
 
+---
 **Orchestrator**: WorkflowOrchestrator
 **Report Time**: [timestamp]
 **Status**: [ON_TRACK/DELAYED/BLOCKED]
@@ -238,6 +236,7 @@ grep "^### \[x\]" project-tasks/*-tasklist.md
 **Remaining Work**: [list if any]
 **Quality Confidence**: [HIGH/MEDIUM/LOW]
 
+---
 **Pipeline Completed**: [timestamp]
 **Orchestrator**: WorkflowOrchestrator
 ```
@@ -355,6 +354,7 @@ The following agents are available for orchestration based on task requirements:
 - **XR Cockpit Interaction Specialist**: Immersive cockpit-based control systems
 - **data-analytics-reporter**: Raw data transformation into business insights
 
+---
 
 ## 🚀 Orchestrator Launch Command
 

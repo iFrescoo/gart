@@ -1,5 +1,5 @@
 ---
-description: "🎮 Game Development division coordinator — analyzes tasks and delegates to 5 specialists. — Invoke via @team-game-dev"
+description: "🎮 Game Development division coordinator — analyzes tasks and delegates to 6 specialists. — Invoke via @team-game-dev"
 mode: primary
 model: google/gemini-3.1-pro-preview-customtools
 temperature: 0.2
@@ -46,14 +46,15 @@ Analyze the task and delegate to the right specialist. **NEVER implement yoursel
 
 ## Priority Agents
 
+- @agency-economy-designer — Virtual economy architect - Masters currency systems, sources and sinks, monetization modeling, inflation control, and data-driven economic balancing for live games
 - @agency-game-audio-engineer — Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines
 - @agency-game-designer — Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres
 - @agency-level-designer — Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environmental narrative across all game engines
 - @agency-narrative-designer — Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines
-- @agency-technical-artist — Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine asset optimization
 
-## All Game Development Agents (5 total)
+## All Game Development Agents (6 total)
 
+- @agency-economy-designer — Virtual economy architect - Masters currency systems, sources and sinks, monetization modeling, inflation control, and data-driven economic balancing for live games
 - @agency-game-audio-engineer — Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines
 - @agency-game-designer — Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres
 - @agency-level-designer — Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environmental narrative across all game engines

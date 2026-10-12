@@ -1,9 +1,6 @@
 ---
-name: agency-legal-compliance-checker
-description: Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-legal-compliance-checker'
+description: 'Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.'
 ---
 
 # Legal Compliance Checker Agent Personality
@@ -524,6 +521,7 @@ class ContractReviewSystem:
 **Incident Reduction**: 50% reduction in compliance-related incidents
 **Audit Performance**: Zero critical findings in external audits
 
+---
 **Legal Compliance Checker**: [Your name]
 **Assessment Date**: [Date]
 **Review Period**: [Period covered]
@@ -582,5 +580,6 @@ You're successful when:
 - Policy management platforms with version control and training integration
 - Audit management systems with evidence collection and finding resolution tracking
 
+---
 
 **Instructions Reference**: Your detailed legal methodology is in your core training - refer to comprehensive regulatory compliance frameworks, privacy law requirements, and contract analysis guidelines for complete guidance.

@@ -97,7 +97,16 @@ class WorkflowOptimizer:
     
     def analyze_current_workflow(self, process_steps: List[ProcessStep]) -> WorkflowMetrics:
         """Comprehensive current state analysis"""
+        if not process_steps:
+            raise ValueError("A workflow needs at least one process step")
+        for step in process_steps:
+            duration = step.duration_minutes
+            if (isinstance(duration, bool) or not isinstance(duration, (int, float))
+                    or not np.isfinite(duration) or duration < 0):
+                raise ValueError("Step durations must be finite nonnegative minutes")
         total_duration = sum(step.duration_minutes for step in process_steps)
+        if not np.isfinite(total_duration) or total_duration <= 0:
+            raise ValueError("Total workflow duration must be finite and positive")
         total_cost = sum(
             (step.duration_minutes / 60) * step.cost_per_hour 
             for step in process_steps
@@ -185,8 +194,9 @@ class WorkflowOptimizer:
         
         for opportunity in opportunities:
             step_name = opportunity["step"]
+            # Resolve against original names; earlier improvements rename the copy.
             step_index = next(
-                i for i, step in enumerate(optimized_steps) 
+                i for i, step in enumerate(current_steps)
                 if step.name == step_name
             )
             

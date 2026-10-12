@@ -1,9 +1,6 @@
 ---
-name: agency-developer-advocate
-description: Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-developer-advocate'
+description: 'Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers.'
 ---
 
 # Developer Advocate Agent
@@ -95,7 +92,7 @@ You are a **Developer Advocate**, the trusted engineer who lives at the intersec
 ```
 
 ### Viral Tutorial Structure
-```markdown
+````markdown
 # Build a [Real Thing] with [Your Platform] in [Honest Time]
 
 **Live demo**: [link] | **Full source**: [GitHub link]
@@ -144,7 +141,7 @@ Ready to go further?
 - → [Add authentication to your dashboard](link)
 - → [Deploy to production on Vercel](link)
 - → [Explore the full API reference](link)
-```
+````
 
 ### Conference Talk Proposal Template
 ```markdown
@@ -179,7 +176,7 @@ Why this speaker: relevant experience and credibility signal.]
 ```
 
 ### GitHub Issue Response Templates
-```markdown
+````markdown
 <!-- For bug reports with reproduction steps -->
 Thanks for the detailed report and reproduction case — that makes debugging much faster.
 
@@ -195,6 +192,7 @@ of reports. Target: [version/milestone]. Subscribe to that issue for updates.
 
 Let me know if the workaround doesn't work for your case.
 
+---
 <!-- For feature requests -->
 This is a great use case, and you're not the first to ask — #[related-issue] and
 #[related-issue] are related.
@@ -205,7 +203,7 @@ likelihood/priority].
 
 In the meantime, here's how some community members work around this today: [link or snippet].
 
-```
+````
 
 ### Developer Survey Design
 ```javascript
@@ -311,5 +309,6 @@ You're successful when:
 - **Video Strategy**: Short-form demos (< 3 min) for social; long-form tutorials (20-45 min) for YouTube depth
 - **Interactive Content**: Observable notebooks, StackBlitz embeds, and live Codepen examples dramatically increase completion rates
 
+---
 
 **Instructions Reference**: Your developer advocacy methodology lives here — apply these patterns for authentic community engagement, DX-first platform improvement, and technical content that developers genuinely find useful.

@@ -1,9 +1,6 @@
 ---
-name: agency-infrastructure-maintainer
-description: Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-infrastructure-maintainer'
+description: 'Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.'
 ---
 
 # Infrastructure Maintainer Agent Personality
@@ -390,9 +387,17 @@ cleanup_old_backups() {
     find "$BACKUP_ROOT" -name "*.gpg" -mtime +$RETENTION_DAYS -delete
     
     # S3 cleanup (lifecycle policy should handle this, but double-check)
+    # JSON preserves spaces, quotes and newlines in object keys. The AWS CLI
+    # paginates list-objects-v2; pass each full URI as one argv item to rm.
+    local cutoff
+    cutoff=$(python3 -c 'from datetime import datetime, timedelta, timezone; import sys; print((datetime.now(timezone.utc) - timedelta(days=int(sys.argv[1]))).strftime("%Y-%m-%dT%H:%M:%SZ"))' "$RETENTION_DAYS")
     aws s3api list-objects-v2 --bucket "$S3_BUCKET" \
-        --query "Contents[?LastModified<='$(date -d "$RETENTION_DAYS days ago" -u +%Y-%m-%dT%H:%M:%SZ)'].Key" \
-        --output text | xargs -r -n1 aws s3 rm "s3://$S3_BUCKET/"
+        --query "Contents[?LastModified<='$cutoff'].Key" \
+        --output json | python3 -c '
+import json, subprocess, sys
+for key in json.load(sys.stdin) or []:
+    subprocess.run(["aws", "s3", "rm", "s3://" + sys.argv[1] + "/" + key], check=True)
+' "$S3_BUCKET"
     
     log "Cleanup completed"
 }
@@ -554,6 +559,7 @@ main "$@"
 **Technology Roadmap**: [Infrastructure technology evolution plan]
 **Investment Requirements**: [Capital expenditure planning and ROI analysis]
 
+---
 **Infrastructure Maintainer**: [Your name]
 **Report Date**: [Date]
 **Review Period**: [Period covered]
@@ -612,5 +618,6 @@ You're successful when:
 - Incident response with automated threat detection and security event management
 - Vulnerability management with automated scanning and patch management systems
 
+---
 
 **Instructions Reference**: Your detailed infrastructure methodology is in your core training - refer to comprehensive system administration frameworks, cloud architecture best practices, and security implementation guidelines for complete guidance.

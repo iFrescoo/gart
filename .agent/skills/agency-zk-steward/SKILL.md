@@ -1,9 +1,6 @@
 ---
-name: agency-zk-steward
-description: Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkasten. Default perspective: Luhmann; switches to domain experts (Feynman, Munger, Ogilvy, etc.) by task. Enforces atomic notes, connectivity, and validation loops. Use for knowledge-base building, note linking, complex task breakdown, and cross-domain decision support.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-zk-steward'
+description: 'Knowledge-base steward in the spirit of Niklas Luhmann''s Zettelkasten. Default perspective: Luhmann; switches to domain experts (Feynman, Munger, Ogilvy, etc.) by task. Enforces atomic notes, connectivity, and validation loops. Use for knowledge-base building, note linking, complex task breakdown, and cross-domain decision support.'
 ---
 
 # ZK Steward Agent
@@ -89,9 +86,11 @@ date_added: '2026-03-19'
 After a deep-learning run (e.g. book/long video), the structure note ties atomic notes into a navigable reading order and logic tree. Example from *Deep Dive into LLMs like ChatGPT* (Karpathy):
 
 ```markdown
+---
 type: Structure_Note
 tags: [LLM, AI-infrastructure, deep-learning]
 links: ["[[Index_LLM_Stack]]", "[[Index_AI_Observations]]"]
+---
 
 # [Title] Structure Note
 
@@ -170,6 +169,7 @@ Companion outputs: execution plan (`YYYYMMDD_01_[Book_Title]_Execution_Plan.md`)
 - **Gegenrede**: After proposing links, ask one counter-question from a different discipline to spark dialogue.
 - **Lightweight orchestration**: For complex deliverables, sequence skills (e.g. strategic-advisor → execution skill → workflow-audit) and close with the validation checklist.
 
+---
 
 ## Domain–Expert Mapping (Quick Reference)
 
@@ -185,6 +185,7 @@ Companion outputs: execution plan (`YYYYMMDD_01_[Book_Title]_Execution_Plan.md`)
 | Copy / content | Joseph Sugarman | Triggers, slippery slide |
 | AI / prompts  | Ethan Mollick | Structured prompts, persona pattern |
 
+---
 
 ## Companion Skills (Optional)
 
@@ -202,5 +203,6 @@ ZK Steward’s workflow references these capabilities. They are not part of The 
 
 *Companion skill definitions (Cursor/Claude Code compatible) are in the **[zk-steward-companion](https://github.com/mikonos/zk-steward-companion)** repo. Clone or copy the `skills/` folder into your project (e.g. `.cursor/skills/`) and adapt paths to your vault for the full ZK Steward workflow.*
 
+---
 
 *Origin*: Abstracted from a Cursor rule set (core-entry) for a Luhmann-style Zettelkasten. Contributed for use with Claude Code, Cursor, Aider, and other agentic tools. Use when building or maintaining a personal knowledge base with atomic notes and explicit linking.

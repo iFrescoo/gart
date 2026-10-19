@@ -1,7 +1,7 @@
 ---
 description: "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-finance-tracker"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.3
 color: "#51cf66"
 steps: 15
@@ -86,9 +86,9 @@ WITH budget_actuals AS (
     actual_amount,
     DATE_TRUNC('quarter', date) as quarter,
     budget_amount - actual_amount as variance,
-    (actual_amount - budget_amount) / budget_amount * 100 as variance_percentage
+    (actual_amount - budget_amount) * 100.0 / NULLIF(budget_amount, 0) as variance_percentage
   FROM financial_data 
-  WHERE fiscal_year = YEAR(CURRENT_DATE())
+  WHERE fiscal_year = EXTRACT(YEAR FROM CURRENT_DATE)
 ),
 department_summary AS (
   SELECT 
@@ -97,7 +97,8 @@ department_summary AS (
     SUM(budget_amount) as total_budget,
     SUM(actual_amount) as total_actual,
     SUM(variance) as total_variance,
-    AVG(variance_percentage) as avg_variance_pct
+    (SUM(actual_amount) - SUM(budget_amount)) * 100.0 /
+      NULLIF(SUM(budget_amount), 0) as variance_pct
   FROM budget_actuals
   GROUP BY department, quarter
 )
@@ -107,10 +108,11 @@ SELECT
   total_budget,
   total_actual,
   total_variance,
-  avg_variance_pct,
+  variance_pct,
   CASE 
-    WHEN ABS(avg_variance_pct) <= 5 THEN 'On Track'
-    WHEN avg_variance_pct > 5 THEN 'Over Budget'
+    WHEN variance_pct IS NULL THEN 'No Budget Baseline'
+    WHEN ABS(variance_pct) <= 5 THEN 'On Track'
+    WHEN variance_pct > 5 THEN 'Over Budget'
     ELSE 'Under Budget'
   END as budget_status,
   total_budget - total_actual as remaining_budget
@@ -122,7 +124,7 @@ ORDER BY department, quarter;
 ```python
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+from datetime import datetime
 import matplotlib.pyplot as plt
 
 class CashFlowManager:
@@ -134,7 +136,9 @@ class CashFlowManager:
         """
         Generate 12-month rolling cash flow forecast
         """
-        forecast = pd.DataFrame()
+        rows = []
+        cumulative_cash = self.current_cash
+        start_month = pd.Timestamp(datetime.now()).to_period('M')
         
         # Historical patterns analysis
         monthly_patterns = self.data.groupby('month').agg({
@@ -145,7 +149,7 @@ class CashFlowManager:
         
         # Generate forecast with seasonality
         for i in range(periods):
-            forecast_date = datetime.now() + timedelta(days=30*i)
+            forecast_date = (start_month + i).to_timestamp()
             month = forecast_date.month
             
             # Apply seasonality factors
@@ -158,17 +162,22 @@ class CashFlowManager:
             
             net_flow = forecasted_receipts - forecasted_payments
             
-            forecast = forecast.append({
+            cumulative_cash += net_flow
+            rows.append({
                 'date': forecast_date,
                 'forecasted_receipts': forecasted_receipts,
                 'forecasted_payments': forecasted_payments,
                 'net_cash_flow': net_flow,
-                'cumulative_cash': self.current_cash + forecast['net_cash_flow'].sum() if len(forecast) > 0 else self.current_cash + net_flow,
-                'confidence_interval_low': net_flow * 0.85,
-                'confidence_interval_high': net_flow * 1.15
-            }, ignore_index=True)
+                'cumulative_cash': cumulative_cash,
+                # Illustrative +/-15% scenarios, not a statistical confidence interval.
+                'scenario_low': net_flow - abs(net_flow) * 0.15,
+                'scenario_high': net_flow + abs(net_flow) * 0.15
+            })
         
-        return forecast
+        return pd.DataFrame(rows, columns=[
+            'date', 'forecasted_receipts', 'forecasted_payments', 'net_cash_flow',
+            'cumulative_cash', 'scenario_low', 'scenario_high'
+        ])
     
     def identify_cash_flow_risks(self, forecast_df):
         """
@@ -237,14 +246,23 @@ class InvestmentAnalyzer:
         Calculate Internal Rate of Return
         """
         from scipy.optimize import fsolve
+        import math
         
         def npv_function(rate):
             return sum([cf / ((1 + rate) ** (i + 1)) for i, cf in enumerate(cash_flows)]) - initial_investment
         
         try:
-            irr = fsolve(npv_function, 0.1)[0]
+            roots, info, status, _ = fsolve(npv_function, 0.1, full_output=True)
+            irr = float(roots[0])
+            # fsolve returns its last iterate even when no root was found.
+            # A finite iterate is not evidence of a valid investment return.
+            scale = max(1.0, abs(initial_investment), sum(abs(cf) for cf in cash_flows))
+            if (status != 1 or not math.isfinite(irr) or irr <= -1 or
+                    not math.isfinite(float(info['fvec'][0])) or
+                    abs(float(info['fvec'][0])) > 1e-7 * scale):
+                return None
             return irr
-        except:
+        except (ValueError, TypeError, OverflowError, ZeroDivisionError):
             return None
     
     def payback_period(self, cash_flows, initial_investment):
@@ -274,7 +292,7 @@ class InvestmentAnalyzer:
             'project_name': project_name,
             'initial_investment': initial_investment,
             'npv': npv,
-            'irr': irr * 100 if irr else None,
+            'irr': irr * 100 if irr is not None else None,
             'payback_period': payback,
             'roi_percentage': roi,
             'risk_score': risk_score,

@@ -1,9 +1,6 @@
 ---
-name: agency-deal-strategist
-description: Senior deal strategist specializing in MEDDPICC qualification, competitive positioning, and win planning for complex B2B sales cycles. Scores opportunities, exposes pipeline risk, and builds deal strategies that survive forecast review.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-deal-strategist'
+description: 'Senior deal strategist specializing in MEDDPICC qualification, competitive positioning, and win planning for complex B2B sales cycles. Scores opportunities, exposes pipeline risk, and builds deal strategies that survive forecast review.'
 ---
 
 # Deal Strategist Agent
@@ -175,5 +172,6 @@ When reviewing an opportunity, systematically probe:
 * **Pipeline Hygiene**: Less than 10% of pipeline older than 2x average sales cycle
 * **Competitive Win Rate**: 60%+ on deals where competitive positioning was applied
 
+---
 
 **Instructions Reference**: Your strategic methodology draws from MEDDPICC qualification, Challenger Sale commercial teaching, and Command of the Message value frameworks — apply them as integrated disciplines, not isolated checklists.

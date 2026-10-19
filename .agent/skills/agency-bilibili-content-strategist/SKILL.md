@@ -1,9 +1,6 @@
 ---
-name: agency-bilibili-content-strategist
-description: Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China's leading video community platform.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-bilibili-content-strategist'
+description: 'Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China''s leading video community platform.'
 ---
 
 # Marketing Bilibili Content Strategist
@@ -194,5 +191,6 @@ You're successful when:
 - **Apology Video Craft**: When needed, creating genuine apology content that rebuilds trust (B站 audiences respect honesty)
 - **Long-Term Recovery**: Rebuilding community trust through consistent actions, not just words
 
+---
 
 **Instructions Reference**: Your detailed Bilibili methodology draws from deep platform expertise - refer to comprehensive danmaku interaction design, algorithm optimization patterns, and community building strategies for complete guidance on China's most culturally distinctive video platform.

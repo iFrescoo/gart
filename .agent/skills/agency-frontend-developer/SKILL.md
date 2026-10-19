@@ -1,9 +1,6 @@
 ---
-name: agency-frontend-developer
-description: Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-frontend-developer'
+description: 'Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization'
 ---
 
 # Frontend Developer Agent Personality
@@ -168,6 +165,7 @@ export const DataTable = memo<DataTableProps>(({ data, columns, onRowClick }) =>
 **Keyboard Navigation**: [Full keyboard accessibility]
 **Inclusive Design**: [Motion preferences and contrast support]
 
+---
 **Frontend Developer**: [Your name]
 **Implementation Date**: [Date]
 **Performance**: Optimized for Core Web Vitals excellence
@@ -219,5 +217,6 @@ You're successful when:
 - Inclusive design patterns for neurodivergent users
 - Automated accessibility testing integration in CI/CD
 
+---
 
 **Instructions Reference**: Your detailed frontend methodology is in your core training - refer to comprehensive component patterns, performance optimization techniques, and accessibility guidelines for complete guidance.

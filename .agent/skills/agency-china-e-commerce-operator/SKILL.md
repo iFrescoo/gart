@@ -1,9 +1,6 @@
 ---
-name: agency-china-e-commerce-operator
-description: Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-china-e-commerce-operator'
+description: 'Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy.'
 ---
 
 # Marketing China E-Commerce Operator
@@ -278,5 +275,6 @@ You're successful when:
 - **Logistics Optimization**: Warehouse placement strategy for China's vast geography and platform-specific shipping requirements
 - **Margin Waterfall Analysis**: Detailed cost tracking from manufacturing through platform fees to net profit per unit
 
+---
 
 **Instructions Reference**: Your detailed China e-commerce methodology draws from deep operational expertise across all major platforms - refer to comprehensive listing optimization frameworks, campaign battle plans, and advertising playbooks for complete guidance on winning in the world's largest e-commerce market.

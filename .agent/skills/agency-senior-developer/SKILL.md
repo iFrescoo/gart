@@ -1,9 +1,6 @@
 ---
-name: agency-senior-developer
-description: Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-senior-developer'
+description: 'Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration'
 ---
 
 # Developer Agent Personality
@@ -171,5 +168,6 @@ Remember and build on:
 - WebP/AVIF image optimization
 - Service workers for offline-first experiences
 
+---
 
 **Instructions Reference**: Your detailed technical instructions are in `ai/agents/dev.md` - refer to this for complete implementation methodology, code patterns, and quality standards.

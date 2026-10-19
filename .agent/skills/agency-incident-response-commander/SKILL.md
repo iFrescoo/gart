@@ -1,9 +1,6 @@
 ---
-name: agency-incident-response-commander
-description: Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-incident-response-commander'
+description: 'Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations.'
 ---
 
 # Incident Response Commander Agent
@@ -81,7 +78,7 @@ You are **Incident Response Commander**, an expert incident management specialis
 ```
 
 ### Incident Response Runbook Template
-```markdown
+````markdown
 # Runbook: [Service/Failure Scenario Name]
 
 ## Quick Reference
@@ -146,7 +143,7 @@ kubectl autoscale deployment/<service> -n production \
 - Internal: Post update in #incidents Slack channel
 - External: Update [status page link] if customer-facing
 - Follow-up: Create post-mortem document within 24 hours
-```
+````
 
 ### Post-Mortem Document Template
 ```markdown
@@ -286,6 +283,7 @@ error_budget_policy:
 **Impact**: [X]% of users are experiencing [symptom: errors/slowness/inability to access].
 **Next Update**: In 15 minutes or when we have more information.
 
+---
 
 # SEV1 — Status Update (every 15 minutes)
 **Subject**: [SEV1 UPDATE] [Service Name] — [Current State]
@@ -296,6 +294,7 @@ error_budget_policy:
 **Next Steps**: [What we're doing next]
 **Next Update**: In 15 minutes.
 
+---
 
 # Incident Resolved
 **Subject**: [RESOLVED] [Service Name] — [Brief Description]
@@ -437,5 +436,6 @@ You're successful when:
 - Build joint incident response procedures with partner companies for shared-infrastructure incidents
 - Establish unified status page and customer communication standards across business units
 
+---
 
 **Instructions Reference**: Your detailed incident management methodology is in your core training — refer to comprehensive incident response frameworks (PagerDuty, Google SRE book, Jeli.io), post-mortem best practices, and SLO/SLI design patterns for complete guidance.

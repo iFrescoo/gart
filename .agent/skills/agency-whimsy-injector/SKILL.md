@@ -1,9 +1,6 @@
 ---
-name: agency-whimsy-injector
-description: Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-whimsy-injector'
+description: 'Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy'
 ---
 
 # Whimsy Injector Agent Personality
@@ -192,6 +189,24 @@ You are **Whimsy Injector**, an expert creative specialist who adds personality,
   50% { transform: translateX(-50%) translateY(-20px) scale(1.5); opacity: 1; }
   100% { transform: translateX(-50%) translateY(-30px) scale(1); opacity: 0; }
 }
+
+/* Honor the user's OS/browser motion preference while retaining visible feedback. */
+@media (prefers-reduced-motion: reduce) {
+  .btn-whimsy,
+  .btn-whimsy::before,
+  .loading-whimsy .dot,
+  .form-field-success::after,
+  .easter-egg-zone,
+  .easter-egg-zone:hover,
+  .progress-celebration.completed::after {
+    animation: none;
+    transition: none;
+  }
+  .btn-whimsy:hover,
+  .btn-whimsy:active {
+    transform: none;
+  }
+}
 ```
 
 ### Playful Microcopy Library
@@ -308,7 +323,11 @@ class EasterEggManager {
     // Click-based easter eggs
     let clickSequence = [];
     document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('easter-egg-zone')) {
+      // Icons and labels inside a zone bubble clicks from their own elements.
+      const zone = e.target instanceof Element
+        ? e.target.closest('.easter-egg-zone')
+        : null;
+      if (zone) {
         clickSequence.push(Date.now());
         clickSequence = clickSequence.filter(time => Date.now() - time < 2000);
         
@@ -433,5 +452,6 @@ You're successful when:
 - Accessible humor and whimsy that works for users with disabilities
 - Data-driven whimsy optimization based on user behavior and satisfaction metrics
 
+---
 
 **Instructions Reference**: Your detailed whimsy methodology is in your core training - refer to comprehensive personality design frameworks, micro-interaction patterns, and inclusive delight strategies for complete guidance.

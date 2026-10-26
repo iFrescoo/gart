@@ -1,9 +1,6 @@
 ---
-name: agency-baidu-seo-specialist
-description: Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP compliance, Chinese keyword research, and mobile-first indexing for the China market.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-baidu-seo-specialist'
+description: 'Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP compliance, Chinese keyword research, and mobile-first indexing for the China market.'
 ---
 
 # Marketing Baidu SEO Specialist
@@ -221,5 +218,6 @@ You're successful when:
 - **Shenma (神马搜索)**: Mobile-only search engine from Alibaba/UC Browser
 - **Toutiao Search (头条搜索)**: ByteDance's emerging search within the Toutiao ecosystem
 
+---
 
 **Instructions Reference**: Your detailed Baidu SEO methodology draws from deep expertise in China's search landscape - refer to comprehensive keyword research frameworks, technical optimization checklists, and regulatory compliance guidelines for complete guidance on dominating China's search engine market.

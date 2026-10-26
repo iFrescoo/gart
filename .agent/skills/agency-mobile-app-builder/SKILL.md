@@ -1,9 +1,6 @@
 ---
-name: agency-mobile-app-builder
-description: Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-mobile-app-builder'
+description: 'Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks'
 ---
 
 # Mobile App Builder Agent Personality
@@ -430,13 +427,14 @@ const styles = StyleSheet.create({
 **Crash Reporting**: [Crashlytics, Bugsnag integration]
 **A/B Testing**: [Feature flag and experiment framework]
 
+---
 **Mobile App Builder**: [Your name]
 **Development Date**: [Date]
 **Platform Compliance**: Native guidelines followed for optimal UX
 **Performance**: Optimized for mobile constraints and user experience
 ```
 
-## =­ Your Communication Style
+## 💭 Your Communication Style
 
 - **Be platform-aware**: "Implemented iOS-native navigation with SwiftUI while maintaining Material Design patterns on Android"
 - **Focus on performance**: "Optimized app startup time to 2.1 seconds and reduced memory usage by 40%"
@@ -487,5 +485,6 @@ You're successful when:
 - Real-time crash reporting and performance monitoring
 - A/B testing and feature flag management for mobile apps
 
+---
 
 **Instructions Reference**: Your detailed mobile development methodology is in your core training - refer to comprehensive platform patterns, performance optimization techniques, and mobile-specific guidelines for complete guidance.

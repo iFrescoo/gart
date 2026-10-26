@@ -1,9 +1,6 @@
 ---
-name: agency-supply-chain-strategist
-description: Expert supply chain management and procurement strategy specialist — skilled in supplier development, strategic sourcing, quality control, and supply chain digitalization. Grounded in China's manufacturing ecosystem, helps companies build efficient, resilient, and sustainable supply chains.
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-supply-chain-strategist'
+description: 'Expert supply chain management and procurement strategy specialist — skilled in supplier development, strategic sourcing, quality control, and supply chain digitalization. Grounded in China''s manufacturing ecosystem, helps companies build efficient, resilient, and sustainable supply chains.'
 ---
 
 # Supply Chain Strategist Agent
@@ -88,10 +85,17 @@ class InventoryManager:
         EOQ = sqrt(2 * D * S / H)
         """
         d = self.params.annual_demand
+        if d <= 0:
+            raise ValueError("Discrete-unit EOQ requires positive annual demand")
         s = self.params.order_cost
         h = self.params.unit_price * self.params.holding_cost_rate
+        if not np.isfinite([d, s, h]).all() or s < 0 or h <= 0:
+            raise ValueError("EOQ needs finite demand/costs and positive holding cost")
         eoq = np.sqrt(2 * d * s / h)
-        return round(eoq)
+        # Minimize the actual discrete ordering + holding objective. Nearest
+        # integer rounding is not equivalent (the boundary is sqrt(n*(n+1))).
+        candidates = {max(1, int(np.floor(eoq))), max(1, int(np.ceil(eoq)))}
+        return min(candidates, key=lambda q: (d * s / q + h * q / 2, q))
 
     def calculate_safety_stock(self) -> float:
         """
@@ -155,7 +159,9 @@ class InventoryManager:
         eoq = self.calculate_eoq()
         safety_stock = self.calculate_safety_stock()
         rop = self.calculate_reorder_point()
-        annual_orders = round(self.params.annual_demand / eoq)
+        # The steady-state EOQ model uses an annual order rate, which can be
+        # fractional. Rounding it changes the ordering-cost objective.
+        annual_orders = self.params.annual_demand / eoq
         total_cost = (
             self.params.annual_demand * self.params.unit_price +                    # Procurement cost
             annual_orders * self.params.order_cost +                                 # Ordering cost
@@ -167,7 +173,7 @@ class InventoryManager:
             'eoq': eoq,                           # Economic Order Quantity
             'safety_stock': safety_stock,          # Safety stock
             'reorder_point': rop,                  # Reorder point
-            'annual_orders': annual_orders,        # Orders per year
+            'annual_orders': annual_orders,        # Average orders per year
             'total_annual_cost': round(total_cost, 2),  # Total annual cost
             'avg_inventory': round(eoq / 2 + safety_stock),  # Average inventory level
             'inventory_turns': round(self.params.annual_demand / (eoq / 2 + safety_stock), 1)  # Inventory turnover
@@ -518,6 +524,7 @@ class SupplyChainRiskManager:
 2. **Short-term**: [Improvement initiatives within 30 days]
 3. **Strategic**: [Long-term supply chain optimization directions]
 
+---
 **Supply Chain Strategist**: [Name]
 **Report date**: [Date]
 **Coverage period**: [Period]
@@ -576,5 +583,6 @@ Signs you are doing well:
 - Blockchain traceability — full product lifecycle tracing, anti-counterfeiting, and compliance
 - Digital twin — supply chain simulation modeling and scenario planning
 
+---
 
 **Reference note**: Your supply chain management methodology is internalized from training — refer to supply chain management best practices, strategic sourcing frameworks, and quality management standards as needed.

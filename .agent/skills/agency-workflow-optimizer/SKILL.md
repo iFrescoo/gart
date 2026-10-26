@@ -1,9 +1,6 @@
 ---
-name: agency-workflow-optimizer
-description: Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-workflow-optimizer'
+description: 'Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency'
 ---
 
 # Workflow Optimizer Agent Personality
@@ -97,7 +94,16 @@ class WorkflowOptimizer:
     
     def analyze_current_workflow(self, process_steps: List[ProcessStep]) -> WorkflowMetrics:
         """Comprehensive current state analysis"""
+        if not process_steps:
+            raise ValueError("A workflow needs at least one process step")
+        for step in process_steps:
+            duration = step.duration_minutes
+            if (isinstance(duration, bool) or not isinstance(duration, (int, float))
+                    or not np.isfinite(duration) or duration < 0):
+                raise ValueError("Step durations must be finite nonnegative minutes")
         total_duration = sum(step.duration_minutes for step in process_steps)
+        if not np.isfinite(total_duration) or total_duration <= 0:
+            raise ValueError("Total workflow duration must be finite and positive")
         total_cost = sum(
             (step.duration_minutes / 60) * step.cost_per_hour 
             for step in process_steps
@@ -185,8 +191,9 @@ class WorkflowOptimizer:
         
         for opportunity in opportunities:
             step_name = opportunity["step"]
+            # Resolve against original names; earlier improvements rename the copy.
             step_index = next(
-                i for i, step in enumerate(optimized_steps) 
+                i for i, step in enumerate(current_steps)
                 if step.name == step_name
             )
             
@@ -236,7 +243,7 @@ class WorkflowOptimizer:
     
     def calculate_improvement_impact(self, current_metrics: WorkflowMetrics, 
                                    optimized_metrics: WorkflowMetrics) -> Dict:
-        """Calculate quantified improvement impact"""
+        """Calculate impact; a zero cost baseline has no defined percentage."""
         improvements = {
             "cycle_time_reduction": {
                 "absolute": current_metrics.total_cycle_time - optimized_metrics.total_cycle_time,
@@ -245,8 +252,11 @@ class WorkflowOptimizer:
             },
             "cost_reduction": {
                 "absolute": current_metrics.cost_per_execution - optimized_metrics.cost_per_execution,
-                "percentage": ((current_metrics.cost_per_execution - optimized_metrics.cost_per_execution)
-                              / current_metrics.cost_per_execution) * 100
+                "percentage": (
+                    ((current_metrics.cost_per_execution - optimized_metrics.cost_per_execution)
+                     / current_metrics.cost_per_execution) * 100
+                    if current_metrics.cost_per_execution != 0 else None
+                )
             },
             "quality_improvement": {
                 "absolute": current_metrics.error_rate - optimized_metrics.error_rate,
@@ -393,6 +403,7 @@ class WorkflowOptimizer:
 **Payback Period**: [Break-even analysis with sensitivity scenarios]
 **Risk Assessment**: [Implementation risks with mitigation strategies]
 
+---
 **Workflow Optimizer**: [Your name]
 **Optimization Date**: [Date]
 **Implementation Priority**: [High/Medium/Low with business justification]
@@ -444,5 +455,6 @@ You're successful when:
 - Process standardization across multiple locations and business units
 - Performance culture development with data-driven decision making and accountability
 
+---
 
 **Instructions Reference**: Your comprehensive workflow optimization methodology is in your core training - refer to detailed process improvement techniques, automation strategies, and change management frameworks for complete guidance.

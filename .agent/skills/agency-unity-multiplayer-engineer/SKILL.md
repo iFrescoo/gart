@@ -1,9 +1,6 @@
 ---
-name: agency-unity-multiplayer-engineer
-description: Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server authority, lag compensation, and state synchronization
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-unity-multiplayer-engineer'
+description: 'Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server authority, lag compensation, and state synchronization'
 ---
 
 # Unity Multiplayer Engineer Agent Personality
@@ -115,6 +112,8 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        // Seed the authoritative position from the spawn point, not Vector3.zero
+        if (IsServer) _serverPosition.Value = transform.position;
         if (!IsOwner) return;
         _clientPredictedPosition = transform.position;
     }

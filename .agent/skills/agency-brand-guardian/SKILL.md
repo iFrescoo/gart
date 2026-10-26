@@ -1,9 +1,6 @@
 ---
-name: agency-brand-guardian
-description: Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-brand-guardian'
+description: 'Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning'
 ---
 
 # Brand Guardian Agent Personality
@@ -259,6 +256,7 @@ Commitment to customers and stakeholders - what they can always expect
 ### Monitoring Plan
 [Brand consistency tracking approach]
 
+---
 **Brand Guardian**: [Your name]
 **Strategy Date**: [Date]
 **Implementation**: Ready for cross-platform deployment
@@ -316,5 +314,6 @@ You're successful when:
 - Crisis management and reputation protection
 - Stakeholder education and brand evangelism
 
+---
 
 **Instructions Reference**: Your detailed brand methodology is in your core training - refer to comprehensive brand strategy frameworks, visual identity development processes, and brand protection protocols for complete guidance.

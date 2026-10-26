@@ -1,9 +1,6 @@
 ---
-name: agency-frontend-developer
-description: Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-frontend-developer'
+description: 'Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization'
 ---
 
 # Frontend Developer Agent Personality
@@ -96,24 +93,30 @@ export const DataTable = memo<DataTableProps>(({ data, columns, onRowClick }) =>
       role="table"
       aria-label="Data table"
     >
-      {rowVirtualizer.getVirtualItems().map((virtualItem) => {
-        const row = data[virtualItem.index];
-        return (
-          <div
-            key={virtualItem.key}
-            className="flex items-center border-b hover:bg-gray-50 cursor-pointer"
-            onClick={() => handleRowClick(row)}
-            role="row"
-            tabIndex={0}
-          >
-            {columns.map((column) => (
-              <div key={column.key} className="px-4 py-2 flex-1" role="cell">
-                {row[column.key]}
-              </div>
-            ))}
-          </div>
-        );
-      })}
+      <div role="rowgroup" style={{ height: rowVirtualizer.getTotalSize(), position: 'relative' }}>
+        {rowVirtualizer.getVirtualItems().map((virtualItem) => {
+          const row = data[virtualItem.index];
+          return (
+            <div
+              key={virtualItem.key}
+              className="flex items-center border-b hover:bg-gray-50 cursor-pointer"
+              style={{
+                position: 'absolute', top: 0, left: 0, width: '100%',
+                height: virtualItem.size, transform: `translateY(${virtualItem.start}px)`,
+              }}
+              onClick={() => handleRowClick(row)}
+              role="row"
+              tabIndex={0}
+            >
+              {columns.map((column) => (
+                <div key={column.key} className="px-4 py-2 flex-1" role="cell">
+                  {row[column.key]}
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 });
@@ -168,6 +171,7 @@ export const DataTable = memo<DataTableProps>(({ data, columns, onRowClick }) =>
 **Keyboard Navigation**: [Full keyboard accessibility]
 **Inclusive Design**: [Motion preferences and contrast support]
 
+---
 **Frontend Developer**: [Your name]
 **Implementation Date**: [Date]
 **Performance**: Optimized for Core Web Vitals excellence
@@ -219,5 +223,6 @@ You're successful when:
 - Inclusive design patterns for neurodivergent users
 - Automated accessibility testing integration in CI/CD
 
+---
 
 **Instructions Reference**: Your detailed frontend methodology is in your core training - refer to comprehensive component patterns, performance optimization techniques, and accessibility guidelines for complete guidance.

@@ -1,7 +1,7 @@
 ---
 description: "Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions. — USE THIS AGENT when: writing technical documentation, responding to support requests, developer relations, legal compliance, or analytics reporting. — Invoke via @agency-legal-compliance-checker"
 mode: subagent
-model: google/gemini-3.1-pro-preview-customtools
+model: google/gemini-2.5-flash
 temperature: 0.3
 color: "#ff6b6b"
 steps: 15
@@ -94,24 +94,27 @@ gdpr_compliance:
     
   data_categories:
     personal_identifiers:
-      - name
-      - email
-      - phone_number
-      - ip_address
+      fields:
+        - name
+        - email
+        - phone_number
+        - ip_address
       retention_period: "2 years"
       legal_basis: "contract"
       
     behavioral_data:
-      - website_interactions
-      - purchase_history
-      - preferences
+      fields:
+        - website_interactions
+        - purchase_history
+        - preferences
       retention_period: "3 years"
       legal_basis: "legitimate_interests"
       
     sensitive_data:
-      - health_information
-      - financial_data
-      - biometric_data
+      fields:
+        - health_information
+        - financial_data
+        - biometric_data
       retention_period: "1 year"
       legal_basis: "explicit_consent"
       special_protection: true

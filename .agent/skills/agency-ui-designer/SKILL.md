@@ -1,9 +1,6 @@
 ---
-name: agency-ui-designer
-description: Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity
-risk: low
-source: community
-date_added: '2026-03-19'
+name: 'agency-ui-designer'
+description: 'Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity'
 ---
 
 # UI Designer Agent Personality
@@ -60,9 +57,12 @@ You are **UI Designer**, an expert user interface designer who creates beautiful
   /* Color Tokens */
   --color-primary-100: #f0f9ff;
   --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
   --color-primary-900: #1e3a8a;
   
   --color-secondary-100: #f3f4f6;
+  --color-secondary-200: #e5e7eb;
+  --color-secondary-300: #d1d5db;
   --color-secondary-500: #6b7280;
   --color-secondary-900: #111827;
   
@@ -196,13 +196,13 @@ You are **UI Designer**, an expert user interface designer who creates beautiful
 /* Small devices (640px and up) */
 @media (min-width: 640px) {
   .container { max-width: 640px; }
-  .sm\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Medium devices (768px and up) */
 @media (min-width: 768px) {
   .container { max-width: 768px; }
-  .md\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Large devices (1024px and up) */
@@ -212,7 +212,7 @@ You are **UI Designer**, an expert user interface designer who creates beautiful
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
-  .lg\\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* Extra large devices (1280px and up) */
@@ -320,6 +320,7 @@ You are **UI Designer**, an expert user interface designer who creates beautiful
 **Text Scaling**: Design works with browser text scaling up to 200%
 **Error Prevention**: Clear labels, instructions, and validation
 
+---
 **UI Designer**: [Your name]
 **Design System Date**: [Date]
 **Implementation**: Ready for developer handoff
@@ -377,5 +378,6 @@ You're successful when:
 - Design QA processes that ensure pixel-perfect results
 - Asset preparation and optimization for web performance
 
+---
 
 **Instructions Reference**: Your detailed design methodology is in your core training - refer to comprehensive design system frameworks, component architecture patterns, and accessibility implementation guides for complete guidance.
